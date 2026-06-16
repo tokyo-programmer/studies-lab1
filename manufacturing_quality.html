@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>仕事ハブ統合資料 V3.2 製造・品質編</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      background: #fcfaf7;
+      color: #1f2937;
+    }
+    .section {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: #f3f4f6;
+      color: #4b5563;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      background: #f3f4f6;
+      font-weight: 700;
+      text-align: left;
+    }
+    .subtle {
+      color: #6b7280;
+    }
+    .small {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .anchor {
+      scroll-margin-top: 90px;
+    }
+    .formula {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="px-4 py-6 md:px-8 md:py-10 space-y-8">
+
+  <!-- Header -->
+  <header class="space-y-4">
+    <div class="flex flex-col gap-3">
+      <p class="text-sm text-gray-500">仕事ハブ / Book 3</p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
+        製造・品質編<br>
+        <span class="text-xl md:text-2xl text-gray-600 font-semibold">仕事ハブ統合資料 V3.2</span>
+      </h1>
+      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+        5商品の量産立上げ、工程設計、DFM/DFA、材料・表面処理、検査、梱包、
+        工程内品質、出荷品質、そして競合仕様が量産で何を要求するかまでを整理した
+        製造実務・品質保証のための分冊です。
+      </p>
+    </div>
+
+    <div>
+      <span class="tag">量産視点</span>
+      <span class="tag">DFM / DFA</span>
+      <span class="tag">工程管理</span>
+      <span class="tag">出荷品質</span>
+      <span class="tag">競合仕様反映</span>
+    </div>
+
+    <div class="text-sm text-gray-500 space-y-1">
+      <p>作成日：2024-12-19</p>
+      <p>最終更新日：2026-06-14</p>
+      <p>版数：V3.2</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="section">
+    <h2 class="text-lg font-bold mb-3">目次</h2>
+    <div class="grid md:grid-cols-3 gap-2 text-sm">
+      <a class="text-blue-700 hover:underline" href="#positioning">1. 本分冊の位置づけ</a>
+      <a class="text-blue-700 hover:underline" href="#overall-process">2. 開発から量産までの全体像</a>
+      <a class="text-blue-700 hover:underline" href="#common-dfm">3. 共通DFM・DFAの基本</a>
+      <a class="text-blue-700 hover:underline" href="#rangehood">4. レンジフード</a>
+      <a class="text-blue-700 hover:underline" href="#gas">5. ガスコンロ</a>
+      <a class="text-blue-700 hover:underline" href="#ih">6. IH / 電気ホブ</a>
+      <a class="text-blue-700 hover:underline" href="#waterheater">7. 給湯器</a>
+      <a class="text-blue-700 hover:underline" href="#dishwasher">8. 食洗機</a>
+      <a class="text-blue-700 hover:underline" href="#materials">9. 材料・表面処理・部品品質</a>
+      <a class="text-blue-700 hover:underline" href="#fmea">10. FMEA・なぜなぜ分析</a>
+      <a class="text-blue-700 hover:underline" href="#quality-flow">11. 工程内品質と出荷品質</a>
+      <a class="text-blue-700 hover:underline" href="#benchmark">12. 競合ベンチマークの品質反映</a>
+      <a class="text-blue-700 hover:underline" href="#summary">13. まとめ</a>
+    </div>
+  </nav>
+
+  <!-- 1 -->
+  <section id="positioning" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">1. 本分冊の位置づけ</h2>
+
+    <p class="leading-relaxed">
+      製造・品質編の役割は、技術編で整理した機能・構造・材料を、
+      実際に<strong>量産できる状態</strong>へ落とし込むことである。
+      ここでは単に「工場工程を説明する」のではなく、
+      競合仕様が要求する公差、工程難度、検査条件、供給者品質、保守性までを含めて扱う。
+    </p>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">1-1 製造視点</h3>
+        <p class="subtle">高機能な設計でも、量産時にばらつき・組立負荷・歩留まり悪化を招けば商品として成立しない。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">1-2 品質視点</h3>
+        <p class="subtle">不具合の未然防止、工程内検出、出荷前保証、市場不具合の戻し込みまで一貫して見る必要がある。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">1-3 競合起点</h3>
+        <p class="subtle">薄型筐体、黒ガラス、親水コート、Flex機能、Zeolith乾燥などは製造難所を伴う。差別化と量産性を同時に見る。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">1-4 分冊間の接続</h3>
+        <p class="subtle">市場編の要求と技術編の機能分解を、ここで工程・検査・品質KPIへ変換する。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="overall-process" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">2. 開発から量産までの全体像</h2>
+
+    <p class="leading-relaxed">
+      量産品質は製造現場だけで決まるのではなく、商品企画から市場品質までの連鎖で作られる。
+      特に住宅設備機器では、認証、施工性、アフターサービス、補修部品供給まで含めて量産準備と考える必要がある。
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="text-sm">
+        <thead>
+          <tr>
+            <th>段階</th>
+            <th>主な内容</th>
+            <th>製造・品質の論点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品企画</td>
+            <td>対象市場、価格帯、顧客価値、競合比較</td>
+            <td>目標原価、供給可能部材、工程難度の初期見積り</td>
+          </tr>
+          <tr>
+            <td>設計</td>
+            <td>構造、材料、回路、制御、認証対応</td>
+            <td>DFM / DFA、公差、サービス性、試験性</td>
+          </tr>
+          <tr>
+            <td>試作</td>
+            <td>試作品製作、構造・性能・認証予備確認</td>
+            <td>加工性確認、初期不具合抽出、工程仮説検証</td>
+          </tr>
+          <tr>
+            <td>評価</td>
+            <td>性能試験、耐久試験、環境試験、認証試験</td>
+            <td>検査基準、故障モード、量産ばらつき余裕の確認</td>
+          </tr>
+          <tr>
+            <td>量産立上げ</td>
+            <td>治具・金型・工程設計、作業標準、教育</td>
+            <td>Cpk、工程内検査、初期流動管理、ライン能力</td>
+          </tr>
+          <tr>
+            <td>市場品質</td>
+            <td>出荷後の故障・クレーム・サービス</td>
+            <td>再発防止、設計変更、供給者是正、検査見直し</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula">RPN = S × O × D</div>
+    <p class="small subtle">
+      故障モードの優先順位付けには FMEA の RPN を用いるが、
+      実務上は重大度が高い項目を優先し、単純な数値の大小だけで判断しないことが重要である。
+    </p>
+  </section>
+
+  <!-- 3 -->
+  <section id="common-dfm" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">3. 共通DFM・DFAの基本</h2>
+
+    <p class="leading-relaxed">
+      住宅設備機器の量産性は、部品点数、組立方向、加工ルール、公差設計、サービス性で決まる。
+      特に板金・樹脂・ガラス・電装をまたぐ商品では、単一部品最適ではなく全体組立最適が重要になる。
+    </p>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">3-1 コスト・工数・品質</h3>
+        <p class="subtle">安い構造が必ずしも総コスト最適ではない。加工歩留まり、組立時間、手直し率、保証費を含めて見る。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">3-2 部品点数低減</h3>
+        <p class="subtle">部品数が減ると、購買点数、在庫、誤組立、締結点数、工程時間を同時に削減できる。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">3-3 組立性</h3>
+        <p class="subtle">一方向組立、姿勢変更の少なさ、工具アクセス、ポカヨケ、同一トルク条件が工程安定に効く。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">3-4 サービス性</h3>
+        <p class="subtle">消耗品交換、清掃、補修部品交換のしやすさは、市場品質とアフターコストに直結する。</p>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="text-sm">
+        <thead>
+          <tr>
+            <th>設計項目</th>
+            <th>基本ルール</th>
+            <th>狙い</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>穴径</td>
+            <td>一般に穴径 ≥ 板厚 t</td>
+            <td>打抜き変形・パンチ折損・バリ悪化の回避</td>
+          </tr>
+          <tr>
+            <td>穴-端面距離</td>
+            <td>一般に 1.5t〜2t 以上</td>
+            <td>端部割れ・変形防止</td>
+          </tr>
+          <tr>
+            <td>穴-曲げ距離</td>
+            <td>2t + R 以上が目安</td>
+            <td>曲げ部変形と穴位置ズレ防止</td>
+          </tr>
+          <tr>
+            <td>最小曲げR</td>
+            <td>材料に応じて 0.5t〜1.5t 以上</td>
+            <td>割れ・スプリングバック過大防止</td>
+          </tr>
+          <tr>
+            <td>ねじ締結</td>
+            <td>トルク条件統一、工具アクセス確保</td>
+            <td>締め忘れ・舐め・オーバートルク防止</td>
+          </tr>
+          <tr>
+            <td>ポカヨケ</td>
+            <td>左右非対称、異形コネクタ、色分け</td>
+            <td>誤組立防止</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4 Rangehood -->
+  <section id="rangehood" class="section anchor space-y-8">
+    <h2 class="text-2xl font-bold">4. レンジフードの製造工程と品質</h2>
+
+    <div class="space-y-4">
+      <h3 class="text-xl font-bold">4-1 代表工程</h3>
+      <p class="leading-relaxed">
+        レンジフードは大型板金、ファン・モータ、フィルタ、塗装外観、電装を組み合わせる製品であり、
+        外観と性能が同時に問われる。特に薄型化・清掃性・静音化を競争軸にすると、
+        板金精度、ケーシング組付、流路面品質の要求が上がる。
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="text-sm">
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>主な内容</th>
+              <th>品質重点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>板金</td>
+              <td>ブランキング、NCT、レーザー、曲げ</td>
+              <td>反り、バリ、穴位置、外観キズ</td>
+            </tr>
+            <tr>
+              <td>溶接 / 接合</td>
+              <td>スポット、MIG、リベット、カシメ</td>
+              <td>変形、強度、密着、異音要因</td>
+            </tr>
+            <tr>
+              <td>塗装・表面処理</td>
+              <td>化成処理、粉体塗装、SUS仕上げ</td>
+              <td>膜厚、色差、密着、防錆</td>
+            </tr>
+            <tr>
+              <td>ファン・モータ組付</td>
+              <td>ケーシング、シロッコ、モータ、制御</td>
+              <td>回転バランス、騒音、振動、配線</td>
+            </tr>
+            <tr>
+              <td>フィルタ・整流板</td>
+              <td>着脱部、ロック部、オイルトレイ</td>
+              <td>ガタ、着脱力、密着、清掃性</td>
+            </tr>
+            <tr>
+              <td>最終組立・検査</td>
+              <td>通電、風量、騒音、外観、梱包</td>
+              <td>仕様値達成、出荷不良防止</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">大型板金の難所</h4>
+        <p class="subtle">薄板大面積は反りやすく、外観にも直結する。薄型筐体ほど板厚・補強リブ・フランジ設計が重要。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">騒音・振動</h4>
+        <p class="subtle">ファン単体ではなく、モータ取付剛性、ケーシング、共振、ダクト接続まで含めて評価する必要がある。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">清掃構造</h4>
+        <p class="subtle">整流板の保持精度、フィルタの面圧、オイルトレイの排油角度が使い勝手に効く。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">競合構造の難度</h4>
+        <p class="subtle">Auto Fan Clean や撥油 / 親水コーティングは、通常板金フードより製造条件がシビアになる。</p>
+      </div>
+    </div>
+
+    <div class="formula">風量評価：JIS B 8330 準拠の測定系で確認</div>
+    <div class="formula">騒音評価：JIS C 9603 系または同等条件で dB(A) 管理</div>
+  </section>
+
+  <!-- 5 Gas -->
+  <section id="gas" class="section anchor space-y-8">
+    <h2 class="text-2xl font-bold">5. ガスコンロの製造工程と品質</h2>
+
+    <div class="space-y-4">
+      <p class="leading-relaxed">
+        ガスコンロは、火力・安全・意匠・気密の4要素が強く絡む製品である。
+        天板外観が商品価値を左右する一方、内部ではガス漏れ・点火・炎安定性・安全弁作動が最優先になる。
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="text-sm">
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>主な内容</th>
+              <th>品質重点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>天板加工</td>
+              <td>ガラス / ステンレス / エナメル外装形成</td>
+              <td>割れ、欠け、表面傷、寸法精度</td>
+            </tr>
+            <tr>
+              <td>バーナー組立</td>
+              <td>炎口、混合部、キャップ、熱電対</td>
+              <td>炎安定、熱効率、点火性</td>
+            </tr>
+            <tr>
+              <td>ガス系組立</td>
+              <td>配管、弁、ノズル、シール</td>
+              <td>漏れ、締結、ガス種適合</td>
+            </tr>
+            <tr>
+              <td>点火・安全機構</td>
+              <td>圧電、イグナイタ、FFD、過熱防止</td>
+              <td>点火率、立消え安全、応答時間</td>
+            </tr>
+            <tr>
+              <td>最終燃焼評価</td>
+              <td>火力、炎色、偏炎、消火挙動</td>
+              <td>燃焼安定、CO抑制、再現性</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">ガラストップの難所</h4>
+        <p class="subtle">高級感は高いが、端部欠け、熱衝撃、組付応力、輸送破損への対策が必要。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">鋳鉄五徳</h4>
+        <p class="subtle">重量・見た目・耐熱は強いが、塗装密着、錆、寸法ばらつき、ガタ管理が課題。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">気密・漏れ</h4>
+        <p class="subtle">工程内での漏れ検査、締結トルク管理、シール部材管理が最重要の品質ゲートになる。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">温調機能</h4>
+        <p class="subtle">センサ位置、公差、応答性、ソフト補正がずれると、競合水準の温調精度に届かない。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 IH -->
+  <section id="ih" class="section anchor space-y-8">
+    <h2 class="text-2xl font-bold">6. IH / 電気ホブの製造工程と品質</h2>
+
+    <div class="space-y-4">
+      <p class="leading-relaxed">
+        IHは、加熱コイル・電力変換回路・ガラス天板・冷却・UIが一体化した製品であり、
+        機械系よりも<strong>電装・熱・EMC・ソフト</strong>の影響が大きい。
+        特にガラスとコイルの位置関係、放熱、タッチ感度、ノイズ対策が品質を左右する。
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="text-sm">
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>主な内容</th>
+              <th>品質重点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ガラス天板</td>
+              <td>強化ガラス / ガラスセラミックの受入・貼合</td>
+              <td>割れ、反り、外観、耐熱衝撃</td>
+            </tr>
+            <tr>
+              <td>コイル組立</td>
+              <td>コイル位置決め、接着、絶縁</td>
+              <td>発熱効率、位置ズレ、絶縁安全</td>
+            </tr>
+            <tr>
+              <td>パワー基板実装</td>
+              <td>IGBT / MOSFET、PFC、制御回路</td>
+              <td>半田品質、発熱、電気安全、EMC</td>
+            </tr>
+            <tr>
+              <td>冷却系組立</td>
+              <td>ファン、ヒートシンク、風路</td>
+              <td>温度上昇、騒音、寿命</td>
+            </tr>
+            <tr>
+              <td>UI / 表示部</td>
+              <td>タッチセンサ、表示、ロジック</td>
+              <td>誤動作、感度、視認性、防水性</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="formula">主要評価：温度上昇 / EMC / ノイズ / 火力制御再現性 / 残熱表示 / センサ誤動作</div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">ガラス天板</h4>
+        <p class="subtle">見た目と清掃性に優れるが、局所荷重・熱衝撃・組付応力に対するマージンが必要。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">EMC難度</h4>
+        <p class="subtle">高周波スイッチングとタッチUI、通信モジュールが近接するため、競合高機能機ほど設計・評価の難度が上がる。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">冷却</h4>
+        <p class="subtle">PowerBoost や FlexInduction 系は発熱密度が高く、熱拡散設計とファン制御が商品寿命に直結する。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">UI品質</h4>
+        <p class="subtle">水滴、油膜、蒸気、手袋、外来ノイズ下でのタッチ安定性は市場クレームになりやすい。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 Water heater -->
+  <section id="waterheater" class="section anchor space-y-8">
+    <h2 class="text-2xl font-bold">7. 給湯器の製造工程と品質</h2>
+
+    <div class="space-y-4">
+      <p class="leading-relaxed">
+        給湯器は、水・熱・圧力・電気・燃焼が絡むため、
+        構造的な安全率と長期耐久性の確保が特に重要な商品である。
+        instant と storage では工程そのものが大きく異なり、
+        タンク製品では防食・断熱・溶接品質、瞬間式では熱交換・流量制御・燃焼安定が鍵となる。
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="text-sm">
+          <thead>
+            <tr>
+              <th>方式</th>
+              <th>主工程</th>
+              <th>品質重点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>瞬間式</td>
+              <td>熱交換器、燃焼部、流量制御、電装</td>
+              <td>温度安定、燃焼安全、流量制御、スケール対策</td>
+            </tr>
+            <tr>
+              <td>貯湯式</td>
+              <td>タンク溶接、内面処理、断熱材充填、ヒータ組付</td>
+              <td>耐圧、防食、断熱、衛生、漏水</td>
+            </tr>
+            <tr>
+              <td>ハイブリッド</td>
+              <td>ヒートポンプ + 補助熱源 + 制御統合</td>
+              <td>統合制御、効率、設置条件、部品点数増による信頼性</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">タンク品質</h4>
+        <p class="subtle">内面エナメル、SUS選定、Mgアノード、耐圧試験の出来で寿命が大きく変わる。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">防水・漏水</h4>
+        <p class="subtle">継手、シール、溶接部、熱サイクルによる膨張差を考えた設計・検査が必要。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">衛生</h4>
+        <p class="subtle">抗菌機能だけでなく、滞留部の少なさ、排水性、スケール・腐食管理が長期品質に効く。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">保証設計</h4>
+        <p class="subtle">タンク系は保証期間が長く、設計時点でフィールド故障コストを見込む必要がある。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Dishwasher -->
+  <section id="dishwasher" class="section anchor space-y-8">
+    <h2 class="text-2xl font-bold">8. 食洗機の製造工程と品質</h2>
+
+    <div class="space-y-4">
+      <p class="leading-relaxed">
+        食洗機は、水密、洗浄性能、乾燥性能、静音、収納性が絡み合う製品である。
+        ビルトインと卓上では構造が大きく異なり、特に都市市場向けの小型・Drawer型・卓上型では、
+        限られた容積内で流体・熱・騒音を最適化する必要がある。
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="text-sm">
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>主な内容</th>
+              <th>品質重点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>槽体組立</td>
+              <td>ステンレス / 樹脂槽、シール、断熱材</td>
+              <td>漏水、変形、耐熱、耐洗剤性</td>
+            </tr>
+            <tr>
+              <td>ポンプ・配管</td>
+              <td>循環ポンプ、排水、スプレーアーム</td>
+              <td>流量、騒音、漏れ、詰まり</td>
+            </tr>
+            <tr>
+              <td>ラック・扉</td>
+              <td>収納部、レール、ヒンジ、ドアパッキン</td>
+              <td>操作力、ガタ、密閉、耐久</td>
+            </tr>
+            <tr>
+              <td>ヒータ・乾燥系</td>
+              <td>ヒーター、Zeolith、換気流路</td>
+              <td>乾燥性能、温度安全、結露</td>
+            </tr>
+            <tr>
+              <td>制御・センサ</td>
+              <td>濁度、温度、水位、コース制御</td>
+              <td>自動制御精度、誤検知、再現性</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">漏水管理</h4>
+        <p class="subtle">部材精度、シール材、熱膨張差、輸送後組付ズレまで見ないと市場漏水不良になる。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">乾燥方式</h4>
+        <p class="subtle">Zeolith や高度乾燥構造は強い差別化要素だが、構造・コスト・評価項目が増える。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">静音</h4>
+        <p class="subtle">ポンプ振動、配管共振、扉剛性、槽体遮音、設置条件の全てが騒音に影響する。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h4 class="font-bold mb-2">小型化</h4>
+        <p class="subtle">卓上・portable型は差別化しやすい一方、容量・排水・乾燥・ユーザー期待値の調整が難しい。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 Materials -->
+  <section id="materials" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">9. 材料・表面処理・部品品質</h2>
+
+    <p class="leading-relaxed">
+      競合差の多くは、意匠そのものよりも、
+      どの材料を使い、どう表面処理し、どこまで供給者品質を作り込んでいるかに現れる。
+      とくに黒ガラス、SUS、鋳鉄、樹脂、コーティング、断熱材、防食材は全商品横断で重要である。
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="text-sm">
+        <thead>
+          <tr>
+            <th>材料 / 処理</th>
+            <th>主な用途</th>
+            <th>利点</th>
+            <th>品質上の注意</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SUS304 / SUS430</td>
+            <td>フード外装、給湯器、槽体</td>
+            <td>耐食、意匠</td>
+            <td>加工硬化、表面傷、材料差</td>
+          </tr>
+          <tr>
+            <td>黒ガラス / ガラスセラミック</td>
+            <td>ガス天板、IH天板、UI</td>
+            <td>高級感、清掃性</td>
+            <td>割れ、欠け、熱衝撃、輸送保護</td>
+          </tr>
+          <tr>
+            <td>粉体塗装</td>
+            <td>板金外装</td>
+            <td>防錆、意匠、環境性</td>
+            <td>膜厚、色差、密着、ファラデー部の塗り不足</td>
+          </tr>
+          <tr>
+            <td>撥油 / 親水 / 防汚コート</td>
+            <td>フード、ガラストップ、内部流路</td>
+            <td>清掃性向上</td>
+            <td>洗剤耐久、摩耗、量産ばらつき</td>
+          </tr>
+          <tr>
+            <td>断熱材</td>
+            <td>給湯器、食洗機、IH</td>
+            <td>熱効率、静音</td>
+            <td>吸湿、劣化、施工性、厚み制約</td>
+          </tr>
+          <tr>
+            <td>樹脂（PP / PA / PC / ABS / PPS）</td>
+            <td>操作部、カバー、トレイ、ホルダ</td>
+            <td>軽量、成形自由度</td>
+            <td>ESC、耐熱、耐洗剤、難燃、吸湿</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">供給者品質管理</h3>
+        <p class="subtle">材料証明、RoHS / REACH、寸法管理、初物承認、変更管理、定期監査をセットで運用する必要がある。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">外観標準</h3>
+        <p class="subtle">A面・B面・C面で許容基準を分ける。高級市場ではA面の傷・異物・段差基準をより厳しく設定する。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">変更管理</h3>
+        <p class="subtle">部材変更は見た目だけでなく、認証・熱・電気安全・洗剤耐久に影響するため、ECR/ECO管理が必須。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 FMEA -->
+  <section id="fmea" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">10. 製品別FMEA・なぜなぜ分析の使い方</h2>
+
+    <p class="leading-relaxed">
+      FMEA は設計と工程の両方で実施し、量産前に潜在不具合を潰すための道具である。
+      一方、なぜなぜ分析は市場や工程で実際に起きた不具合の根本原因を掘るために使う。
+      両者は代替関係ではなく、未然防止と再発防止で役割が異なる。
+    </p>
+
+    <div class="formula">RPN = Severity × Occurrence × Detection</div>
+
+    <div class="overflow-x-auto">
+      <table class="text-sm">
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>FMEAで特に見る故障モード</th>
+            <th>なぜなぜ分析の典型テーマ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>レンジフード</td>
+            <td>異音、風量不足、塗装剥離、フィルタ着脱不良</td>
+            <td>なぜ騒音が出たか、なぜ油漏れしたか</td>
+          </tr>
+          <tr>
+            <td>ガスコンロ</td>
+            <td>ガス漏れ、点火不良、偏炎、天板割れ</td>
+            <td>なぜ点火率が低いか、なぜガラスが割れたか</td>
+          </tr>
+          <tr>
+            <td>IH</td>
+            <td>過熱、タッチ誤動作、EMC不適合、ガラス割れ</td>
+            <td>なぜ誤タッチしたか、なぜ高温停止したか</td>
+          </tr>
+          <tr>
+            <td>給湯器</td>
+            <td>漏水、防食不良、温度不安定、安全弁不作動</td>
+            <td>なぜ漏れたか、なぜ温度が揺れるか</td>
+          </tr>
+          <tr>
+            <td>食洗機</td>
+            <td>漏水、乾燥不足、異音、排水不良</td>
+            <td>なぜ洗えないか、なぜ乾かないか</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">FMEAのポイント</h3>
+        <ul class="subtle list-disc ml-5 space-y-1">
+          <li>故障モードを部品単位ではなく機能単位でも見る</li>
+          <li>検出策が本当に工程で機能するか確認する</li>
+          <li>対策後のRPN再評価を必ず行う</li>
+        </ul>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">なぜなぜ分析のポイント</h3>
+        <ul class="subtle list-disc ml-5 space-y-1">
+          <li>人のミスで止めず、仕組み・条件・管理まで掘る</li>
+          <li>再現条件を確認してから因果を決める</li>
+          <li>是正処置と再発防止を分けて考える</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 Quality flow -->
+  <section id="quality-flow" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">11. 工程内品質と出荷品質</h2>
+
+    <p class="leading-relaxed">
+      品質は最後の検査だけで作るものではない。
+      受入、工程監視、完成品検査、梱包、出荷判定、市場フィードバックの各段階で、
+      不良流出を止める複数のゲートを設定する必要がある。
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="text-sm">
+        <thead>
+          <tr>
+            <th>段階</th>
+            <th>主な管理内容</th>
+            <th>典型指標</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>受入検査</td>
+            <td>外観、寸法、材料証明、重要特性の初期確認</td>
+            <td>受入不良率、ロット承認率</td>
+          </tr>
+          <tr>
+            <td>工程監視</td>
+            <td>トルク、電流、膜厚、漏れ、温度、圧力、寸法</td>
+            <td>Cpk、工程不良率、再作業率</td>
+          </tr>
+          <tr>
+            <td>完成品検査</td>
+            <td>全機能、外観、通電、安全、梱包前確認</td>
+            <td>初回合格率、最終不良率</td>
+          </tr>
+          <tr>
+            <td>出荷品質</td>
+            <td>ロット判定、AQL、ラベル・付属品・梱包</td>
+            <td>出荷不良率、クレーム率</td>
+          </tr>
+          <tr>
+            <td>市場品質</td>
+            <td>返品、故障、サービス情報の回収</td>
+            <td>PPM、不具合件数、保証費率</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">受入</h3>
+        <p class="subtle">供給者品質が不安定な部品は、工程内で吸収しようとせず入口で止めるべき。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">工程</h3>
+        <p class="subtle">トルク・漏れ・膜厚・電気特性のように、後工程で見つけにくいものは早い段階で監視する。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">完成品</h3>
+        <p class="subtle">全モード確認と外観判定を標準化し、検査員依存を減らすことが重要。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">市場戻し</h3>
+        <p class="subtle">クレームをサービス部門に閉じ込めず、設計・品質・購買・製造へ戻して構造的に潰す。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 Benchmark to quality -->
+  <section id="benchmark" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">12. 競合ベンチマークを品質改善へつなぐ方法</h2>
+
+    <p class="leading-relaxed">
+      競合ベンチマークは、単なるカタログ比較ではなく、
+      「なぜその機能が成立しているか」を量産条件に翻訳して初めて意味を持つ。
+      高級感のある黒ガラス、高捕集率、低騒音、高精度温調、Zeolith乾燥などは、
+      全て製造・品質特性の裏付けを必要とする。
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="text-sm">
+        <thead>
+          <tr>
+            <th>競合差分</th>
+            <th>製造で効く論点</th>
+            <th>品質で効く論点</th>
+            <th>社内で確認すべきこと</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>薄型レンジフード</td>
+            <td>板金反り、モータ配置、組立順序</td>
+            <td>異音、風量ばらつき</td>
+            <td>補強設計、実機騒音、施工許容差</td>
+          </tr>
+          <tr>
+            <td>黒ガラストップ</td>
+            <td>搬送治具、組付応力、端部保護</td>
+            <td>欠け、割れ、外観傷</td>
+            <td>輸送試験、外観基準、熱衝撃評価</td>
+          </tr>
+          <tr>
+            <td>高精度温調</td>
+            <td>センサ位置、公差、基板校正</td>
+            <td>温度誤差、再現性</td>
+            <td>校正工程、工程能力、使用条件差</td>
+          </tr>
+          <tr>
+            <td>Zeolith乾燥</td>
+            <td>部材追加、流路複雑化、組立増</td>
+            <td>乾燥性能、安全温度</td>
+            <td>長期耐久、コスト、サービス性</td>
+          </tr>
+          <tr>
+            <td>親水 / 撥油コート</td>
+            <td>前処理、塗布条件、膜厚管理</td>
+            <td>耐洗剤性、摩耗耐久</td>
+            <td>市場洗剤との相性試験、寿命試験</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">どの差分が製造で効くか</h3>
+        <p class="subtle">構造・部材・公差・組立点数・治具の難易度に落とし込む。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">どの差分が調達で効くか</h3>
+        <p class="subtle">特殊材料、ガラス、コーティング、半導体、モータなど供給者依存度を見る。</p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">どの差分が品質保証で効くか</h3>
+        <p class="subtle">新しい機能ほど、評価法・基準・市場再現条件の定義が必要になる。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-bold">参考ベース</h2>
+    <p class="small subtle">
+      本ページは、提供された統合資料、製造・品質編原稿、技術編・市場編の内容、
+      および統合台帳に記載された量産・品質観点を基に再構成している。
+      特に、板金DFM、溶接、塗装、検査、梱包、FMEA、変更管理、品質KPIの章構成を反映した。
+    </p>
+    <ul class="text-sm list-disc ml-5 space-y-1">
+      <li>仕事ハブ教育資料 製造・品質編 V3.0</li>
+      <li>仕事ハブ 分冊再設計方針 V3</li>
+      <li>仕事ハブ 詳細目次 V3</li>
+      <li>仕事ハブ教育資料 技術編 V3.0</li>
+      <li>仕事ハブ教育資料 市場・認証編 V3.0</li>
+      <li>レンジフード設計開発 参考資料（仮）</li>
+    </ul>
+  </section>
+
+  <!-- 13 -->
+  <section id="summary" class="section anchor space-y-6">
+    <h2 class="text-2xl font-bold">13. 製造・品質編まとめ</h2>
+
+    <div class="grid md:grid-cols-3 gap-4 text-sm">
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">13-1 量産視点で見た勝ち筋</h3>
+        <p class="subtle">
+          競合に勝つには高機能だけでは不十分で、
+          その機能を歩留まり良く、安定品質で、適正コストで出せる量産設計が必要である。
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">13-2 技術編との接続</h3>
+        <p class="subtle">
+          技術編で整理した機能・構造・材料を、
+          ここで工程、部材、検査、品質保証へ具体的に翻訳した。
+        </p>
+      </div>
+      <div class="p-4 rounded-xl bg-gray-50 border">
+        <h3 class="font-bold mb-2">13-3 次分冊への接続</h3>
+        <p class="subtle">
+          次の教育・運用編では、こうした情報を読むための思考法、文書運用、
+          部門連携、知識蓄積の仕組みを整理する。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer navigation -->
+  <section class="section">
+    <div class="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+      <div>
+        <p class="font-bold">ページ導線</p>
+        <p class="small subtle">前後のページへつなぐためのリンクです。ファイル名は必要に応じて調整してください。</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a href="index.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">トップへ戻る</a>
+        <a href="technical.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">前：技術編</a>
+        <a href="education_operation.html" class="px-4 py-2 rounded-xl bg-gray-900 text-white hover:bg-black text-sm">次：教育・運用編へ</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm text-gray-500 pt-2">
+    © 2026 仕事ハブ統合資料 / Manufacturing & Quality
+  </footer>
+
+</body>
+</html>
