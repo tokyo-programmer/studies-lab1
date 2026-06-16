@@ -3,1051 +3,397 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>仕事ハブ統合資料 V3.2 市場・認証編</title>
+  <title>仕事ハブ V3.2 — Book 2 市場・認証編</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: "Noto Sans JP", sans-serif;
-      background: #fcfaf7;
-      color: #1f2937;
-    }
-    .section {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    }
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      background: #f3f4f6;
-      color: #4b5563;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #d1d5db;
-      padding: 10px 12px;
-      vertical-align: top;
-    }
-    th {
-      background: #f3f4f6;
-      font-weight: 700;
-      text-align: left;
-    }
-    .subtle {
-      color: #6b7280;
-    }
-    .small {
-      font-size: 13px;
-      line-height: 1.6;
-    }
-    .anchor {
-      scroll-margin-top: 90px;
-    }
+    body { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; background: #f5f3ef; color: #1f2937; }
+    .section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+    .tag { display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 9999px; background: #d1fae5; color: #065f46; margin-right: 6px; margin-bottom: 6px; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { border: 1px solid #d1d5db; padding: 9px 11px; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: 700; text-align: left; }
+    .anchor { scroll-margin-top: 80px; }
+    .sub-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 16px; margin-top: 10px; }
+    .market-header { border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; color: white; }
+    .sticky-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e7eb; }
+    @media(max-width:640px){ table { display:block; overflow-x:auto; } }
   </style>
 </head>
-<body class="px-4 py-6 md:px-8 md:py-10 space-y-8">
+<body class="min-h-screen">
 
-  <!-- Header -->
-  <header class="space-y-4">
-    <div class="flex flex-col gap-3">
-      <p class="text-sm text-gray-500">仕事ハブ / Book 2</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-        市場・認証編<br>
-        <span class="text-xl md:text-2xl text-gray-600 font-semibold">仕事ハブ統合資料 V3.2</span>
-      </h1>
-      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+  <div class="sticky-nav px-4 py-3 flex items-center justify-between">
+    <a href="technical.html" class="text-emerald-600 hover:text-emerald-800 font-semibold text-sm flex items-center gap-1">← Book 1</a>
+    <span class="text-sm font-bold text-gray-700">Book 2 市場・認証編</span>
+    <a href="manufacturing_quality.html" class="text-emerald-600 hover:text-emerald-800 text-sm font-semibold">Book 3 →</a>
+  </div>
+
+  <header class="bg-gradient-to-br from-emerald-800 to-emerald-500 text-white px-4 pt-10 pb-12 md:px-8">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <p class="text-emerald-200 text-sm font-semibold">仕事ハブ / Book 2</p>
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">市場・認証編</h1>
+      <p class="text-emerald-100 text-sm md:text-base leading-relaxed max-w-2xl">
         日本・中国・台湾・シンガポール・マレーシア・香港の6市場について、
         住宅事情、調理文化、電圧・周波数・ガス種、施工制約、認証・法規、
         そして5商品ごとのトップクラス3社ベンチマークを整理した市場参照編です。
       </p>
-    </div>
-
-    <div>
-      <span class="tag">市場比較</span>
-      <span class="tag">認証マトリクス</span>
-      <span class="tag">5商品×6市場</span>
-      <span class="tag">トップ3社ベンチマーク</span>
-      <span class="tag">スマホ閲覧向け</span>
-    </div>
-
-    <div class="text-sm text-gray-500 space-y-1">
-      <p>作成日：2024-12-19</p>
-      <p>最終更新日：2026-06-14</p>
-      <p>版数：V3.2</p>
+      <div class="flex flex-wrap gap-2 pt-1">
+        <span class="tag">市場比較</span>
+        <span class="tag">認証マトリクス</span>
+        <span class="tag">5商品×6市場</span>
+        <span class="tag">トップ3社ベンチマーク</span>
+      </div>
+      <div class="text-xs text-emerald-300 flex flex-wrap gap-3 pt-1">
+        <span>作成日：2024-12-19</span>
+        <span>最終更新日：2026-06-14</span>
+        <span>版数：V3.2</span>
+      </div>
     </div>
   </header>
 
-  <!-- Quick nav -->
-  <nav class="section">
-    <h2 class="text-lg font-bold mb-3">目次</h2>
-    <div class="grid md:grid-cols-3 gap-2 text-sm">
-      <a class="text-blue-700 hover:underline" href="#role">1. 本分冊の役割</a>
-      <a class="text-blue-700 hover:underline" href="#framework">2. 市場比較の共通フレーム</a>
-      <a class="text-blue-700 hover:underline" href="#japan">3. 日本市場</a>
-      <a class="text-blue-700 hover:underline" href="#china">4. 中国市場</a>
-      <a class="text-blue-700 hover:underline" href="#taiwan">5. 台湾市場</a>
-      <a class="text-blue-700 hover:underline" href="#singapore">6. シンガポール市場</a>
-      <a class="text-blue-700 hover:underline" href="#malaysia">7. マレーシア市場</a>
-      <a class="text-blue-700 hover:underline" href="#hongkong">8. 香港市場</a>
-      <a class="text-blue-700 hover:underline" href="#reading">9. ベンチマークの読み解き方</a>
-      <a class="text-blue-700 hover:underline" href="#product-summary">10. 商品別比較総括</a>
-      <a class="text-blue-700 hover:underline" href="#regulation">11. 認証・法規横断比較</a>
-      <a class="text-blue-700 hover:underline" href="#summary">12. まとめ</a>
-    </div>
-  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-8 md:px-8 space-y-8">
 
-  <!-- Role -->
-  <section id="role" class="section anchor space-y-4">
-    <h2 class="text-2xl font-bold">1. 本分冊の役割</h2>
-    <p class="leading-relaxed">
-      市場・認証編の役割は、単に国別情報を並べることではなく、
-      <strong>市場要求を設計要求へ翻訳するための前提条件</strong>を整理することにある。
-      同じレンジフードやガスコンロでも、住宅構造、調理文化、ガス種、電圧、
-      認証制度、販路の違いによって「売れる仕様」は大きく変わる。
-    </p>
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-1 市場情報を設計へつなぐ</h3>
-        <p class="small subtle">
-          住宅事情、施工制約、調理文化、設置慣行を把握することで、
-          風量・静圧・火力・サイズ・騒音・安全機能などの設計条件が定まる。
+    <!-- 目次 -->
+    <nav class="section">
+      <h2 class="text-lg font-bold mb-3">目次</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+        <a class="text-emerald-700 hover:underline" href="#role">1. 本分冊の役割</a>
+        <a class="text-emerald-700 hover:underline" href="#framework">2. 市場比較の共通フレーム</a>
+        <a class="text-emerald-700 hover:underline" href="#japan">3. 日本市場</a>
+        <a class="text-emerald-700 hover:underline" href="#china">4. 中国市場</a>
+        <a class="text-emerald-700 hover:underline" href="#taiwan">5. 台湾市場</a>
+        <a class="text-emerald-700 hover:underline" href="#singapore">6. シンガポール市場</a>
+        <a class="text-emerald-700 hover:underline" href="#malaysia">7. マレーシア市場</a>
+        <a class="text-emerald-700 hover:underline" href="#hongkong">8. 香港市場</a>
+        <a class="text-emerald-700 hover:underline" href="#reading">9. ベンチマークの読み解き方</a>
+        <a class="text-emerald-700 hover:underline" href="#product-summary">10. 商品別比較総括</a>
+        <a class="text-emerald-700 hover:underline" href="#regulation">11. 認証・法規横断比較</a>
+        <a class="text-emerald-700 hover:underline" href="#summary">12. まとめ</a>
+      </div>
+    </nav>
+
+    <!-- 1. 本分冊の役割 -->
+    <section id="role" class="section anchor space-y-4">
+      <h2 class="text-2xl font-bold">1. 本分冊の役割</h2>
+      <p class="leading-relaxed">
+        市場・認証編の役割は、単に国別情報を並べることではなく、
+        <strong>市場要求を設計要求へ翻訳するための前提条件</strong>を整理することにある。
+        同じレンジフードやガスコンロでも、住宅構造、調理文化、ガス種、電圧、
+        認証制度、販路の違いによって「売れる仕様」は大きく変わる。
+      </p>
+      <div class="grid md:grid-cols-3 gap-3">
+        <div class="sub-card"><h3 class="font-bold text-sm text-emerald-700 mb-1">1-1 市場情報を設計へつなぐ</h3><p class="text-xs leading-relaxed">住宅事情、施工制約、調理文化、設置慣行を把握することで、風量・静圧・火力・サイズ・騒音・安全機能などの設計条件が定まる。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm text-emerald-700 mb-1">1-2 国別比較だけでは足りない</h3><p class="text-xs leading-relaxed">商品別の競争地図と主要3社の訴求・代表仕様・販路まで見る必要がある。「その国で何が売れているか」が設計の現実解になる。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm text-emerald-700 mb-1">1-3 商品別競争地図の把握</h3><p class="text-xs leading-relaxed">レンジフード、ガスコンロ、IH、給湯器、食洗機の5商品について、各市場の主要ブランドと勝ち筋を一覧で整理する。</p></div>
+      </div>
+    </section>
+
+    <!-- 2. 市場比較の共通フレーム -->
+    <section id="framework" class="section anchor space-y-4">
+      <h2 class="text-2xl font-bold">2. 市場比較の共通フレーム</h2>
+      <p class="text-sm text-gray-600 leading-relaxed">各市場を比較する際は、以下の6軸で見ると情報が設計・営業・品質の全てに接続しやすい。</p>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">2-1 住宅事情：</strong><span class="text-sm">戸建 / マンション / 高層住宅 / HDB / Condo / 狭小キッチンなど。ダクト長・据付寸法・搬入性に直結する。</span></div>
+        <div class="sub-card"><strong class="text-sm">2-2 調理・入浴・家事文化：</strong><span class="text-sm">高火力炒め物の比率、揚げ物頻度、IH普及、浴室サイズ、食洗機の定着度など。必要機能が変わる。</span></div>
+        <div class="sub-card"><strong class="text-sm">2-3 電圧・周波数・ガス種：</strong><span class="text-sm">100V / 110V / 220V / 230V / 240V、50Hz / 60Hz、LPG / PNG / Towngas / 13A など。電装・燃焼設計の基礎条件。</span></div>
+        <div class="sub-card"><strong class="text-sm">2-4 施工・据付制約：</strong><span class="text-sm">共有ダクト、外壁排気、HDB制約、浴室配管、開口寸法、電気・ガス工事の慣行など。施工性と保証に関わる。</span></div>
+        <div class="sub-card"><strong class="text-sm">2-5 認証・法規・表示：</strong><span class="text-sm">PSE、CCC、BSMI、Safety Mark、SIRIM、EMSD等。販売可能性と開発リードタイムを左右する。</span></div>
+        <div class="sub-card"><strong class="text-sm">2-6 販売チャネル：</strong><span class="text-sm">量販、EC、施工店、代理店、デベロッパー案件、B2B / B2Cの違い。商品仕様と価格帯の設計前提になる。</span></div>
+      </div>
+      <div class="overflow-x-auto mt-2">
+        <table>
+          <thead><tr><th>市場</th><th>電圧 / 周波数</th><th>主なガス・インフラ</th><th>住宅傾向</th><th>設計重点</th><th>主要認証</th></tr></thead>
+          <tbody>
+            <tr><td>日本</td><td>100V / 200V・50/60Hz</td><td>13A 都市ガス / LPG</td><td>戸建・マンション、狭小キッチンも多い</td><td>静音、省スペース、清掃性、保守性</td><td>PSE</td></tr>
+            <tr><td>中国</td><td>220V・50Hz</td><td>都市ガス / LNG / LPG</td><td>高層住宅、毛坯房と精装修の二重構造</td><td>高風量、高静圧、強訴求、B2B対応</td><td>CCC / GB</td></tr>
+            <tr><td>台湾</td><td>110V・60Hz</td><td>LPG / 都市ガス</td><td>都市型住宅、比較的コンパクト</td><td>技術仕様、省エネ、日欧ブランド信頼</td><td>BSMI / CNS</td></tr>
+            <tr><td>シンガポール</td><td>230V・50Hz</td><td>PNG / LPG</td><td>HDB / Condo / Landed</td><td>HDB制約、再循環、スマート化、省スペース</td><td>Safety Mark / CPSR</td></tr>
+            <tr><td>マレーシア</td><td>240V・50Hz</td><td>PNG / LPG</td><td>戸建・集合住宅混在、多文化</td><td>耐湿、耐食、価格バランス、多言語対応</td><td>SIRIM / ST</td></tr>
+            <tr><td>香港</td><td>220V・50Hz</td><td>Towngas / LPG</td><td>高層・狭小住宅が中心</td><td>薄型、省スペース、静音、中華調理対応</td><td>EMSD / 電気製品安全規則</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. 日本市場 -->
+    <section id="japan" class="section anchor space-y-4">
+      <div class="market-header" style="background: linear-gradient(135deg, #be123c, #f43f5e);">
+        <h2 class="text-xl font-extrabold">3. 日本市場 🇯🇵</h2>
+        <p class="text-rose-200 text-sm mt-1">静音 / 清掃性 / 保守性 / 国内品質 | PSE | 100V・200V / 50-60Hz</p>
+      </div>
+      <p class="leading-relaxed text-sm">
+        品質・信頼性・静音・清掃性・保守性を重視する成熟市場。
+        国内ブランドの信頼が強く、施工性・アフターサービスも購買要因になる。
+        キッチン空間は比較的コンパクトで、60/75/90cm幅の据付が一般的。
+      </p>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card text-sm space-y-1">
+          <p>⚡ 電源：100V / 200V、50/60Hz</p>
+          <p>🔥 ガス：13A 都市ガス / LPG</p>
+          <p>🏠 住宅：戸建・マンション混在</p>
+          <p>🍳 調理：和食主体、油煙量は中〜低</p>
+          <p>🎯 重点：静音、省スペース、連動、保守性</p>
+          <p>📋 認証：PSE、ガス機器安全関連</p>
+        </div>
+        <div class="sub-card text-sm">
+          <p class="font-bold mb-2">販路・施工制約</p>
+          <p class="leading-relaxed text-xs">住宅設備ルート、リフォーム、量販店、系列施工店が強い。EC単独より施工連動の影響が大きい。狭小キッチンや既設寸法への適合が重要で、交換需要では開口互換性と取付性が競争力になる。</p>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>商品</th><th>Top1</th><th>Top2</th><th>Top3</th><th>市場で重視される点</th></tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>FUJIOH</td><td>Noritz</td><td>Panasonic</td><td>清掃性、撥油、薄型、静音、コンロ連動</td></tr>
+            <tr><td>ガスコンロ</td><td>Rinnai</td><td>Paloma</td><td>Noritz</td><td>安全機構、高精度温調、グリル活用、国内サポート</td></tr>
+            <tr><td>IH</td><td>Bosch候補</td><td>Rinnai</td><td>国内量販補完枠</td><td>安全、制御精度、見た目、ビルトイン適合</td></tr>
+            <tr><td>給湯器</td><td>Rinnai</td><td>Noritz</td><td>Itomic</td><td>省エネ、ハイブリッド、保守網、補助金対応</td></tr>
+            <tr><td>食洗機</td><td>Panasonic</td><td>Bosch</td><td>補完枠</td><td>ビルトイン適合、除菌、液体洗剤自動投入、静音</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sub-card border-l-4 border-rose-400 mt-2">
+        <p class="text-sm font-bold text-rose-700 mb-1">日本市場から学ぶ点</p>
+        <p class="text-sm leading-relaxed">高機能だけでなく、静音・清掃・保証・部材品質・施工説明の完成度まで含めて商品力が評価される。</p>
+      </div>
+    </section>
+
+    <!-- 4. 中国市場 -->
+    <section id="china" class="section anchor space-y-4">
+      <div class="market-header" style="background: linear-gradient(135deg, #991b1b, #dc2626);">
+        <h2 class="text-xl font-extrabold">4. 中国市場 🇨🇳</h2>
+        <p class="text-red-200 text-sm mt-1">高風量 / 高火力 / B2B二重構造 | CCC / GB | 220V / 50Hz</p>
+      </div>
+      <p class="leading-relaxed text-sm">
+        最大規模市場であり、現地ブランドの競争が最も激しい。
+        レンジフード・ガスコンロ・総合家電の各カテゴリで、
+        高風量・高火力・スマート機能・派手な訴求が強い。
+      </p>
+      <div class="sub-card text-sm mb-3">
+        <p class="font-bold mb-2">毛坯房 / 精装修</p>
+        <p class="leading-relaxed text-xs">
+          毛坯房（スケルトン渡し）では最大風量・高火力・目立つ機能訴求が強く、
+          精装修（内装・設備付き渡し）では静音・安定性・共同ダクト適合・標準化が重要となる。
+          同じ商品でも設計思想を分ける発想が必要。
         </p>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-2 国別比較だけでは足りない</h3>
-        <p class="small subtle">
-          市場編では、商品別の競争地図と主要3社の訴求・代表仕様・販路まで見る必要がある。
-          「その国で何が売れているか」が設計の現実解になる。
-        </p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>商品</th><th>Top1</th><th>Top2</th><th>Top3</th><th>勝ち筋</th></tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>ROBAM</td><td>FOTILE</td><td>VATTI</td><td>高風量、高静圧、ジェスチャー操作、BLDC、強訴求</td></tr>
+            <tr><td>ガスコンロ</td><td>Macro</td><td>Midea</td><td>Vanward</td><td>高火力、中華調理、都市ガス対応、見栄え</td></tr>
+            <tr><td>IH</td><td>Midea</td><td>Haier</td><td>Supor系補完</td><td>価格帯の広さ、スマート化、普及モデルの強さ</td></tr>
+            <tr><td>給湯器</td><td>Haier</td><td>Midea</td><td>Vanward</td><td>瞬間式、デジタル制御、総合家電の商流力</td></tr>
+            <tr><td>食洗機</td><td>Midea</td><td>Haier</td><td>Fotile</td><td>卓上・据置・ビルトインの幅、スマート化、価格レンジ</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-3 商品別競争地図の把握</h3>
-        <p class="small subtle">
-          レンジフード、ガスコンロ、IH、給湯器、食洗機の5商品について、
-          各市場の主要ブランドと勝ち筋を一覧で整理する。
-        </p>
+      <div class="sub-card border-l-4 border-red-400 mt-2">
+        <p class="text-sm font-bold text-red-700 mb-1">中国市場から学ぶ点</p>
+        <p class="text-sm leading-relaxed">市場が大きい分、訴求力と仕様の両立が必要。毛坯房向けと精装修向けでは設計思想を分ける発想が重要。チャネルはEC・ライブコマース・天猫・京東などのB2Cとデベロッパー向けB2Bが並立する。</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Framework -->
-  <section id="framework" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">2. 市場比較の共通フレーム</h2>
+    <!-- 5. 台湾市場 -->
+    <section id="taiwan" class="section anchor space-y-4">
+      <div class="market-header" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6);">
+        <h2 class="text-xl font-extrabold">5. 台湾市場 🇹🇼</h2>
+        <p class="text-blue-200 text-sm mt-1">110V / 60Hz | 省エネ / IoT / 技術訴求 | BSMI / CNS</p>
+      </div>
+      <p class="leading-relaxed text-sm">
+        技術仕様への理解が比較的高く、日本・欧州ブランドへの信頼も強い市場。
+        110V / 60Hz という電源条件が大きな特徴で、他市場との共通化を難しくする。
+      </p>
+      <div class="sub-card text-sm mb-3">
+        <p class="font-bold mb-1 text-blue-700">電源上の注意</p>
+        <p class="text-xs leading-relaxed">110V / 60Hz対応は、他の220〜240V市場と回路・モータ・熱設計の共通化を難しくする。専用設計または広電圧対応の検討が必要。Sakuraのように複数カテゴリ横断で統一体験を作る戦略が強い。</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>商品</th><th>Top1</th><th>Top2</th><th>Top3</th><th>市場での特徴</th></tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>Sakura</td><td>Pacific</td><td>補完枠</td><td>DCモータ、3層油捕集、42dB、LED、ガラス意匠</td></tr>
+            <tr><td>ガスコンロ</td><td>Sakura</td><td>補完枠</td><td>補完枠</td><td>温調、鍋離れ検知、タイマ、省エネ、安全訴求</td></tr>
+            <tr><td>IH</td><td>Sakura</td><td>候補枠</td><td>候補枠</td><td>Bluetooth hood link、600W低火力、smart soup mode</td></tr>
+            <tr><td>給湯器</td><td>Sakura</td><td>Rheem Asia</td><td>候補枠</td><td>FE / FF、16L/min級、台湾ローカル強さ</td></tr>
+            <tr><td>食洗機</td><td>Sakura</td><td>Bosch</td><td>補完枠</td><td>embedded smart、湿度検知、組込適合</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <p class="leading-relaxed">
-      各市場を比較する際は、以下の6軸で見ると情報が設計・営業・品質の全てに接続しやすい。
-    </p>
+    <!-- 6. シンガポール市場 -->
+    <section id="singapore" class="section anchor space-y-4">
+      <div class="market-header" style="background: linear-gradient(135deg, #065f46, #10b981);">
+        <h2 class="text-xl font-extrabold">6. シンガポール市場 🇸🇬</h2>
+        <p class="text-emerald-200 text-sm mt-1">HDB制約 / 再循環 / スマート化 | Safety Mark / CPSR | 230V / 50Hz</p>
+      </div>
+      <p class="leading-relaxed text-sm">
+        HDB、公団住宅、Condo、Landedの住宅差が大きく、
+        特にHDB制約が商品仕様に強く影響する。
+        スマートネーション政策もあり、スマート家電との相性が良い市場。
+      </p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>商品</th><th>Top1</th><th>Top2</th><th>Top3</th><th>市場での特徴</th></tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>EF</td><td>Fujioh</td><td>Mayer</td><td>HDB適合、再循環/排気、清掃性、コンパクト</td></tr>
+            <tr><td>ガスコンロ</td><td>Bosch</td><td>Mayer</td><td>Turbo</td><td>FlameSelect、黒ガラス、ステンレス、domino構成</td></tr>
+            <tr><td>IH</td><td>Rinnai</td><td>Fujioh</td><td>Mayer</td><td>安全、磁性鍋判定、SCHOTT CERAN、住宅適合</td></tr>
+            <tr><td>給湯器</td><td>Ariston</td><td>Rheem</td><td>Joven</td><td>狭小浴室対応、storage/instant、抗菌、省エネ</td></tr>
+            <tr><td>食洗機</td><td>Bosch</td><td>Samsung</td><td>Toshiba</td><td>静音、smart connect、小型卓上需要、energy label</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sub-card border-l-4 border-emerald-400 mt-2">
+        <p class="text-sm font-bold text-emerald-700 mb-1">シンガポール市場から学ぶ点</p>
+        <p class="text-sm leading-relaxed">空間制約への最適化とスマート訴求の両立が鍵。HDB文脈での適合性を明示できる商品が強い。量販店・リフォーム店・オンライン小売が混在し、ブランド認知が購買を強く左右する。</p>
+      </div>
+    </section>
 
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">2-1 住宅事情</h3>
-        <p class="small subtle">戸建 / マンション / 高層住宅 / HDB / Condo / 狭小キッチンなど。ダクト長・据付寸法・搬入性に直結する。</p>
+    <!-- 7. マレーシア市場 -->
+    <section id="malaysia" class="section anchor space-y-4">
+      <div class="market-header" style="background: linear-gradient(135deg, #92400e, #f59e0b);">
+        <h2 class="text-xl font-extrabold">7. マレーシア市場 🇲🇾</h2>
+        <p class="text-amber-200 text-sm mt-1">耐湿 / 耐食 / 価格バランス / 多文化 | SIRIM / ST | 240V / 50Hz</p>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">2-2 調理・入浴・家事文化</h3>
-        <p class="small subtle">高火力炒め物の比率、揚げ物頻度、IH普及、浴室サイズ、食洗機の定着度など。必要機能が変わる。</p>
+      <p class="leading-relaxed text-sm">
+        多文化・多言語・熱帯環境の市場であり、耐湿・耐食性と価格バランスが重要。
+        製造拠点・組立拠点としての意味もあり、供給面との相性も見られる。
+      </p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>商品</th><th>Top1</th><th>Top2</th><th>Top3</th><th>市場での特徴</th></tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>ELBA</td><td>Fujioh</td><td>Fotile</td><td>92%油捕集、Auto Fan Clean、量販流通、耐湿</td></tr>
+            <tr><td>ガスコンロ</td><td>Rinnai</td><td>Fujioh</td><td>Bosch</td><td>Double Inner Flame、安全バルブ、Schott glass</td></tr>
+            <tr><td>IH</td><td>Bosch</td><td>Fujioh</td><td>Electrolux</td><td>FlexInduction、PowerBoost、SenseFry</td></tr>
+            <tr><td>給湯器</td><td>Joven</td><td>Rheem</td><td>Centon</td><td>instant、Inverter DC pump、抗菌、省エネ</td></tr>
+            <tr><td>食洗機</td><td>Bosch</td><td>Midea</td><td>Electrolux</td><td>静音、節水、ビルトイン/卓上の幅</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">2-3 電圧・周波数・ガス種</h3>
-        <p class="small subtle">100V / 110V / 220V / 230V / 240V、50Hz / 60Hz、LPG / PNG / Towngas / 13A など。電装・燃焼設計の基礎条件。</p>
+      <div class="sub-card border-l-4 border-amber-400 mt-2">
+        <p class="text-sm font-bold text-amber-700 mb-1">マレーシア市場から学ぶ点</p>
+        <p class="text-sm leading-relaxed">清掃性とコスパだけでなく、長期使用での環境耐性が重要。高温多湿のため、錆・防湿・電子部品の耐久・樹脂材料の安定性を重視する必要がある。多言語説明・サービス性も競争力になる。</p>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">2-4 施工・据付制約</h3>
-        <p class="small subtle">共有ダクト、外壁排気、HDB制約、浴室配管、開口寸法、電気工事・ガス工事の慣行など。施工性と保証に関わる。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">2-5 認証・法規・表示</h3>
-        <p class="small subtle">PSE、CCC、BSMI、Safety Mark、SIRIM、EMSD 等。販売可能性と開発リードタイムを左右する。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">2-6 販売チャネル</h3>
-        <p class="small subtle">量販、EC、施工店、代理店、デベロッパー案件、B2B / B2C の違い。商品仕様と価格帯の設計前提になる。</p>
-      </div>
-    </div>
+    </section>
 
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>市場</th>
-            <th>電圧 / 周波数</th>
-            <th>主なガス・インフラ</th>
-            <th>住宅傾向</th>
-            <th>設計重点</th>
-            <th>主要認証</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>日本</td>
-            <td>100V / 200V・50/60Hz</td>
-            <td>13A 都市ガス / LPG</td>
-            <td>戸建・マンション、狭小キッチンも多い</td>
-            <td>静音、省スペース、清掃性、保守性</td>
-            <td>PSE</td>
-          </tr>
-          <tr>
-            <td>中国</td>
-            <td>220V・50Hz</td>
-            <td>都市ガス / LNG / LPG</td>
-            <td>高層住宅、毛坯房と精装修の二重構造</td>
-            <td>高風量、高静圧、強訴求、B2B対応</td>
-            <td>CCC / GB</td>
-          </tr>
-          <tr>
-            <td>台湾</td>
-            <td>110V・60Hz</td>
-            <td>LPG / 都市ガス</td>
-            <td>都市型住宅、比較的コンパクト</td>
-            <td>技術仕様、省エネ、日欧ブランド信頼</td>
-            <td>BSMI / CNS</td>
-          </tr>
-          <tr>
-            <td>シンガポール</td>
-            <td>230V・50Hz</td>
-            <td>PNG / LPG</td>
-            <td>HDB / Condo / Landed</td>
-            <td>HDB制約、再循環、スマート化、省スペース</td>
-            <td>Safety Mark / CPSR</td>
-          </tr>
-          <tr>
-            <td>マレーシア</td>
-            <td>240V・50Hz</td>
-            <td>PNG / LPG</td>
-            <td>戸建・集合住宅混在、多文化</td>
-            <td>耐湿、耐食、価格バランス、多言語対応</td>
-            <td>SIRIM / ST</td>
-          </tr>
-          <tr>
-            <td>香港</td>
-            <td>220V・50Hz</td>
-            <td>Towngas / LPG</td>
-            <td>高層・狭小住宅が中心</td>
-            <td>薄型、省スペース、静音、中華調理対応</td>
-            <td>EMSD / 電気製品安全規則</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <!-- 8. 香港市場 -->
+    <section id="hongkong" class="section anchor space-y-4">
+      <div class="market-header" style="background: linear-gradient(135deg, #312e81, #6366f1);">
+        <h2 class="text-xl font-extrabold">8. 香港市場 🇭🇰</h2>
+        <p class="text-indigo-200 text-sm mt-1">薄型 / 狭小高層 / 中華調理 / 高級感 | EMSD | 220V / 50Hz</p>
+      </div>
+      <p class="leading-relaxed text-sm">
+        高層・狭小住宅が中心で、空間制約が最も厳しい市場のひとつ。
+        中華調理への対応と、薄型・静音・高級感の両立が重要になる。
+        欧州系高級ブランドの存在感が強い。
+      </p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>商品</th><th>Top1</th><th>Top2</th><th>Top3</th><th>市場での特徴</th></tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>Fotile</td><td>Fujioh</td><td>Pacific</td><td>高層住宅対応、薄型、中華調理向け、高静圧</td></tr>
+            <tr><td>ガスコンロ</td><td>Bosch</td><td>Siemens</td><td>Miele</td><td>Towngas対応、黒ガラス、高級訴求、都市型サイズ</td></tr>
+            <tr><td>IH</td><td>Bosch</td><td>Siemens</td><td>Miele</td><td>Flex zone、venting hob、Home Connect</td></tr>
+            <tr><td>給湯器</td><td>Stiebel Eltron</td><td>German Pool</td><td>Rasonic</td><td>瞬間式、小型、高密度住宅対応</td></tr>
+            <tr><td>食洗機</td><td>Fisher & Paykel</td><td>Bosch</td><td>Siemens</td><td>Drawer型、省スペース、静音、高温除菌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sub-card border-l-4 border-indigo-400 mt-2">
+        <p class="text-sm font-bold text-indigo-700 mb-1">香港市場から学ぶ点</p>
+        <p class="text-sm leading-relaxed">狭小でも妥協しない高機能・高品質の見せ方が重要。小さい空間での使い勝手と意匠性が競争軸になる。キッチンが極めて小さいケースが多く、幅・奥行き・排気経路・据付クリアランスへの配慮が必要。</p>
+      </div>
+    </section>
 
-  <!-- Japan -->
-  <section id="japan" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">3. 日本市場</h2>
+    <!-- 9. ベンチマークの読み解き方 -->
+    <section id="reading" class="section anchor space-y-4">
+      <h2 class="text-2xl font-bold">9. 競合ベンチマークの読み解き方</h2>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">9-1 ブランドポジション：</strong><span class="text-sm">高級 / 普及 / 専業 / 総合 / 施工店主導 / EC主導を見分ける。</span></div>
+        <div class="sub-card"><strong class="text-sm">9-2 主訴求：</strong><span class="text-sm">吸引、火力、省エネ、清掃、静音、IoT、抗菌など、何を最も前面に出しているかを見る。</span></div>
+        <div class="sub-card"><strong class="text-sm">9-3 代表仕様：</strong><span class="text-sm">m³/h、Pa、dB、kW、L/min、place settingsなどの数値で比較する。</span></div>
+        <div class="sub-card"><strong class="text-sm">9-4 販売チャネル：</strong><span class="text-sm">量販・EC・施工店・B2B案件のどこが強いかで、商品企画が変わる。</span></div>
+        <div class="sub-card"><strong class="text-sm">9-5 住宅事情との関係：</strong><span class="text-sm">高静圧が必要なのか、薄型が必要なのか、再循環が必要なのかを住宅条件と結びつけて読む。</span></div>
+      </div>
+      <div class="overflow-x-auto mt-2">
+        <table>
+          <thead><tr><th>読み解き視点</th><th>何を見るか</th><th>設計にどうつながるか</th></tr></thead>
+          <tbody>
+            <tr><td>ブランド</td><td>専業か総合か、高級か普及か</td><td>競合の勝ち筋と自社の立ち位置整理</td></tr>
+            <tr><td>主訴求</td><td>広告・商品説明で繰り返す言葉</td><td>市場が求める価値の仮説化</td></tr>
+            <tr><td>数値仕様</td><td>風量、静圧、火力、温度制御、容量等</td><td>最低仕様と差別化仕様の設定</td></tr>
+            <tr><td>住宅制約</td><td>HDB、高層住宅、共同ダクト、狭小キッチン</td><td>寸法・静圧・設置方式の決定</td></tr>
+            <tr><td>認証</td><td>強制認証、表示、エネルギーラベル</td><td>開発日程・部材選定・試験計画へ反映</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="font-bold mb-2">3-1 市場概況</h3>
-        <p class="small subtle">
-          品質・信頼性・静音・清掃性・保守性を重視する成熟市場。
-          国内ブランドの信頼が強く、施工性・アフターサービスも購買要因になる。
-          キッチン空間は比較的コンパクトで、60/75/90cm 幅の据付が一般的。
-        </p>
+    <!-- 10. 商品別比較総括 -->
+    <section id="product-summary" class="section anchor space-y-4">
+      <h2 class="text-2xl font-bold">10. 商品別の市場比較総括</h2>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card border-l-4 border-blue-400"><p class="font-bold text-sm mb-1">レンジフード</p><p class="text-xs leading-relaxed">中国・香港は高風量 / 高静圧、日本は静音 / 清掃性、SGはHDB制約、MYは耐湿・量販対応、TWはDCモータと仕様訴求が強い。</p></div>
+        <div class="sub-card border-l-4 border-orange-400"><p class="font-bold text-sm mb-1">ガスコンロ</p><p class="text-xs leading-relaxed">中国は高火力、日本は安全・温調、台湾は鍋検知や温度制御、SG/HKは欧州系高級ガラスホブが強い。</p></div>
+        <div class="sub-card border-l-4 border-emerald-400"><p class="font-bold text-sm mb-1">IH</p><p class="text-xs leading-relaxed">台湾はフード連動と低火力制御、香港・マレーシアはFlexInduction、シンガポールは安全・住宅適合、日本は高精度制御が鍵。</p></div>
+        <div class="sub-card border-l-4 border-sky-400"><p class="font-bold text-sm mb-1">給湯器</p><p class="text-xs leading-relaxed">日本はハイブリッド、香港は瞬間式小型、SGはstorage/instant併存、MYはinstant＋抗菌、中国は総合家電系の展開力が強い。</p></div>
+        <div class="sub-card border-l-4 border-purple-400 md:col-span-2"><p class="font-bold text-sm mb-1">食洗機</p><p class="text-xs leading-relaxed">香港はDrawer型・省スペース、SGは卓上小型需要、日本は除菌・自動投入、中国は卓上〜組込の幅、Boschが複数市場で強い。</p></div>
       </div>
-      <div>
-        <h3 class="font-bold mb-2">3-2 基本条件</h3>
-        <ul class="small subtle list-disc ml-5 space-y-1">
-          <li>電源：100V / 200V、50/60Hz</li>
-          <li>ガス：13A 都市ガス / LPG</li>
-          <li>住宅：戸建・マンション混在</li>
-          <li>調理：和食主体、油煙量は中〜低</li>
-          <li>重点：静音、省スペース、連動、保守性</li>
-          <li>認証：PSE、ガス機器安全関連</li>
-        </ul>
-      </div>
-    </div>
+    </section>
 
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>Top1</th>
-            <th>Top2</th>
-            <th>Top3</th>
-            <th>市場で重視される点</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>FUJIOH</td>
-            <td>Noritz</td>
-            <td>Panasonic</td>
-            <td>清掃性、撥油、薄型、静音、コンロ連動</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>Rinnai</td>
-            <td>Paloma</td>
-            <td>Noritz</td>
-            <td>安全機構、高精度温調、グリル活用、国内サポート</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>Bosch候補</td>
-            <td>Rinnai</td>
-            <td>国内量販補完枠</td>
-            <td>安全、制御精度、見た目、ビルトイン適合</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>Rinnai</td>
-            <td>Noritz</td>
-            <td>Itomic</td>
-            <td>省エネ、ハイブリッド、保守網、補助金対応</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>Panasonic</td>
-            <td>Bosch</td>
-            <td>補完枠</td>
-            <td>ビルトイン適合、除菌、液体洗剤自動投入、静音</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- 11. 認証・法規横断比較 -->
+    <section id="regulation" class="section anchor space-y-4">
+      <h2 class="text-2xl font-bold">11. 認証・法規横断比較</h2>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>市場</th><th>安全</th><th>EMC / 電気</th><th>エネルギー</th><th>ガス / 給湯</th><th>表示・ラベル</th><th>開発上の注意</th></tr></thead>
+          <tbody>
+            <tr><td>日本</td><td>PSE</td><td>電気用品安全法・関連JIS</td><td>省エネ法関連</td><td>ガス機器安全関連</td><td>PSE表示・銘板表示</td><td>50/60Hz差、100V系設計、国内保守前提</td></tr>
+            <tr><td>中国</td><td>CCC</td><td>GB国家標準</td><td>能効表示制度</td><td>都市ガス・給湯関連GB</td><td>CCC刻印・中国語表示</td><td>工場審査、変更申請、B2B仕様への対応</td></tr>
+            <tr><td>台湾</td><td>BSMI</td><td>CNS / EMC試験</td><td>MOEA 効率基準</td><td>商品別規格・表示</td><td>R-Mark・繁体字表示</td><td>110V / 60Hz専用対応が必要</td></tr>
+            <tr><td>シンガポール</td><td>Safety Mark / CPSR</td><td>SS規格・IMDAも場合により</td><td>Energy Label制度</td><td>住宅規制・施工慣行も重要</td><td>Safety Mark・英語表示</td><td>HDB対応、英国系プラグ、再循環需要</td></tr>
+            <tr><td>マレーシア</td><td>SIRIM / ST</td><td>MS規格</td><td>ST承認・関連表示</td><td>商品別承認</td><td>SIRIMラベル・英語/マレー語</td><td>高湿環境、240V対応、多言語展開</td></tr>
+            <tr><td>香港</td><td>EMSD / 電気製品安全規則</td><td>IEC相当準拠が前提</td><td>Energy Label制度</td><td>Towngas対応・関連承認</td><td>英語/繁体字の表示</td><td>狭小・高層・都市型施工、英国系プラグ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid md:grid-cols-3 gap-3 mt-3">
+        <div class="sub-card"><strong class="text-sm">11-1 安全：</strong><span class="text-sm">電気安全・ガス安全・漏電・接地・温度上昇・異常動作が基本。早期から認証要件を設計へ入れる必要がある。</span></div>
+        <div class="sub-card"><strong class="text-sm">11-2 エネルギー / EMC：</strong><span class="text-sm">省エネラベルや高調波・EMCは、BLDC化・PFC・制御回路設計と深く関係する。</span></div>
+        <div class="sub-card"><strong class="text-sm">11-3 表示：</strong><span class="text-sm">銘板・言語・認証マーク・安全警告・電源仕様の表記を市場別に変える必要がある。</span></div>
+      </div>
+    </section>
 
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">販路</h3>
-        <p class="subtle">住宅設備ルート、リフォーム、量販店、系列施工店が強い。EC単独より施工連動の影響が大きい。</p>
+    <!-- 12. まとめ -->
+    <section id="summary" class="section anchor space-y-4">
+      <h2 class="text-2xl font-bold">12. 市場・認証編まとめ</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="sub-card border-l-4 border-emerald-500">
+          <h3 class="font-bold text-emerald-700 mb-2">12-1 どの市場で何を重視すべきか</h3>
+          <p class="text-xs leading-relaxed">中国は高風量・高火力・B2B二重構造、台湾は110Vと細かな機能訴求、シンガポールはHDBと再循環、マレーシアは耐湿と価格バランス、香港は狭小高層、日本は静音・清掃・保守。</p>
+        </div>
+        <div class="sub-card border-l-4 border-blue-500">
+          <h3 class="font-bold text-blue-700 mb-2">12-2 どの商品で何が勝ち筋か</h3>
+          <p class="text-xs leading-relaxed">レンジフードは市場ごとの空間制約と油煙量対応、ガスは火力と安全の両立、IHは制御・連動・UI、給湯器は設置方式と熱源、食洗機はサイズと乾燥方式が勝負になる。</p>
+        </div>
+        <div class="sub-card border-l-4 border-orange-500">
+          <h3 class="font-bold text-orange-700 mb-2">12-3 他分冊との接続</h3>
+          <p class="text-xs leading-relaxed">ここで整理した競合差分を、技術編で機能・構造へ分解し、製造・品質編で量産性・品質管理へ接続する。</p>
+        </div>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">住宅・施工制約</h3>
-        <p class="subtle">狭小キッチンや既設寸法への適合が重要。交換需要では開口互換性と取付性が競争力になる。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">日本市場から学ぶ点</h3>
-        <p class="subtle">高機能だけでなく、静音・清掃・保証・部材品質・施工説明の完成度まで含めて商品力が評価される。</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- China -->
-  <section id="china" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">4. 中国市場</h2>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="font-bold mb-2">4-1 市場概況</h3>
-        <p class="small subtle">
-          最大規模市場であり、現地ブランドの競争が最も激しい。
-          レンジフード・ガスコンロ・総合家電の各カテゴリで、
-          高風量・高火力・スマート機能・派手な訴求が強い。
-        </p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2">4-2 毛坯房 / 精装修</h3>
-        <p class="small subtle">
-          中国市場は、個人施主向けの毛坯房と、デベロッパー主導の精装修で要求が分かれる。
-          毛坯房では最大風量・高火力・目立つ機能訴求、
-          精装修では静音・安定性・共同ダクト適合・標準化が重要となる。
-        </p>
-      </div>
+    <div class="flex justify-between items-center pt-4">
+      <a href="technical.html" class="bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold px-5 py-2 rounded-lg text-sm transition">← Book 1 技術編</a>
+      <a href="manufacturing_quality.html" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-5 py-2 rounded-lg text-sm transition">Book 3 製造・品質編 →</a>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>Top1</th>
-            <th>Top2</th>
-            <th>Top3</th>
-            <th>勝ち筋</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>ROBAM</td>
-            <td>FOTILE</td>
-            <td>VATTI</td>
-            <td>高風量、高静圧、ジェスチャー操作、BLDC、強訴求</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>Macro</td>
-            <td>Midea</td>
-            <td>Vanward</td>
-            <td>高火力、中華調理、都市ガス対応、見栄え</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>Midea</td>
-            <td>Haier</td>
-            <td>Supor系補完</td>
-            <td>価格帯の広さ、スマート化、普及モデルの強さ</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>Haier</td>
-            <td>Midea</td>
-            <td>Vanward</td>
-            <td>瞬間式、デジタル制御、総合家電の商流力</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>Midea</td>
-            <td>Haier</td>
-            <td>Fotile</td>
-            <td>卓上・据置・ビルトインの幅、スマート化、価格レンジ</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">住宅・施工</h3>
-        <p class="subtle">高層住宅と共同ダクト対応が重要。精装修案件では開発初期から標準仕様・認証・施工標準を織り込む必要がある。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">チャネル</h3>
-        <p class="subtle">EC、ライブコマース、天猫・京東などのB2Cと、デベロッパー案件・建設会社向けB2Bが並立する。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">中国市場から学ぶ点</h3>
-        <p class="subtle">市場が大きい分、訴求力と仕様の両立が必要。毛坯房向けと精装修向けでは、同じ商品でも設計思想を分ける発想が重要。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Taiwan -->
-  <section id="taiwan" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">5. 台湾市場</h2>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="font-bold mb-2">5-1 市場概況</h3>
-        <p class="small subtle">
-          技術仕様への理解が比較的高く、日本・欧州ブランドへの信頼も強い市場。
-          110V / 60Hz という電源条件が大きな特徴で、他市場との共通化を難しくする。
-        </p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2">5-2 基本条件</h3>
-        <ul class="small subtle list-disc ml-5 space-y-1">
-          <li>電源：110V / 60Hz</li>
-          <li>ガス：LPG / 都市ガス</li>
-          <li>住宅：都市型、比較的コンパクト</li>
-          <li>傾向：省エネ、IoT、技術訴求</li>
-          <li>認証：BSMI、CNS 系規格</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>Top1</th>
-            <th>Top2</th>
-            <th>Top3</th>
-            <th>市場での特徴</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>Sakura</td>
-            <td>Pacific</td>
-            <td>補完枠</td>
-            <td>DCモータ、3層油捕集、42dB、LED、ガラス意匠</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>Sakura</td>
-            <td>補完枠</td>
-            <td>補完枠</td>
-            <td>温調、鍋離れ検知、タイマ、省エネ、安全訴求</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>Sakura</td>
-            <td>候補枠</td>
-            <td>候補枠</td>
-            <td>Bluetooth hood link、600W低火力、smart soup mode</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>Sakura</td>
-            <td>Rheem Asia</td>
-            <td>候補枠</td>
-            <td>FE / FF、16L/min級、台湾ローカル強さ</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>Sakura</td>
-            <td>Bosch</td>
-            <td>補完枠</td>
-            <td>embedded smart、湿度検知、組込適合</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">差別化ポイント</h3>
-        <p class="subtle">IoT・細かな温調・フード連動・低火力連続制御など、使い勝手の良い細部機能が評価されやすい。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">電源上の注意</h3>
-        <p class="subtle">110V / 60Hz対応は、他の220〜240V市場と回路・モータ・熱設計の共通化を難しくする。専用設計または広電圧対応の検討が必要。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">台湾市場から学ぶ点</h3>
-        <p class="subtle">Sakuraのように複数カテゴリ横断で統一体験を作る戦略が強い。機能の細やかさとブランド一貫性が重要。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Singapore -->
-  <section id="singapore" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">6. シンガポール市場</h2>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="font-bold mb-2">6-1 市場概況</h3>
-        <p class="small subtle">
-          HDB、公団住宅、Condo、Landed の住宅差が大きく、
-          特に HDB 制約が商品仕様に強く影響する。
-          スマートネーション政策もあり、スマート家電との相性が良い市場。
-        </p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2">6-2 基本条件</h3>
-        <ul class="small subtle list-disc ml-5 space-y-1">
-          <li>電源：230V / 50Hz</li>
-          <li>ガス：PNG / LPG</li>
-          <li>住宅：HDB / Condo / Landed</li>
-          <li>特徴：再循環、狭小浴室、熱帯環境</li>
-          <li>認証：Safety Mark / CPSR</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>Top1</th>
-            <th>Top2</th>
-            <th>Top3</th>
-            <th>市場での特徴</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>EF</td>
-            <td>Fujioh</td>
-            <td>Mayer</td>
-            <td>HDB適合、再循環/排気、清掃性、コンパクト</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>Bosch</td>
-            <td>Mayer</td>
-            <td>Turbo</td>
-            <td>FlameSelect、黒ガラス、ステンレス、domino構成</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>Rinnai</td>
-            <td>Fujioh</td>
-            <td>Mayer</td>
-            <td>安全、磁性鍋判定、SCHOTT CERAN、住宅適合</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>Ariston</td>
-            <td>Rheem</td>
-            <td>Joven</td>
-            <td>狭小浴室対応、storage/instant、抗菌、省エネ</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>Bosch</td>
-            <td>Samsung</td>
-            <td>Toshiba</td>
-            <td>静音、smart connect、小型卓上需要、energy label</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">住宅制約</h3>
-        <p class="subtle">HDBの施工ルールとダクト制約により、再循環フードや省スペース設計の重要度が高い。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">販路</h3>
-        <p class="subtle">量販店、リフォーム店、住宅設備販売店、オンライン小売が混在。ブランド認知が購買を強く左右する。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">シンガポール市場から学ぶ点</h3>
-        <p class="subtle">空間制約への最適化とスマート訴求の両立が鍵。HDB文脈での適合性を明示できる商品が強い。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Malaysia -->
-  <section id="malaysia" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">7. マレーシア市場</h2>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="font-bold mb-2">7-1 市場概況</h3>
-        <p class="small subtle">
-          多文化・多言語・熱帯環境の市場であり、耐湿・耐食性と価格バランスが重要。
-          製造拠点・組立拠点としての意味もあり、供給面との相性も見られる。
-        </p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2">7-2 基本条件</h3>
-        <ul class="small subtle list-disc ml-5 space-y-1">
-          <li>電源：240V / 50Hz</li>
-          <li>ガス：PNG / LPG</li>
-          <li>住宅：戸建・集合住宅混在</li>
-          <li>重点：耐湿、耐食、コスパ、量販流通</li>
-          <li>認証：SIRIM / ST</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>Top1</th>
-            <th>Top2</th>
-            <th>Top3</th>
-            <th>市場での特徴</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>ELBA</td>
-            <td>Fujioh</td>
-            <td>Fotile</td>
-            <td>92%油捕集、Auto Fan Clean、量販流通、耐湿</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>Rinnai</td>
-            <td>Fujioh</td>
-            <td>Bosch</td>
-            <td>Double Inner Flame、安全バルブ、Schott glass</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>Bosch</td>
-            <td>Fujioh</td>
-            <td>Electrolux</td>
-            <td>FlexInduction、PowerBoost、SenseFry</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>Joven</td>
-            <td>Rheem</td>
-            <td>Centon</td>
-            <td>instant、Inverter DC pump、抗菌、省エネ</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>Bosch</td>
-            <td>Midea</td>
-            <td>Electrolux</td>
-            <td>静音、節水、ビルトイン/卓上の幅</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">価格帯</h3>
-        <p class="subtle">プレミアム市場はあるが、量販帯・普及帯が広く、仕様と価格のバランスが売れ筋を左右する。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">環境要件</h3>
-        <p class="subtle">高温多湿のため、錆・防湿・電子部品の耐久・樹脂材料の安定性を重視する必要がある。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">マレーシア市場から学ぶ点</h3>
-        <p class="subtle">清掃性とコスパだけでなく、長期使用での環境耐性が重要。多言語説明・サービス性も競争力になる。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Hong Kong -->
-  <section id="hongkong" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">8. 香港市場</h2>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="font-bold mb-2">8-1 市場概況</h3>
-        <p class="small subtle">
-          高層・狭小住宅が中心で、空間制約が最も厳しい市場のひとつ。
-          中華調理への対応と、薄型・静音・高級感の両立が重要になる。
-        </p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2">8-2 基本条件</h3>
-        <ul class="small subtle list-disc ml-5 space-y-1">
-          <li>電源：220V / 50Hz</li>
-          <li>ガス：Towngas / LPG</li>
-          <li>住宅：高層・狭小・都市型</li>
-          <li>重点：薄型、省スペース、静音、高温除菌</li>
-          <li>認証：EMSD、電気製品安全規則</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>Top1</th>
-            <th>Top2</th>
-            <th>Top3</th>
-            <th>市場での特徴</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>Fotile</td>
-            <td>Fujioh</td>
-            <td>Pacific</td>
-            <td>高層住宅対応、薄型、中華調理向け、高静圧</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>Bosch</td>
-            <td>Siemens</td>
-            <td>Miele</td>
-            <td>Towngas対応、黒ガラス、高級訴求、都市型サイズ</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>Bosch</td>
-            <td>Siemens</td>
-            <td>Miele</td>
-            <td>Flex zone、venting hob、Home Connect</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>Stiebel Eltron</td>
-            <td>German Pool</td>
-            <td>Rasonic</td>
-            <td>瞬間式、小型、高密度住宅対応</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>Fisher & Paykel</td>
-            <td>Bosch</td>
-            <td>Siemens</td>
-            <td>Drawer型、省スペース、静音、高温除菌</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">住宅・施工</h3>
-        <p class="subtle">キッチンが極めて小さいケースが多く、幅・奥行き・排気経路・据付クリアランスへの配慮が必要。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">商品傾向</h3>
-        <p class="subtle">欧州系高級ブランドの存在感が強い。省スペースで高機能・高級感のある製品が支持されやすい。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">香港市場から学ぶ点</h3>
-        <p class="subtle">狭小でも妥協しない高機能・高品質の見せ方が重要。小さい空間での使い勝手と意匠性が競争軸になる。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reading method -->
-  <section id="reading" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">9. 競合ベンチマークの読み解き方</h2>
-
-    <div class="grid md:grid-cols-2 xl:grid-cols-5 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">9-1 ブランドポジション</h3>
-        <p class="subtle">高級 / 普及 / 専業 / 総合 / 施工店主導 / EC主導を見分ける。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">9-2 主訴求</h3>
-        <p class="subtle">吸引、火力、省エネ、清掃、静音、IoT、抗菌など、何を最も前面に出しているかを見る。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">9-3 代表仕様</h3>
-        <p class="subtle">m³/h、Pa、dB、kW、L/min、place settingsなどの数値で比較する。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">9-4 販売チャネル</h3>
-        <p class="subtle">量販・EC・施工店・B2B案件のどこが強いかで、商品企画が変わる。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">9-5 住宅事情との関係</h3>
-        <p class="subtle">高静圧が必要なのか、薄型が必要なのか、再循環が必要なのかを住宅条件と結びつけて読む。</p>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>読み解き視点</th>
-            <th>何を見るか</th>
-            <th>設計にどうつながるか</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ブランド</td>
-            <td>専業か総合か、高級か普及か</td>
-            <td>競合の勝ち筋と自社の立ち位置整理</td>
-          </tr>
-          <tr>
-            <td>主訴求</td>
-            <td>広告・商品説明で繰り返す言葉</td>
-            <td>市場が求める価値の仮説化</td>
-          </tr>
-          <tr>
-            <td>数値仕様</td>
-            <td>風量、静圧、火力、温度制御、容量等</td>
-            <td>最低仕様と差別化仕様の設定</td>
-          </tr>
-          <tr>
-            <td>住宅制約</td>
-            <td>HDB、高層住宅、共同ダクト、狭小キッチン</td>
-            <td>寸法・静圧・設置方式の決定</td>
-          </tr>
-          <tr>
-            <td>認証</td>
-            <td>強制認証、表示、エネルギーラベル</td>
-            <td>開発日程・部材選定・試験計画へ反映</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Product summary -->
-  <section id="product-summary" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">10. 商品別の市場比較総括</h2>
-
-    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-5 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">レンジフード</h3>
-        <p class="subtle">中国・香港は高風量 / 高静圧、日本は静音 / 清掃性、SGはHDB制約、MYは耐湿・量販対応、TWはDCモータと仕様訴求が強い。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">ガスコンロ</h3>
-        <p class="subtle">中国は高火力、日本は安全・温調、台湾は鍋検知や温度制御、SG/HKは欧州系高級ガラスホブが強い。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">IH</h3>
-        <p class="subtle">台湾はフード連動と低火力制御、香港・マレーシアはFlexInduction、シンガポールは安全・住宅適合、日本は高精度制御が鍵。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">給湯器</h3>
-        <p class="subtle">日本はハイブリッド、香港は瞬間式小型、SGはstorage/instant併存、MYはinstant＋抗菌、中国は総合家電系の展開力が強い。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">食洗機</h3>
-        <p class="subtle">香港はDrawer型・省スペース、SGは卓上小型需要、日本は除菌・自動投入、中国は卓上〜組込の幅、Boschが複数市場で強い。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Regulation -->
-  <section id="regulation" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">11. 認証・法規横断比較</h2>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>市場</th>
-            <th>安全</th>
-            <th>EMC / 電気</th>
-            <th>エネルギー</th>
-            <th>ガス / 給湯</th>
-            <th>表示・ラベル</th>
-            <th>開発上の注意</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>日本</td>
-            <td>PSE</td>
-            <td>電気用品安全法、関連JIS</td>
-            <td>省エネ法関連</td>
-            <td>ガス機器安全関連</td>
-            <td>PSE表示、銘板表示</td>
-            <td>50/60Hz差、100V系設計、国内保守前提</td>
-          </tr>
-          <tr>
-            <td>中国</td>
-            <td>CCC</td>
-            <td>GB国家標準</td>
-            <td>能効表示制度</td>
-            <td>都市ガス・給湯関連 GB</td>
-            <td>CCC刻印、中国語表示</td>
-            <td>工場審査、変更申請、B2B仕様への対応</td>
-          </tr>
-          <tr>
-            <td>台湾</td>
-            <td>BSMI</td>
-            <td>CNS / EMC試験</td>
-            <td>MOEA 効率基準</td>
-            <td>商品別規格・表示</td>
-            <td>R-Mark、繁体字表示</td>
-            <td>110V / 60Hz専用対応が必要</td>
-          </tr>
-          <tr>
-            <td>シンガポール</td>
-            <td>Safety Mark / CPSR</td>
-            <td>SS規格、必要に応じIMDA</td>
-            <td>Energy Label制度</td>
-            <td>住宅規制・施工慣行も重要</td>
-            <td>Safety Mark、英語表示</td>
-            <td>HDB対応、英国系プラグ、再循環需要</td>
-          </tr>
-          <tr>
-            <td>マレーシア</td>
-            <td>SIRIM / ST</td>
-            <td>MS規格</td>
-            <td>ST承認・関連表示</td>
-            <td>商品別承認</td>
-            <td>SIRIMラベル、英語/マレー語</td>
-            <td>高湿環境、240V対応、多言語展開</td>
-          </tr>
-          <tr>
-            <td>香港</td>
-            <td>EMSD / 電気製品安全規則</td>
-            <td>IEC相当準拠が前提</td>
-            <td>Energy Label制度</td>
-            <td>Towngas対応、関連承認</td>
-            <td>英語/繁体字の表示</td>
-            <td>狭小・高層・都市型施工、英国系プラグ</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">11-1 安全</h3>
-        <p class="subtle">電気安全・ガス安全・漏電・接地・温度上昇・異常動作が基本。早期から認証要件を設計へ入れる必要がある。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">11-2 エネルギー / EMC</h3>
-        <p class="subtle">省エネラベルや高調波・EMCは、BLDC化・PFC・制御回路設計と深く関係する。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">11-3 表示</h3>
-        <p class="subtle">銘板・言語・認証マーク・安全警告・電源仕様の表記を市場別に変える必要がある。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sources -->
-  <section class="section space-y-4">
-    <h2 class="text-2xl font-bold">参考ソース</h2>
-    <p class="small subtle">
-      本ページは、提供された統合資料・再設計方針・詳細目次・市場メモに基づいて構成している。
-      市場確認の参照先として、以下の公開情報がベースに含まれる。
-    </p>
-    <ul class="text-sm list-disc ml-5 space-y-1 break-all">
-      <li><a class="text-blue-700 hover:underline" href="https://www.fujioh.com/sg/demystifying-the-types-of-cooker-hoods-in-singapore/" target="_blank" rel="noopener noreferrer">FUJIOH Singapore</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://en.sakura.com.tw/product/rangehood" target="_blank" rel="noopener noreferrer">Sakura Taiwan / Range Hood</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://en.sakura.com.tw/product/gasstove" target="_blank" rel="noopener noreferrer">Sakura Taiwan / Gas Stove</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.sg/products/cooking-baking/hobs/gas-hobs-buying-guide" target="_blank" rel="noopener noreferrer">Bosch Singapore / Gas Hobs</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.hk/en/products/cooking-baking/hobs/induction-hobs-buying-guide" target="_blank" rel="noopener noreferrer">Bosch Hong Kong / Induction</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.my/products/cooking-baking/hobs/electric-hobs-buying-guide" target="_blank" rel="noopener noreferrer">Bosch Malaysia / Electric Hobs</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.rheemsingapore.com/" target="_blank" rel="noopener noreferrer">Rheem Singapore</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.joven-electric.com/" target="_blank" rel="noopener noreferrer">Joven Malaysia</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.sg/en/category-page/dishwashers" target="_blank" rel="noopener noreferrer">Bosch Singapore / Dishwashers</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.hk/en/products/dishwashers" target="_blank" rel="noopener noreferrer">Bosch Hong Kong / Dishwashers</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.toshiba-lifestyle.com/sg/kitchen-bathroom-appliances/dishwashers" target="_blank" rel="noopener noreferrer">Toshiba Singapore / Dishwashers</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.ybhomestore.com.sg/blog/best-cooker-hood-brands-singapore/" target="_blank" rel="noopener noreferrer">Yeobuild HomeStore / Hood Brands Singapore</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.ybhomestore.com.sg/blog/best-induction-hob-brands-singapore/" target="_blank" rel="noopener noreferrer">Yeobuild HomeStore / IH Brands Singapore</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.ybhomestore.com.sg/blog/best-water-heater-brands-singapore/" target="_blank" rel="noopener noreferrer">Yeobuild HomeStore / Heater Brands Singapore</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://everyhome.sg/discover-singapores-top-3-best-selling-water-heater-brands-and-products/" target="_blank" rel="noopener noreferrer">Everyhome.SG</a></li>
-    </ul>
-  </section>
-
-  <!-- Summary -->
-  <section id="summary" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">12. 市場・認証編まとめ</h2>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">12-1 どの市場で何を重視すべきか</h3>
-        <p class="subtle">
-          中国は高風量・高火力・B2B二重構造、台湾は110Vと細かな機能訴求、
-          シンガポールはHDBと再循環、マレーシアは耐湿と価格バランス、
-          香港は狭小高層、日本は静音・清掃・保守。
-        </p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">12-2 どの商品で何が勝ち筋か</h3>
-        <p class="subtle">
-          レンジフードは市場ごとの空間制約と油煙量対応、ガスは火力と安全の両立、
-          IHは制御・連動・UI、給湯器は設置方式と熱源、食洗機はサイズと乾燥方式が勝負になる。
-        </p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">12-3 他分冊との接続</h3>
-        <p class="subtle">
-          ここで整理した競合差分を、次に技術編で機能・構造へ分解し、
-          製造・品質編で量産性・品質管理へ接続する。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer nav -->
-  <section class="section">
-    <div class="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-      <div>
-        <p class="font-bold">ページ導線</p>
-        <p class="small subtle">トップページや次の分冊へつなぐためのリンク。ファイル名は必要に応じて調整してください。</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <a href="index.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">トップへ戻る</a>
-        <a href="technical.html" class="px-4 py-2 rounded-xl bg-gray-900 text-white hover:bg-black text-sm">次：技術編へ</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="text-center text-sm text-gray-500 pt-2">
-    © 2026 仕事ハブ統合資料 / Market & Certification
+  </main>
+  <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-200 mt-8">
+    仕事ハブ統合資料 V3.2 — Book 2 市場・認証編 — 最終更新日：2026-06-14
   </footer>
-
 </body>
 </html>
