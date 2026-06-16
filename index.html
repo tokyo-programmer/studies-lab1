@@ -3,256 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>仕事ハブ統合資料 V3.2 トップページ</title>
+  <title>仕事ハブ統合資料 V3.2</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: "Noto Sans JP", sans-serif;
-      background: #fcfaf7;
-      color: #1f2937;
-    }
-    .card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    }
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      background: #f3f4f6;
-      color: #4b5563;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
+    body { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; background: #f5f3ef; color: #1f2937; }
+    .card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: box-shadow 0.2s; }
+    .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .badge { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 9999px; font-weight: 600; }
+    .hero-gradient { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8e 50%, #3b7abf 100%); }
   </style>
 </head>
-<body class="px-4 py-6 md:px-8 md:py-10 space-y-8">
+<body class="min-h-screen">
 
-  <!-- Header -->
-  <header class="space-y-4">
-    <div class="flex flex-col gap-3">
-      <p class="text-sm text-gray-500">仕事ハブ / 統合ポータル</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-        仕事ハブ統合資料 V3.2<br class="md:hidden"> トップページ
-      </h1>
-      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-        キッチン家電5商品（レンジフード・ガスコンロ・IH・給湯器・食洗機）について、
-        日本・中国・台湾・シンガポール・マレーシア・香港の6市場を横断し、
-        技術・市場認証・製造品質・教育運用・単語集の5分冊で整理した統合資料です。
+  <!-- Hero Header -->
+  <header class="hero-gradient text-white px-4 py-12 md:py-20">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <p class="text-blue-200 text-sm font-semibold tracking-widest uppercase">Studies Lab</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">仕事ハブ統合資料</h1>
+      <p class="text-blue-100 text-lg md:text-xl font-medium">V3.2 — 住宅設備機器 業務知識体系</p>
+      <p class="text-blue-200 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+        レンジフード・ガスコンロ・IH・給湯器・食洗機の5商品について、<br class="hidden md:block">
+        技術・市場・製造・教育・用語を5冊の分冊にまとめた業務学習ハブです。
       </p>
-    </div>
-
-    <div>
-      <span class="tag">V3.2</span>
-      <span class="tag">5分冊構成</span>
-      <span class="tag">スマホ閲覧向け</span>
-      <span class="tag">6市場対応</span>
-      <span class="tag">5商品横断</span>
-    </div>
-
-    <div class="text-sm text-gray-500 space-y-1">
-      <p>作成日：2024-12-19</p>
-      <p>最終更新日：2026-06-14</p>
-      <p>次回定期メンテナンス：2026-09-14</p>
+      <div class="flex justify-center gap-4 pt-2 text-xs text-blue-300 flex-wrap">
+        <span>最終更新：2026-06-14</span>
+        <span>|</span>
+        <span>版数：V3.2</span>
+        <span>|</span>
+        <span>5商品 × 6市場</span>
+      </div>
     </div>
   </header>
 
-  <!-- Summary -->
-  <section class="card space-y-4">
-    <h2 class="text-xl font-bold">このサイトの目的</h2>
-    <p class="text-sm md:text-base leading-relaxed">
-      本サイトは、単なる説明資料ではなく、
-      「市場要求 → 機能 → 構造 → 材料 → 製造 → 品質」までをつなげて理解できる
-      実務用ナレッジハブとして構成しています。
-    </p>
-    <p class="text-sm md:text-base leading-relaxed">
-      v3では、各商品×各市場について
-      <strong>トップクラス3社ベンチマーク</strong>を必須化し、
-      国別事情だけでなく、代表機種の仕様・機能・構造・材料・販路・住宅制約まで
-      読める構成に再設計しています。
-    </p>
-  </section>
+  <!-- Books Grid -->
+  <main class="max-w-5xl mx-auto px-4 py-10 md:py-16 space-y-6">
+    <h2 class="text-xl md:text-2xl font-bold text-gray-700 mb-6 text-center">分冊一覧</h2>
 
-  <!-- Targets -->
-  <section class="grid md:grid-cols-2 gap-4">
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Book 1 -->
+      <div class="card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg">1</div>
+          <div class="flex-1 space-y-2">
+            <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">BOOK 1</p>
+            <h3 class="text-xl font-bold text-gray-800">技術編</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              5商品の基本原理、競合技術ベンチマーク、機能分解、材料・構造・UI比較、
+              市場要求から技術要件への変換をまとめた中核編です。
+            </p>
+            <div class="flex flex-wrap gap-1 pt-1">
+              <span class="badge bg-blue-100 text-blue-700">基礎原理</span>
+              <span class="badge bg-blue-100 text-blue-700">市場別トップ3社比較</span>
+              <span class="badge bg-blue-100 text-blue-700">機能・構造・材料の分解</span>
+              <span class="badge bg-blue-100 text-blue-700">市場要求→技術要件変換表</span>
+            </div>
+            <a href="technical.html" class="inline-block mt-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition">技術編を開く →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">2</div>
+          <div class="flex-1 space-y-2">
+            <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">BOOK 2</p>
+            <h3 class="text-xl font-bold text-gray-800">市場・認証編</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              6市場の住宅事情、調理文化、施工制約、電圧・周波数・ガス種、
+              認証・法規・表示要件と商品別競争地図を整理した参照編です。
+            </p>
+            <div class="flex flex-wrap gap-1 pt-1">
+              <span class="badge bg-emerald-100 text-emerald-700">市場概況</span>
+              <span class="badge bg-emerald-100 text-emerald-700">商品別トップ3社比較</span>
+              <span class="badge bg-emerald-100 text-emerald-700">価格帯・販路・住宅事情</span>
+              <span class="badge bg-emerald-100 text-emerald-700">PSE / CCC / BSMI / Safety Mark / SIRIM / EMSD</span>
+            </div>
+            <a href="market_certification.html" class="inline-block mt-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition">市場・認証編を開く →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-600 text-white flex items-center justify-center font-bold text-lg">3</div>
+          <div class="flex-1 space-y-2">
+            <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">BOOK 3</p>
+            <h3 class="text-xl font-bold text-gray-800">製造・品質編</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              板金・溶接・塗装・電装・組立・検査・梱包・品質保証を軸に、
+              競合仕様が量産で何を要求するかまで落とし込む実務編です。
+            </p>
+            <div class="flex flex-wrap gap-1 pt-1">
+              <span class="badge bg-orange-100 text-orange-700">製品別製造工程</span>
+              <span class="badge bg-orange-100 text-orange-700">材料・表面処理</span>
+              <span class="badge bg-orange-100 text-orange-700">工程品質 / 出荷品質</span>
+              <span class="badge bg-orange-100 text-orange-700">競合差分の量産反映</span>
+            </div>
+            <a href="manufacturing_quality.html" class="inline-block mt-3 bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition">製造・品質編を開く →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="card">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold text-lg">4</div>
+          <div class="flex-1 space-y-2">
+            <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">BOOK 4</p>
+            <h3 class="text-xl font-bold text-gray-800">教育・運用編</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              思考法、問題解決、業務改善、部門連携、Microsoftアプリ運用、
+              ファイル命名・版管理までを整理した業務OS編です。
+            </p>
+            <div class="flex flex-wrap gap-1 pt-1">
+              <span class="badge bg-purple-100 text-purple-700">クリティカルシンキング / ロジカルシンキング</span>
+              <span class="badge bg-purple-100 text-purple-700">5S / 5M / なぜなぜ分析</span>
+              <span class="badge bg-purple-100 text-purple-700">フロントローディング</span>
+              <span class="badge bg-purple-100 text-purple-700">Excel / PowerPoint / Teams / SharePoint</span>
+            </div>
+            <a href="education_operation.html" class="inline-block mt-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition">教育・運用編を開く →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Book 5 (Full width) -->
     <div class="card">
-      <h2 class="text-lg font-bold mb-3">対象商品</h2>
-      <ul class="text-sm space-y-2 list-disc ml-5">
-        <li>レンジフード</li>
-        <li>ガスコンロ / ビルトインガスホブ</li>
-        <li>IH / 電気ホブ</li>
-        <li>給湯器</li>
-        <li>食洗機</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2 class="text-lg font-bold mb-3">対象市場</h2>
-      <ul class="text-sm space-y-2 list-disc ml-5">
-        <li>日本</li>
-        <li>中国</li>
-        <li>台湾</li>
-        <li>シンガポール</li>
-        <li>マレーシア</li>
-        <li>香港</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Book Navigation -->
-  <section class="space-y-4">
-    <h2 class="text-2xl font-bold">5分冊ナビゲーション</h2>
-
-    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-
-      <article class="card space-y-3">
-        <div class="text-xs font-semibold text-gray-500">BOOK 1</div>
-        <h3 class="text-lg font-bold">技術編</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          5商品の基本原理、競合技術ベンチマーク、機能分解、材料・構造・UI比較、
-          市場要求から技術要件への変換をまとめた中核編です。
-        </p>
-        <ul class="text-sm list-disc ml-5 space-y-1">
-          <li>基礎原理</li>
-          <li>市場別トップ3社比較</li>
-          <li>機能・構造・材料の分解</li>
-          <li>市場要求→技術要件変換表</li>
-        </ul>
-        <a href="technical.html" class="inline-block mt-2 px-4 py-2 rounded-xl bg-gray-900 text-white text-sm hover:bg-black">
-          技術編を開く
-        </a>
-      </article>
-
-      <article class="card space-y-3">
-        <div class="text-xs font-semibold text-gray-500">BOOK 2</div>
-        <h3 class="text-lg font-bold">市場・認証編</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          6市場の住宅事情、調理文化、施工制約、電圧・周波数・ガス種、
-          認証・法規・表示要件と商品別競争地図を整理した参照編です。
-        </p>
-        <ul class="text-sm list-disc ml-5 space-y-1">
-          <li>市場概況</li>
-          <li>商品別トップ3社比較</li>
-          <li>価格帯・販路・住宅事情</li>
-          <li>PSE / CCC / BSMI / Safety Mark / SIRIM / EMSD</li>
-        </ul>
-        <a href="market_certification.html" class="inline-block mt-2 px-4 py-2 rounded-xl bg-gray-900 text-white text-sm hover:bg-black">
-          市場・認証編を開く
-        </a>
-      </article>
-
-      <article class="card space-y-3">
-        <div class="text-xs font-semibold text-gray-500">BOOK 3</div>
-        <h3 class="text-lg font-bold">製造・品質編</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          板金・溶接・塗装・電装・組立・検査・梱包・品質保証を軸に、
-          競合仕様が量産で何を要求するかまで落とし込む実務編です。
-        </p>
-        <ul class="text-sm list-disc ml-5 space-y-1">
-          <li>製品別製造工程</li>
-          <li>材料・表面処理</li>
-          <li>工程品質 / 出荷品質</li>
-          <li>競合差分の量産反映</li>
-        </ul>
-        <a href="manufacturing_quality.html" class="inline-block mt-2 px-4 py-2 rounded-xl bg-gray-900 text-white text-sm hover:bg-black">
-          製造・品質編を開く
-        </a>
-      </article>
-
-      <article class="card space-y-3">
-        <div class="text-xs font-semibold text-gray-500">BOOK 4</div>
-        <h3 class="text-lg font-bold">教育・運用編</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          思考法、問題解決、業務改善、部門連携、Microsoftアプリ運用、
-          ファイル命名・版管理までを整理した業務OS編です。
-        </p>
-        <ul class="text-sm list-disc ml-5 space-y-1">
-          <li>クリティカルシンキング / ロジカルシンキング</li>
-          <li>5S / 5M / なぜなぜ分析</li>
-          <li>フロントローディング</li>
-          <li>Excel / PowerPoint / Teams / SharePoint</li>
-        </ul>
-        <a href="education_operation.html" class="inline-block mt-2 px-4 py-2 rounded-xl bg-gray-900 text-white text-sm hover:bg-black">
-          教育・運用編を開く
-        </a>
-      </article>
-
-      <article class="card space-y-3">
-        <div class="text-xs font-semibold text-gray-500">BOOK 5</div>
-        <h3 class="text-lg font-bold">単語集</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          技術・市場・認証・製造・品質・思考法・業務ITの横断用語をまとめた独立ページです。
-          全分冊の読解補助として使用します。
-        </p>
-        <ul class="text-sm list-disc ml-5 space-y-1">
-          <li>技術用語</li>
-          <li>市場・販路用語</li>
-          <li>認証・法規用語</li>
-          <li>略語集 / 日本語索引 / 英字索引</li>
-        </ul>
-        <a href="glossary.html" class="inline-block mt-2 px-4 py-2 rounded-xl bg-gray-900 text-white text-sm hover:bg-black">
-          単語集を開く
-        </a>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Cross-market brand summary -->
-  <section class="card space-y-4">
-    <h2 class="text-xl font-bold">市場横断で重要なブランド</h2>
-    <div class="grid md:grid-cols-2 gap-4 text-sm">
-      <div>
-        <h3 class="font-semibold mb-2">Bosch</h3>
-        <p class="text-gray-600">ガスコンロ・IH・食洗機で複数市場にまたがるプレミアムブランド。FlameSelect、FlexInduction、Zeolith などが代表技術。</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Fujioh</h3>
-        <p class="text-gray-600">アジア圏レンジフードで存在感が高い専業系ブランド。Super Kirei、Auto Fan Clean、Aqua Slit など清掃性訴求が強い。</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Sakura</h3>
-        <p class="text-gray-600">台湾市場で強い総合ブランド。レンジフード・ガス・IH・給湯器・食洗機を横断し、技術統合型の展開が特徴。</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Rinnai / Midea / Fotile</h3>
-        <p class="text-gray-600">Rinnaiはガス・給湯で、日本系の信頼性軸。Mideaは中国系総合家電、Fotileは中華圏キッチン機器で強い。</p>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold text-lg">5</div>
+        <div class="flex-1 space-y-2">
+          <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">BOOK 5</p>
+          <h3 class="text-xl font-bold text-gray-800">単語集</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            技術・市場・認証・製造・品質・思考法・業務ITの横断用語をまとめた独立ページです。
+            全分冊の読解補助として使用します。
+          </p>
+          <div class="flex flex-wrap gap-1 pt-1">
+            <span class="badge bg-rose-100 text-rose-700">技術用語</span>
+            <span class="badge bg-rose-100 text-rose-700">市場・販路用語</span>
+            <span class="badge bg-rose-100 text-rose-700">認証・法規用語</span>
+            <span class="badge bg-rose-100 text-rose-700">略語集 / 日本語索引 / 英字索引</span>
+          </div>
+          <a href="glossary.html" class="inline-block mt-3 bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition">単語集を開く →</a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Reading order -->
-  <section class="card space-y-4">
-    <h2 class="text-xl font-bold">おすすめの読み方</h2>
-    <ol class="text-sm md:text-base list-decimal ml-5 space-y-2">
-      <li>まずトップページで対象分冊を選ぶ</li>
-      <li>市場・認証編で市場条件と競合3社比較を確認する</li>
-      <li>技術編でその差分を機能・構造・材料へ分解する</li>
-      <li>製造・品質編で量産・品質要求に落とす</li>
-      <li>教育・運用編と単語集で共通理解を補強する</li>
-    </ol>
-  </section>
+    <!-- Coverage Summary -->
+    <div class="card bg-gray-50 mt-8">
+      <h3 class="text-base font-bold text-gray-700 mb-4">本資料のカバレッジ</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-3xl font-extrabold text-blue-600">5</p>
+          <p class="text-xs text-gray-500 mt-1">対象商品</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-3xl font-extrabold text-emerald-600">6</p>
+          <p class="text-xs text-gray-500 mt-1">対象市場</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-3xl font-extrabold text-orange-600">5</p>
+          <p class="text-xs text-gray-500 mt-1">分冊構成</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-gray-200">
+          <p class="text-3xl font-extrabold text-purple-600">V3.2</p>
+          <p class="text-xs text-gray-500 mt-1">最新版数</p>
+        </div>
+      </div>
+    </div>
+  </main>
 
-  <!-- Update rule -->
-  <section class="card space-y-4">
-    <h2 class="text-xl font-bold">更新ルール</h2>
-    <ul class="text-sm list-disc ml-5 space-y-2">
-      <li>市場データは四半期ごとに見直す</li>
-      <li>代表モデル・認証要件・競合比較は更新日を明記する</li>
-      <li>新規確認情報には【NEW】、修正情報には【UPDATE】を付与する</li>
-      <li>重要変更は version control に履歴を残す</li>
-    </ul>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 pt-4">
-    © 2026 仕事ハブ統合資料 / Work Hub Integrated Knowledge Portal
+  <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-200">
+    仕事ハブ統合資料 V3.2 — 作成日：2024-12-19 / 最終更新日：2026-06-14
   </footer>
 
 </body>
 </html>
-
