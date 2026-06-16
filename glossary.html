@@ -3,803 +3,337 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>仕事ハブ統合資料 V3.2 単語集</title>
+  <title>仕事ハブ V3.2 — Book 5 単語集</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: "Noto Sans JP", sans-serif;
-      background: #fcfaf7;
-      color: #1f2937;
-    }
-    .section {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    }
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      background: #f3f4f6;
-      color: #4b5563;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-    .anchor {
-      scroll-margin-top: 90px;
-    }
-    .term-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 16px;
-      background: #fafafa;
-    }
-    .term-title {
-      font-weight: 700;
-      font-size: 15px;
-      margin-bottom: 6px;
-    }
-    .term-en {
-      color: #6b7280;
-      font-size: 12px;
-      margin-left: 6px;
-    }
-    .small {
-      font-size: 13px;
-      line-height: 1.75;
-    }
-    .subtle {
-      color: #6b7280;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #d1d5db;
-      padding: 10px 12px;
-      vertical-align: top;
-    }
-    th {
-      background: #f3f4f6;
-      font-weight: 700;
-      text-align: left;
-    }
-    input[type="search"] {
-      outline: none;
-    }
+    body { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; background: #f5f3ef; color: #1f2937; }
+    .section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+    .tag { display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 9999px; background: #ffe4e6; color: #9f1239; margin-right: 6px; margin-bottom: 6px; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { border: 1px solid #d1d5db; padding: 9px 11px; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: 700; text-align: left; }
+    .anchor { scroll-margin-top: 80px; }
+    .term-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; }
+    .term-title { font-weight: 700; font-size: 14px; color: #1f2937; }
+    .term-en { font-size: 11px; color: #6b7280; margin-left: 6px; }
+    .term-body { font-size: 12px; line-height: 1.7; color: #374151; margin-top: 4px; }
+    .sticky-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e7eb; }
+    #search-input { border: 1px solid #d1d5db; border-radius: 10px; padding: 10px 14px; width: 100%; font-size: 14px; outline: none; }
+    #search-input:focus { border-color: #f43f5e; box-shadow: 0 0 0 3px rgba(244,63,94,0.1); }
+    .hidden-term { display: none; }
+    @media(max-width:640px){ table { display:block; overflow-x:auto; } }
   </style>
 </head>
-<body class="px-4 py-6 md:px-8 md:py-10 space-y-8">
+<body class="min-h-screen">
 
-  <!-- Header -->
-  <header class="space-y-4">
-    <div class="flex flex-col gap-3">
-      <p class="text-sm text-gray-500">仕事ハブ / Book 5</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-        単語集<br>
-        <span class="text-xl md:text-2xl text-gray-600 font-semibold">仕事ハブ統合資料 V3.2</span>
-      </h1>
-      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+  <div class="sticky-nav px-4 py-3 flex items-center justify-between">
+    <a href="education_operation.html" class="text-rose-600 hover:text-rose-800 font-semibold text-sm">← Book 4</a>
+    <span class="text-sm font-bold text-gray-700">Book 5 単語集</span>
+    <a href="index.html" class="text-rose-600 hover:text-rose-800 text-sm font-semibold">分冊一覧 →</a>
+  </div>
+
+  <header class="bg-gradient-to-br from-rose-900 to-rose-500 text-white px-4 pt-10 pb-12 md:px-8">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <p class="text-rose-200 text-sm font-semibold">仕事ハブ / Book 5</p>
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">単語集</h1>
+      <p class="text-rose-100 text-sm md:text-base leading-relaxed max-w-2xl">
         技術・市場・認証・製造・品質・思考法・業務ITにまたがる用語を、
         仕事ハブ全体で共通に使えるように整理した横断用語集です。
-        本文の読みやすさを保つため、定義や略語の説明はこのページへ集約しています。
       </p>
-    </div>
-
-    <div>
-      <span class="tag">技術用語</span>
-      <span class="tag">市場用語</span>
-      <span class="tag">認証用語</span>
-      <span class="tag">製造品質用語</span>
-      <span class="tag">思考法</span>
-      <span class="tag">Microsoft / 業務IT</span>
-    </div>
-
-    <div class="text-sm text-gray-500 space-y-1">
-      <p>作成日：2024-12-19</p>
-      <p>最終更新日：2026-06-14</p>
-      <p>版数：V3.2</p>
+      <div class="flex flex-wrap gap-2 pt-1">
+        <span class="tag">技術用語</span><span class="tag">市場用語</span>
+        <span class="tag">認証用語</span><span class="tag">製造品質用語</span>
+        <span class="tag">思考法</span><span class="tag">Microsoft / 業務IT</span>
+      </div>
+      <div class="text-xs text-rose-300 flex flex-wrap gap-3 pt-1">
+        <span>最終更新日：2026-06-14</span><span>版数：V3.2</span>
+      </div>
     </div>
   </header>
 
-  <!-- Search -->
-  <section class="section">
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div>
-        <h2 class="text-lg font-bold">検索</h2>
-        <p class="small subtle">用語名・英語・説明文の一部で絞り込みできます。</p>
-      </div>
-      <div class="w-full md:w-[420px]">
-        <input
-          id="searchBox"
-          type="search"
-          placeholder="例：BLDC / BSMI / フロントローディング"
-          class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm bg-white"
-          oninput="filterTerms()"
-        />
-      </div>
-    </div>
-  </section>
+  <main class="max-w-4xl mx-auto px-4 py-8 md:px-8 space-y-8">
 
-  <!-- Navigation -->
-  <nav class="section">
-    <h2 class="text-lg font-bold mb-3">目次</h2>
-    <div class="grid md:grid-cols-3 gap-2 text-sm">
-      <a class="text-blue-700 hover:underline" href="#usage">1. 単語集の使い方</a>
-      <a class="text-blue-700 hover:underline" href="#hood">2. レンジフード用語</a>
-      <a class="text-blue-700 hover:underline" href="#gas">3. ガスコンロ用語</a>
-      <a class="text-blue-700 hover:underline" href="#ih">4. IH用語</a>
-      <a class="text-blue-700 hover:underline" href="#heater">5. 給湯器用語</a>
-      <a class="text-blue-700 hover:underline" href="#dishwasher">6. 食洗機用語</a>
-      <a class="text-blue-700 hover:underline" href="#market">7. 市場・販路用語</a>
-      <a class="text-blue-700 hover:underline" href="#regulation">8. 認証・法規用語</a>
-      <a class="text-blue-700 hover:underline" href="#manufacturing">9. 製造・品質用語</a>
-      <a class="text-blue-700 hover:underline" href="#thinking">10. 思考法・問題解決用語</a>
-      <a class="text-blue-700 hover:underline" href="#it">11. 業務IT・Microsoft用語</a>
-      <a class="text-blue-700 hover:underline" href="#abbrev">12. 略語集</a>
-    </div>
-  </nav>
-
-  <!-- Usage -->
-  <section id="usage" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">1. 単語集の使い方</h2>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-1 表記ルール</h3>
-        <p class="subtle">
-          日本語名を主表記とし、必要に応じて英語名・略語を併記する。
-          本文中でよく出る英語は意味が分かる形で残す。
-        </p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-2 略語の扱い</h3>
-        <p class="subtle">
-          略語だけでは意味が通りにくい場合があるため、
-          初出では正式名称と合わせて読むことを基本とする。
-        </p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-3 分冊との関係</h3>
-        <p class="subtle">
-          技術編・市場編・製造編・教育編で出てくる言葉をこのページで横断的に参照できるようにしている。
-        </p>
-      </div>
+    <!-- 検索 -->
+    <div class="section">
+      <h2 class="text-lg font-bold mb-3">🔍 用語を検索する</h2>
+      <input id="search-input" type="text" placeholder="用語名・英語・説明文の一部で絞り込み…" oninput="filterTerms()" />
+      <p id="search-count" class="text-xs text-gray-400 mt-2"></p>
     </div>
 
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>見出しの読み方</th>
-            <th>意味</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>日本語名</td>
-            <td>本文中での基本的な呼び方</td>
-          </tr>
-          <tr>
-            <td>英語名 / 略語</td>
-            <td>海外資料や仕様書、認証文書での表記</td>
-          </tr>
-          <tr>
-            <td>説明</td>
-            <td>仕事ハブ全体でどう理解すべきかを短く整理した定義</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- 目次 -->
+    <nav class="section" id="toc-nav">
+      <h2 class="text-lg font-bold mb-3">目次</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+        <a class="text-rose-700 hover:underline" href="#usage">1. 単語集の使い方</a>
+        <a class="text-rose-700 hover:underline" href="#hood">2. レンジフード用語</a>
+        <a class="text-rose-700 hover:underline" href="#gas">3. ガスコンロ用語</a>
+        <a class="text-rose-700 hover:underline" href="#ih">4. IH用語</a>
+        <a class="text-rose-700 hover:underline" href="#heater">5. 給湯器用語</a>
+        <a class="text-rose-700 hover:underline" href="#dishwasher">6. 食洗機用語</a>
+        <a class="text-rose-700 hover:underline" href="#market">7. 市場・販路用語</a>
+        <a class="text-rose-700 hover:underline" href="#regulation">8. 認証・法規用語</a>
+        <a class="text-rose-700 hover:underline" href="#manufacturing">9. 製造・品質用語</a>
+        <a class="text-rose-700 hover:underline" href="#thinking">10. 思考法・問題解決用語</a>
+        <a class="text-rose-700 hover:underline" href="#it">11. 業務IT・Microsoft用語</a>
+        <a class="text-rose-700 hover:underline" href="#abbrev">12. 略語集</a>
+      </div>
+    </nav>
+
+    <!-- 1. 使い方 -->
+    <section id="usage" class="section anchor space-y-3">
+      <h2 class="text-2xl font-bold">1. 単語集の使い方</h2>
+      <div class="grid md:grid-cols-3 gap-3">
+        <div class="term-card"><p class="text-sm font-bold mb-1">1-1 表記ルール</p><p class="text-xs leading-relaxed">日本語名を主表記とし、必要に応じて英語名・略語を併記する。本文中でよく出る英語は意味が分かる形で残す。</p></div>
+        <div class="term-card"><p class="text-sm font-bold mb-1">1-2 略語の扱い</p><p class="text-xs leading-relaxed">略語だけでは意味が通りにくい場合があるため、初出では正式名称と合わせて読むことを基本とする。</p></div>
+        <div class="term-card"><p class="text-sm font-bold mb-1">1-3 分冊との関係</p><p class="text-xs leading-relaxed">技術編・市場編・製造編・教育編で出てくる言葉をこのページで横断的に参照できるようにしている。</p></div>
+      </div>
+    </section>
+
+    <!-- 用語セクション群 -->
+    <div id="glossary-container" class="space-y-8">
+
+      <!-- 2. レンジフード -->
+      <section id="hood" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-blue-700">2. レンジフード用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="レンジフード Range Hood 捕集 排気 再循環"><span class="term-title">レンジフード</span><span class="term-en">Range Hood</span><p class="term-body">調理中の油煙・水蒸気・臭気を捕集し、屋外へ排気または室内循環浄化する機器。</p></div>
+          <div class="term-card" data-term="整流板 Rectifier Panel 吸込み 捕集効率"><span class="term-title">整流板</span><span class="term-en">Rectifier Panel</span><p class="term-body">吸込み口の気流を整え、捕集効率を高める板状部品。清掃性と吸込位置の最適化にも効く。</p></div>
+          <div class="term-card" data-term="シロッコファン Sirocco Fan Centrifugal Fan 遠心力 多翼 高静圧"><span class="term-title">シロッコファン</span><span class="term-en">Sirocco Fan / Centrifugal Fan</span><p class="term-body">遠心力で空気を搬送する多翼ファン。レンジフードで最も一般的。高静圧化に向く。</p></div>
+          <div class="term-card" data-term="風量 Air Flow m³/h"><span class="term-title">風量</span><span class="term-en">Air Flow</span><p class="term-body">単位時間あたりに搬送される空気量。m³/h や m³/min で表す。性能訴求の代表指標。</p></div>
+          <div class="term-card" data-term="静圧 Static Pressure ダクト 高層住宅 共同ダクト"><span class="term-title">静圧</span><span class="term-en">Static Pressure</span><p class="term-body">ダクトやフィルタの抵抗に打ち勝つために必要な圧力。高層住宅や共同ダクトで特に重要。</p></div>
+          <div class="term-card" data-term="再循環方式 Recirculating 活性炭 HDB 賃貸"><span class="term-title">再循環方式</span><span class="term-en">Recirculating</span><p class="term-body">活性炭フィルター等で浄化した空気を室内に戻す方式。外壁排気が難しい住宅で有効。</p></div>
+          <div class="term-card" data-term="外部排気方式 Ducted External Venting 屋外 排気"><span class="term-title">外部排気方式</span><span class="term-en">Ducted / External Venting</span><p class="term-body">ダクトを通して屋外に排気する方式。臭気や湿気も外に逃がせるため基本性能は高い。</p></div>
+          <div class="term-card" data-term="油捕集率 Oil Capture Ratio 清掃性"><span class="term-title">油捕集率</span><span class="term-en">Oil Capture Ratio</span><p class="term-body">発生した油煙のうち、どれだけ捕集できたかを示す指標。清掃性や内部汚れ量にも影響する。</p></div>
+          <div class="term-card" data-term="OIL SMASHER 清掃性 差別化"><span class="term-title">OIL SMASHER</span><span class="term-en">–</span><p class="term-body">油をファン内部へ溜めにくくする考え方・機構を示す技術訴求名の一例。清掃性差別化で使われる。</p></div>
+          <div class="term-card" data-term="BLDC Brushless DC Motor ブラシレス 省エネ 静音 可変速"><span class="term-title">BLDCモータ</span><span class="term-en">Brushless DC Motor</span><p class="term-body">ブラシレス構造のDCモータ。可変速・省エネ・低騒音が特徴で、フード・食洗機・ポンプで採用が増えている。</p></div>
+        </div>
+      </section>
+
+      <!-- 3. ガスコンロ -->
+      <section id="gas" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-orange-700">3. ガスコンロ用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="ガスコンロ ガスホブ Gas Hob 燃焼 火力 清掃性"><span class="term-title">ガスコンロ / ガスホブ</span><span class="term-en">Gas Hob</span><p class="term-body">ガス燃焼により鍋へ熱を与える調理機器。火力、安全、清掃性、意匠が主要競争軸。</p></div>
+          <div class="term-card" data-term="火力 Heat Output kW 高火力 低火力"><span class="term-title">火力</span><span class="term-en">Heat Output</span><p class="term-body">kWで表すことが多い。高火力訴求だけでなく、低火力安定制御も重要。</p></div>
+          <div class="term-card" data-term="FFD Flame Failure Device 立消え安全装置 熱電対 ガス遮断"><span class="term-title">FFD（立消え安全装置）</span><span class="term-en">Flame Failure Device</span><p class="term-body">炎が消えたときにガス供給を止める安全機構。熱電対起電力（約20mV）を利用して作動する。世界的に重要な必須機能。</p></div>
+          <div class="term-card" data-term="熱電対 Thermocouple 起電力 温度 FFD"><span class="term-title">熱電対</span><span class="term-en">Thermocouple</span><p class="term-body">温度差により起電力を発生させる素子。FFDの炎検知などに使われる。</p></div>
+          <div class="term-card" data-term="温調 Temperature Control 鍋底 揚げ物 焼き物"><span class="term-title">温調</span><span class="term-en">Temperature Control</span><p class="term-body">鍋底温度を検知し、一定温度に保つ機能。揚げ物や焼き物の安定化に有効。</p></div>
+          <div class="term-card" data-term="FlameSelect 段階火力 制御 再現性"><span class="term-title">FlameSelect</span><span class="term-en">–</span><p class="term-body">火力を段階的に再現しやすくする制御思想・技術名の一例。ユーザーが再現性ある火加減を得やすい。</p></div>
+          <div class="term-card" data-term="鋳鉄五徳 Cast Iron Pan Support 耐熱 錆 塗装"><span class="term-title">鋳鉄五徳</span><span class="term-en">Cast Iron Pan Support</span><p class="term-body">鍋を支える部材。重厚感と耐久性に優れるが、錆・塗装・寸法ばらつきの管理が重要。</p></div>
+          <div class="term-card" data-term="ガラストップ Glass Top 黒ガラス 高級感 清掃性 割れ"><span class="term-title">ガラストップ</span><span class="term-en">Glass Top</span><p class="term-body">黒ガラス等を用いた天板。高級感と清掃性に優れるが、割れや端部欠けに注意が必要。</p></div>
+          <div class="term-card" data-term="偏炎 Uneven Flame 燃焼品質 熱効率"><span class="term-title">偏炎</span><span class="term-en">Uneven Flame</span><p class="term-body">炎が均一でなく、片寄って燃える状態。燃焼品質や熱効率、安全性に影響する。</p></div>
+        </div>
+      </section>
+
+      <!-- 4. IH -->
+      <section id="ih" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-emerald-700">4. IH用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="IH Induction Heating 電磁誘導 渦電流 鍋加熱"><span class="term-title">IH</span><span class="term-en">Induction Heating</span><p class="term-body">高周波磁界により鍋底へ渦電流を発生させ、鍋自体を加熱する方式。</p></div>
+          <div class="term-card" data-term="加熱コイル Induction Coil 磁束 絶縁 冷却"><span class="term-title">加熱コイル</span><span class="term-en">Induction Coil</span><p class="term-body">磁束を作るためのコイル。位置精度や絶縁、冷却設計が性能に影響する。</p></div>
+          <div class="term-card" data-term="IGBT Insulated Gate Bipolar Transistor 高電力スイッチング インバータ"><span class="term-title">IGBT</span><span class="term-en">Insulated Gate Bipolar Transistor</span><p class="term-body">高電力スイッチングに使う半導体素子。IHのインバータ回路で重要部品となる。</p></div>
+          <div class="term-card" data-term="PowerBoost 出力 立ち上がり 熱設計"><span class="term-title">PowerBoost</span><span class="term-en">–</span><p class="term-body">短時間だけ出力を引き上げる機能。立ち上がり速度を高めるが、熱設計負荷も増える。</p></div>
+          <div class="term-card" data-term="FlexInduction Flex Zone 複数 加熱ゾーン 鍋位置"><span class="term-title">FlexInduction / Flex Zone</span><span class="term-en">–</span><p class="term-body">複数加熱ゾーンを連携し、鍋位置やサイズに応じて加熱領域を柔軟に変える機能。</p></div>
+          <div class="term-card" data-term="鍋検知 Pan Detection IH対応 安全"><span class="term-title">鍋検知</span><span class="term-en">Pan Detection</span><p class="term-body">鍋が適切に置かれているか、IH対応かを検知する機能。安全性と制御に直結する。</p></div>
+          <div class="term-card" data-term="残熱表示 Residual Heat Indicator 安全 使用後"><span class="term-title">残熱表示</span><span class="term-en">Residual Heat Indicator</span><p class="term-body">使用後の天板が熱いことを表示する安全機能。家庭用機器では重要な基本機能。</p></div>
+          <div class="term-card" data-term="Home Connect スマートホーム 遠隔 連携制御"><span class="term-title">Home Connect</span><span class="term-en">–</span><p class="term-body">家電とアプリや他機器を連携するスマートホーム機能群の一例。遠隔監視・連携制御に使われる。</p></div>
+          <div class="term-card" data-term="SCHOTT CERAN ガラスセラミック 耐熱衝撃 IH"><span class="term-title">SCHOTT CERAN</span><span class="term-en">–</span><p class="term-body">IHや電気ホブで広く使われるガラスセラミック材料ブランドの一例。耐熱衝撃性と外観品質で知られる。</p></div>
+          <div class="term-card" data-term="PFC Power Factor Correction 力率改善 高調波 EMC"><span class="term-title">PFC（力率改善）</span><span class="term-en">Power Factor Correction</span><p class="term-body">電源の力率を改善する回路。高調波対策・EMC対応のためにIHやBLDC採用機器で重要になる。</p></div>
+        </div>
+      </section>
+
+      <!-- 5. 給湯器 -->
+      <section id="heater" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-sky-700">5. 給湯器用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="瞬間式 Instant Tankless 省スペース 連続出湯"><span class="term-title">瞬間式</span><span class="term-en">Instant / Tankless</span><p class="term-body">必要なときだけ通水しながら加熱する方式。省スペースで連続出湯に向く。</p></div>
+          <div class="term-card" data-term="貯湯式 Storage タンク 多点給湯 ピーク需要"><span class="term-title">貯湯式</span><span class="term-en">Storage</span><p class="term-body">タンクに温水を貯めて使う方式。多点給湯やピーク需要に向く。</p></div>
+          <div class="term-card" data-term="ハイブリッド給湯 ヒートポンプ ガス 高効率 日本"><span class="term-title">ハイブリッド給湯</span><span class="term-en">Hybrid Water Heater</span><p class="term-body">ヒートポンプとガス等を組み合わせて高効率を狙う方式。日本市場で差別化要素になりやすい。</p></div>
+          <div class="term-card" data-term="熱交換器 Heat Exchanger 瞬間式 材質 性能 寿命"><span class="term-title">熱交換器</span><span class="term-en">Heat Exchanger</span><p class="term-body">熱を流体へ移す部品。瞬間式給湯器の中心構成要素で、材質や構造が性能と寿命に効く。</p></div>
+          <div class="term-card" data-term="アノード棒 Anode Rod 犠牲防食 タンク 腐食"><span class="term-title">アノード棒</span><span class="term-en">Anode Rod</span><p class="term-body">犠牲防食のために使う部材。タンク内面腐食を抑える目的で用いられる。</p></div>
+          <div class="term-card" data-term="L/min 給湯能力 流量 家族人数"><span class="term-title">L/min（給湯流量）</span><span class="term-en">Liter per Minute</span><p class="term-body">給湯能力を表す代表指標。家族人数や複数箇所同時使用の検討に使う。</p></div>
+          <div class="term-card" data-term="FE FF 給排気方式 設置条件 安全"><span class="term-title">FE / FF</span><span class="term-en">–</span><p class="term-body">給排気方式を示す表記の一例。設置条件や安全性、住宅制約に関わる。</p></div>
+          <div class="term-card" data-term="抗菌加熱 Antibacterial Heating 衛生 湯温"><span class="term-title">抗菌加熱</span><span class="term-en">Antibacterial Heating</span><p class="term-body">衛生性訴求として用いられる概念。湯温管理や材料選定と合わせて語られることが多い。</p></div>
+          <div class="term-card" data-term="断熱材 Insulation Material タンク 配管 省エネ 保温"><span class="term-title">断熱材</span><span class="term-en">Insulation Material</span><p class="term-body">タンクや配管の放熱を抑え、省エネと保温に寄与する材料。</p></div>
+        </div>
+      </section>
+
+      <!-- 6. 食洗機 -->
+      <section id="dishwasher" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-purple-700">6. 食洗機用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="食洗機 Dishwasher 洗浄 乾燥 静音 省スペース"><span class="term-title">食洗機</span><span class="term-en">Dishwasher</span><p class="term-body">洗浄・すすぎ・乾燥を自動で行う機器。洗浄性能、乾燥性能、静音、省スペースが重要。</p></div>
+          <div class="term-card" data-term="Place Settings 食器収納容量 サイズ比較"><span class="term-title">Place Settings（食器容量）</span><span class="term-en">Place Settings</span><p class="term-body">食器収納容量を示す国際的な表し方。市場ごとのサイズ比較でよく使われる。</p></div>
+          <div class="term-card" data-term="Zeolith乾燥 吸放湿 省エネ 乾燥性能"><span class="term-title">Zeolith乾燥</span><span class="term-en">Zeolith Drying</span><p class="term-body">吸放湿性材料を使って乾燥性能と省エネを両立させる乾燥方式の一例。</p></div>
+          <div class="term-card" data-term="3rd Rack 薄型ラック カトラリー 収納"><span class="term-title">3rd Rack（サードラック）</span><span class="term-en">3rd Rack</span><p class="term-body">上部に追加される薄型ラック。カトラリーや小物を整理しやすくする。</p></div>
+          <div class="term-card" data-term="Half-load 少量 省エネ 節水"><span class="term-title">Half-load（半量洗浄）</span><span class="term-en">Half-load</span><p class="term-body">少量の食器に対して水や電力の使い方を調整するモード。普及帯でも差別化しやすい。</p></div>
+          <div class="term-card" data-term="Sanitise 高温除菌 衛生 都市市場"><span class="term-title">Sanitise / 高温除菌</span><span class="term-en">Sanitise</span><p class="term-body">高温水や高温乾燥で衛生性を高める考え方。都市市場では訴求力が高い。</p></div>
+          <div class="term-card" data-term="卓上型 Countertop 小型 設置性 容量制約"><span class="term-title">卓上型</span><span class="term-en">Countertop</span><p class="term-body">キッチンカウンター上に置く小型食洗機。設置性は良いが容量に制約がある。</p></div>
+          <div class="term-card" data-term="Drawer型 DishDrawer 引き出し 香港 狭小高級住宅"><span class="term-title">Drawer型</span><span class="term-en">DishDrawer</span><p class="term-body">引き出し式の食洗機。香港などの狭小高級住宅で相性が良い構造。</p></div>
+          <div class="term-card" data-term="濁度センサ Turbidity Sensor 洗浄水 コース 水量制御"><span class="term-title">濁度センサ</span><span class="term-en">Turbidity Sensor</span><p class="term-body">洗浄水の汚れ具合を検知し、コースや水量制御に反映するセンサ。</p></div>
+        </div>
+      </section>
+
+      <!-- 7. 市場・販路用語 -->
+      <section id="market" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-emerald-700">7. 市場・販路用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="B2C Business to Consumer 消費者 EC 量販"><span class="term-title">B2C</span><span class="term-en">Business to Consumer</span><p class="term-body">企業から一般消費者への販売。EC、量販、小売店などが中心になる。</p></div>
+          <div class="term-card" data-term="B2B Business to Business 企業間 デベロッパー 代理店"><span class="term-title">B2B</span><span class="term-en">Business to Business</span><p class="term-body">企業間取引。デベロッパー案件、施工店ルート、代理店販売などが含まれる。</p></div>
+          <div class="term-card" data-term="developer案件 デベロッパー 不動産 精装修 中国"><span class="term-title">developer案件</span><span class="term-en">–</span><p class="term-body">不動産デベロッパーや建設会社が主導する採用案件。中国の精装修市場などで重要。</p></div>
+          <div class="term-card" data-term="量販 家電量販店 大型小売 価格比較"><span class="term-title">量販</span><span class="term-en">Mass Retail</span><p class="term-body">家電量販店や大型小売での販売チャネル。価格比較されやすく、見せ方が重要。</p></div>
+          <div class="term-card" data-term="EC E-commerce オンライン 中国 ライブコマース"><span class="term-title">EC</span><span class="term-en">E-commerce</span><p class="term-body">オンライン販売。中国ではライブコマースとの連動が強く、B2Cの主戦場になりやすい。</p></div>
+          <div class="term-card" data-term="代理店 Distributor 輸入 在庫 販売 サービス 海外展開"><span class="term-title">代理店</span><span class="term-en">Distributor</span><p class="term-body">輸入、在庫、販売、サービスを担う中間チャネル。海外展開では重要な販売基盤になる。</p></div>
+          <div class="term-card" data-term="毛坯房 スケルトン渡し 中国 B2C"><span class="term-title">毛坯房</span><span class="term-en">–</span><p class="term-body">中国でのスケルトン渡し住宅。施主が後から設備を選びやすく、B2C色が強い。</p></div>
+          <div class="term-card" data-term="精装修 中国 内装付き 設備 B2B 標準仕様"><span class="term-title">精装修</span><span class="term-en">–</span><p class="term-body">中国での内装・設備付き渡し住宅。B2B案件色が強く、標準仕様や共同ダクト対応が重要になる。</p></div>
+          <div class="term-card" data-term="HDB Housing Development Board シンガポール 公団 施工制約"><span class="term-title">HDB</span><span class="term-en">Housing & Development Board</span><p class="term-body">シンガポールの公団住宅。施工制約や設備条件が商品仕様へ強く影響する。</p></div>
+        </div>
+      </section>
+
+      <!-- 8. 認証・法規用語 -->
+      <section id="regulation" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-rose-700">8. 認証・法規用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="PSE 電気用品安全法 日本 適合表示"><span class="term-title">PSE</span><span class="term-en">–</span><p class="term-body">日本の電気用品安全法に基づく適合表示。日本市場の電気製品販売で重要。</p></div>
+          <div class="term-card" data-term="CCC 中国 強制認証 刻印 工場審査"><span class="term-title">CCC</span><span class="term-en">China Compulsory Certification</span><p class="term-body">中国の強制認証制度。対象製品を販売するには認証取得と関連表示が必要。工場審査・変更申請も伴う。</p></div>
+          <div class="term-card" data-term="BSMI 台湾 標準検験局 電気安全 EMC R-Mark"><span class="term-title">BSMI</span><span class="term-en">Bureau of Standards, Metrology and Inspection</span><p class="term-body">台湾の標準検験局。電気安全・EMC・関連表示の確認に関わる。R-Markが代表表示。</p></div>
+          <div class="term-card" data-term="Safety Mark シンガポール 製品安全 CPSR"><span class="term-title">Safety Mark</span><span class="term-en">–</span><p class="term-body">シンガポールの製品安全関連表示制度。対象製品の市場投入で重要になる。</p></div>
+          <div class="term-card" data-term="SIRIM マレーシア 認証 ST承認"><span class="term-title">SIRIM</span><span class="term-en">–</span><p class="term-body">マレーシアの認証関連で重要な機関・認証文脈。ST承認と合わせて整理されることが多い。</p></div>
+          <div class="term-card" data-term="EMSD 香港 機電 電気製品 安全規則"><span class="term-title">EMSD</span><span class="term-en">Electrical and Mechanical Services Department</span><p class="term-body">香港の機電関連行政文脈で重要な名称。電気製品安全や表示制度と関係する。</p></div>
+          <div class="term-card" data-term="EMC Electromagnetic Compatibility 電磁両立性 ノイズ 高周波"><span class="term-title">EMC</span><span class="term-en">Electromagnetic Compatibility</span><p class="term-body">他機器へ電磁妨害を与えず、自身も外来ノイズに耐える性質。高周波制御機器では重要。</p></div>
+          <div class="term-card" data-term="Energy Label エネルギーラベル 省エネ 国別 等級"><span class="term-title">Energy Label / エネルギーラベル</span><span class="term-en">Energy Label</span><p class="term-body">省エネ性能を市場へ示すラベル。国ごとに制度や等級が異なる。</p></div>
+          <div class="term-card" data-term="表示 銘板 電圧 周波数 型番 認証マーク"><span class="term-title">表示・銘板</span><span class="term-en">–</span><p class="term-body">電圧、周波数、型番、認証マーク、製造者情報などを示す表記。市場ごとに要件が異なる。</p></div>
+        </div>
+      </section>
+
+      <!-- 9. 製造・品質用語 -->
+      <section id="manufacturing" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-orange-700">9. 製造・品質用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="DFM Design for Manufacturing 製造しやすさ 設計 加工 公差"><span class="term-title">DFM</span><span class="term-en">Design for Manufacturing</span><p class="term-body">製造しやすさを考慮した設計。加工ルール、公差、材料、工程能力を踏まえて決める。</p></div>
+          <div class="term-card" data-term="DFA Design for Assembly 組立しやすさ 部品点数 誤組立"><span class="term-title">DFA</span><span class="term-en">Design for Assembly</span><p class="term-body">組み立てやすさを考慮した設計。一方向組立、部品点数低減、誤組立防止などが含まれる。</p></div>
+          <div class="term-card" data-term="FMEA 故障モード影響解析 未然防止 RPN 優先度"><span class="term-title">FMEA</span><span class="term-en">Failure Mode and Effects Analysis</span><p class="term-body">故障モード影響解析。未然防止のために潜在不具合を整理して対策優先度を決める。RPN = S × O × D。</p></div>
+          <div class="term-card" data-term="PPAP 量産部品承認 供給者品質 初期確認"><span class="term-title">PPAP</span><span class="term-en">Production Part Approval Process</span><p class="term-body">量産部品承認の考え方・提出体系を指す略語。供給者品質の初期確認で重要。</p></div>
+          <div class="term-card" data-term="Cpk 工程能力指数 規格 安定 量産"><span class="term-title">Cpk（工程能力指数）</span><span class="term-en">Process Capability Index</span><p class="term-body">工程能力指数。量産工程が規格内で安定しているかを見る代表指標。</p></div>
+          <div class="term-card" data-term="IQC IPQC FQC OQC 受入 工程 最終 出荷品質管理"><span class="term-title">IQC / IPQC / FQC / OQC</span><span class="term-en">–</span><p class="term-body">受入品質（IQC）、工程品質（IPQC）、最終品質（FQC）、出荷品質（OQC）など、品質管理の段階を分けた表現。</p></div>
+          <div class="term-card" data-term="トルク管理 Torque Control 締結 異音 安全"><span class="term-title">トルク管理</span><span class="term-en">Torque Control</span><p class="term-body">締結不良を防ぐため、規定トルクでねじを締める管理。製品安全や異音防止に関わる。</p></div>
+          <div class="term-card" data-term="膜厚 Coating Thickness 塗装 防錆 外観 機能寿命"><span class="term-title">膜厚</span><span class="term-en">Coating Thickness</span><p class="term-body">塗装やコーティングの厚み。防錆、外観、機能寿命に直結する。</p></div>
+          <div class="term-card" data-term="AQL Acceptable Quality Level 抜取検査 ロット判定 出荷"><span class="term-title">AQL</span><span class="term-en">Acceptable Quality Level</span><p class="term-body">抜取検査でロット判定を行う際の品質水準の考え方。出荷判定でよく使う。</p></div>
+        </div>
+      </section>
+
+      <!-- 10. 思考法・問題解決用語 -->
+      <section id="thinking" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-purple-700">10. 思考法・問題解決用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="クリティカルシンキング 前提 根拠 事実 解釈"><span class="term-title">クリティカルシンキング</span><span class="term-en">Critical Thinking</span><p class="term-body">前提や根拠を確認し、事実と解釈を分けて考える思考法。</p></div>
+          <div class="term-card" data-term="ロジカルシンキング 筋道 構造 報告 提案"><span class="term-title">ロジカルシンキング</span><span class="term-en">Logical Thinking</span><p class="term-body">筋道立てて整理し、相手に伝わる構造で考える思考法。</p></div>
+          <div class="term-card" data-term="演繹法 一般原則 個別結論 規制 設計要求"><span class="term-title">演繹法</span><span class="term-en">Deductive Reasoning</span><p class="term-body">一般原則から個別結論を導く考え方。規制要件や設計要求の展開で使いやすい。</p></div>
+          <div class="term-card" data-term="帰納法 事例 共通パターン 市場分析 競合比較"><span class="term-title">帰納法</span><span class="term-en">Inductive Reasoning</span><p class="term-body">複数事例から共通パターンを見出す考え方。市場分析や競合比較で使いやすい。</p></div>
+          <div class="term-card" data-term="MECE モレなくダブりなく 比較表 論点整理"><span class="term-title">MECE</span><span class="term-en">Mutually Exclusive, Collectively Exhaustive</span><p class="term-body">モレなくダブりなく整理する考え方。比較表や論点整理の基本になる。</p></div>
+          <div class="term-card" data-term="ピラミッドストラクチャー 結論 理由 根拠 報告 提案"><span class="term-title">ピラミッドストラクチャー</span><span class="term-en">Pyramid Structure</span><p class="term-body">結論→理由→根拠で組み立てる説明構造。報告や提案資料で有効。</p></div>
+          <div class="term-card" data-term="5S 整理 整頓 清掃 清潔 躾 現場 情報管理"><span class="term-title">5S</span><span class="term-en">–</span><p class="term-body">整理・整頓・清掃・清潔・躾。現場にも情報管理にも使える基本概念。</p></div>
+          <div class="term-card" data-term="5M Man Machine Material Method Measurement 原因分析"><span class="term-title">5M</span><span class="term-en">–</span><p class="term-body">Man / Machine / Material / Method / Measurement の5視点で問題原因を整理する枠組み。</p></div>
+          <div class="term-card" data-term="フロントローディング 上流 コスト 設計変更 開発効率"><span class="term-title">フロントローディング</span><span class="term-en">Front Loading</span><p class="term-body">後工程で高くつく論点を、できるだけ上流で潰す考え方。開発効率に直結する。</p></div>
+          <div class="term-card" data-term="なぜなぜ分析 根本原因 再発防止 5回"><span class="term-title">なぜなぜ分析</span><span class="term-en">5 Whys</span><p class="term-body">「なぜ？」を繰り返して根本原因を掘り下げる手法。人のせいにせず仕組みまで掘ることが重要。</p></div>
+        </div>
+      </section>
+
+      <!-- 11. 業務IT・Microsoft用語 -->
+      <section id="it" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold text-gray-700">11. 業務IT・Microsoft用語</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="term-card" data-term="Excel 表計算 比較表 台帳 集計 仕様一覧"><span class="term-title">Excel</span><span class="term-en">–</span><p class="term-body">比較表、台帳、集計、仕様一覧、競合表、進捗管理に向く表計算ツール。</p></div>
+          <div class="term-card" data-term="PowerPoint プレゼン 報告 提案 スライド"><span class="term-title">PowerPoint</span><span class="term-en">–</span><p class="term-body">結論を短時間で伝えるための報告・提案資料作成に向くツール。</p></div>
+          <div class="term-card" data-term="Word 仕様書 標準書 長文 議事録 正式文書"><span class="term-title">Word</span><span class="term-en">–</span><p class="term-body">仕様書、標準書、長文説明、正式議事録など、文章中心文書に向く。</p></div>
+          <div class="term-card" data-term="Outlook メール 会議招集 依頼 証跡"><span class="term-title">Outlook</span><span class="term-en">–</span><p class="term-body">メール、会議招集、依頼履歴の管理に使う。正式依頼の証跡として重要。</p></div>
+          <div class="term-card" data-term="Teams やり取り 会議 即時共有 チャット"><span class="term-title">Teams</span><span class="term-en">–</span><p class="term-body">日常のやり取り、会議、即時共有に向く。正式決定事項は別文書へ残す運用が望ましい。</p></div>
+          <div class="term-card" data-term="OneNote メモ 下書き 会議メモ 学習ノート"><span class="term-title">OneNote</span><span class="term-en">–</span><p class="term-body">個人メモ、下書き、会議メモ、学習ノートに向く。正式文書の代わりではない。</p></div>
+          <div class="term-card" data-term="SharePoint 正式保存 共有 版管理 最新版"><span class="term-title">SharePoint</span><span class="term-en">–</span><p class="term-body">正式保存、共有、版管理の土台として使いやすい。チームの最新版置き場になりやすい。</p></div>
+          <div class="term-card" data-term="Forms アンケート 情報収集 フォーム 確認"><span class="term-title">Forms</span><span class="term-en">–</span><p class="term-body">簡易アンケートや情報収集フォームに使う。調査依頼や会議前確認に便利。</p></div>
+          <div class="term-card" data-term="版管理 Version Control 更新履歴 変更 追跡"><span class="term-title">版管理</span><span class="term-en">Version Control</span><p class="term-body">文書やデータの更新履歴を管理する考え方。誰が何を変えたか追える状態が重要。</p></div>
+        </div>
+      </section>
+
+      <!-- 12. 略語集 -->
+      <section id="abbrev" class="section anchor space-y-3">
+        <h2 class="text-2xl font-bold">12. 略語集</h2>
+        <div class="overflow-x-auto">
+          <table>
+            <thead><tr><th>略語</th><th>正式名称</th><th>意味</th></tr></thead>
+            <tbody>
+              <tr><td>CFD</td><td>Computational Fluid Dynamics</td><td>流体解析。気流や温度分布の予測に使う。</td></tr>
+              <tr><td>FEM</td><td>Finite Element Method</td><td>有限要素法。強度や変形解析に使う。</td></tr>
+              <tr><td>DFM</td><td>Design for Manufacturing</td><td>製造しやすさを考えた設計。</td></tr>
+              <tr><td>DFA</td><td>Design for Assembly</td><td>組立しやすさを考えた設計。</td></tr>
+              <tr><td>MBSE</td><td>Model Based Systems Engineering</td><td>モデルベースでシステム設計を行う考え方。</td></tr>
+              <tr><td>PLM</td><td>Product Lifecycle Management</td><td>製品ライフサイクル全体の管理。</td></tr>
+              <tr><td>VOC</td><td>Voice of Customer / Volatile Organic Compounds</td><td>文脈により顧客の声、または揮発性有機化合物を指す。</td></tr>
+              <tr><td>BOM</td><td>Bill of Materials</td><td>部品表。</td></tr>
+              <tr><td>FMEA</td><td>Failure Mode and Effects Analysis</td><td>故障モード影響解析。</td></tr>
+              <tr><td>PPAP</td><td>Production Part Approval Process</td><td>量産部品承認の考え方。</td></tr>
+              <tr><td>EMC</td><td>Electromagnetic Compatibility</td><td>電磁両立性。</td></tr>
+              <tr><td>FFD</td><td>Flame Failure Device</td><td>立消え安全装置。</td></tr>
+              <tr><td>PFC</td><td>Power Factor Correction</td><td>力率改善。</td></tr>
+              <tr><td>BLDC</td><td>Brushless DC Motor</td><td>ブラシレスDCモータ。</td></tr>
+              <tr><td>IQC</td><td>Incoming Quality Control</td><td>受入品質管理。</td></tr>
+              <tr><td>IPQC</td><td>In-Process Quality Control</td><td>工程内品質管理。</td></tr>
+              <tr><td>FQC</td><td>Final Quality Control</td><td>最終品質管理。</td></tr>
+              <tr><td>OQC</td><td>Outgoing Quality Control</td><td>出荷品質管理。</td></tr>
+              <tr><td>AQL</td><td>Acceptable Quality Level</td><td>抜取検査での品質水準。</td></tr>
+              <tr><td>Cpk</td><td>Process Capability Index</td><td>工程能力指数。</td></tr>
+              <tr><td>HDB</td><td>Housing & Development Board</td><td>シンガポール公団住宅文脈で使われる名称。</td></tr>
+              <tr><td>RPN</td><td>Risk Priority Number</td><td>FMEAにおけるリスク優先数。S×O×Dで算出。</td></tr>
+              <tr><td>MECE</td><td>Mutually Exclusive, Collectively Exhaustive</td><td>モレなくダブりなく。</td></tr>
+              <tr><td>ECR/ECO</td><td>Engineering Change Request / Order</td><td>設計変更申請・指示の管理文書。</td></tr>
+              <tr><td>PNG</td><td>Piped Natural Gas</td><td>配管天然ガス。シンガポール・マレーシアで主要インフラ。</td></tr>
+              <tr><td>LPG</td><td>Liquefied Petroleum Gas</td><td>液化石油ガス（プロパンガス等）。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div><!-- /glossary-container -->
+
+    <div class="flex justify-between items-center pt-4">
+      <a href="education_operation.html" class="bg-purple-100 hover:bg-purple-200 text-purple-700 font-semibold px-5 py-2 rounded-lg text-sm transition">← Book 4 教育・運用編</a>
+      <a href="index.html" class="bg-gray-700 hover:bg-gray-900 text-white font-semibold px-5 py-2 rounded-lg text-sm transition">分冊一覧へ戻る</a>
     </div>
-  </section>
+  </main>
 
-  <!-- 2 Hood -->
-  <section id="hood" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">2. レンジフード用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">レンジフード <span class="term-en">Range Hood</span></div>
-        <div class="small">調理中の油煙・水蒸気・臭気を捕集し、屋外へ排気または室内循環浄化する機器。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">整流板 <span class="term-en">Rectifier Panel</span></div>
-        <div class="small">吸込み口の気流を整え、捕集効率を高める板状部品。清掃性と吸込位置の最適化にも効く。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">シロッコファン <span class="term-en">Sirocco Fan / Centrifugal Fan</span></div>
-        <div class="small">遠心力で空気を搬送する多翼ファン。レンジフードで最も一般的。高静圧化に向く。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">風量 <span class="term-en">Air Flow</span></div>
-        <div class="small">単位時間あたりに搬送される空気量。m³/h や m³/min で表す。性能訴求の代表指標。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">静圧 <span class="term-en">Static Pressure</span></div>
-        <div class="small">ダクトやフィルタの抵抗に打ち勝つために必要な圧力。高層住宅や共同ダクトで特に重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">再循環方式 <span class="term-en">Recirculating</span></div>
-        <div class="small">活性炭フィルター等で浄化した空気を室内に戻す方式。外壁排気が難しい住宅で有効。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">外部排気方式 <span class="term-en">Ducted / External Venting</span></div>
-        <div class="small">ダクトを通して屋外に排気する方式。臭気や湿気も外に逃がせるため基本性能は高い。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">油捕集率 <span class="term-en">Oil Capture Ratio</span></div>
-        <div class="small">発生した油煙のうち、どれだけ捕集できたかを示す指標。清掃性や内部汚れ量にも影響する。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">OIL SMASHER</div>
-        <div class="small">油をファン内部へ溜めにくくする考え方・機構を示す技術訴求名の一例。清掃性差別化で使われる。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 3 Gas -->
-  <section id="gas" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">3. ガスコンロ用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">ガスコンロ / ガスホブ <span class="term-en">Gas Hob</span></div>
-        <div class="small">ガス燃焼により鍋へ熱を与える調理機器。火力、安全、清掃性、意匠が主要競争軸。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">火力 <span class="term-en">Heat Output</span></div>
-        <div class="small">kWで表すことが多い。高火力訴求だけでなく、低火力安定制御も重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">FFD <span class="term-en">Flame Failure Device</span></div>
-        <div class="small">立消え安全装置。炎が消えたときにガス供給を止める安全機構で、世界的に重要な必須機能。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">熱電対 <span class="term-en">Thermocouple</span></div>
-        <div class="small">温度差により起電力を発生させる素子。FFDの炎検知などに使われる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">温調 <span class="term-en">Temperature Control</span></div>
-        <div class="small">鍋底温度を検知し、一定温度に保つ機能。揚げ物や焼き物の安定化に有効。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">FlameSelect</div>
-        <div class="small">火力を段階的に再現しやすくする制御思想・技術名の一例。ユーザーが再現性ある火加減を得やすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">鋳鉄五徳 <span class="term-en">Cast Iron Pan Support</span></div>
-        <div class="small">鍋を支える部材。重厚感と耐久性に優れるが、錆・塗装・寸法ばらつきの管理が重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">ガラストップ <span class="term-en">Glass Top</span></div>
-        <div class="small">黒ガラス等を用いた天板。高級感と清掃性に優れるが、割れや端部欠けに注意が必要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">偏炎 <span class="term-en">Uneven Flame</span></div>
-        <div class="small">炎が均一でなく、片寄って燃える状態。燃焼品質や熱効率、安全性に影響する。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 4 IH -->
-  <section id="ih" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">4. IH用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">IH <span class="term-en">Induction Heating</span></div>
-        <div class="small">高周波磁界により鍋底へ渦電流を発生させ、鍋自体を加熱する方式。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">加熱コイル <span class="term-en">Induction Coil</span></div>
-        <div class="small">磁束を作るためのコイル。位置精度や絶縁、冷却設計が性能に影響する。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">IGBT <span class="term-en">Insulated Gate Bipolar Transistor</span></div>
-        <div class="small">高電力スイッチングに使う半導体素子。IHのインバータ回路で重要部品となる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">PowerBoost</div>
-        <div class="small">短時間だけ出力を引き上げる機能。立ち上がり速度を高めるが、熱設計負荷も増える。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">FlexInduction / Flex Zone</div>
-        <div class="small">複数加熱ゾーンを連携し、鍋位置やサイズに応じて加熱領域を柔軟に変える機能。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">鍋検知 <span class="term-en">Pan Detection</span></div>
-        <div class="small">鍋が適切に置かれているか、IH対応かを検知する機能。安全性と制御に直結する。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">残熱表示 <span class="term-en">Residual Heat Indicator</span></div>
-        <div class="small">使用後の天板が熱いことを表示する安全機能。家庭用機器では重要な基本機能。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Home Connect</div>
-        <div class="small">家電とアプリや他機器を連携するスマートホーム機能群の一例。遠隔監視・連携制御に使われる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">SCHOTT CERAN</div>
-        <div class="small">IHや電気ホブで広く使われるガラスセラミック材料ブランドの一例。耐熱衝撃性と外観品質で知られる。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 5 Heater -->
-  <section id="heater" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">5. 給湯器用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">瞬間式 <span class="term-en">Instant / Tankless</span></div>
-        <div class="small">必要なときだけ通水しながら加熱する方式。省スペースで連続出湯に向く。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">貯湯式 <span class="term-en">Storage</span></div>
-        <div class="small">タンクに温水を貯めて使う方式。多点給湯やピーク需要に向く。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">ハイブリッド給湯</div>
-        <div class="small">ヒートポンプとガス等を組み合わせて高効率を狙う方式。日本市場で差別化要素になりやすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">熱交換器 <span class="term-en">Heat Exchanger</span></div>
-        <div class="small">熱を流体へ移す部品。瞬間式給湯器の中心構成要素で、材質や構造が性能と寿命に効く。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">アノード棒 <span class="term-en">Anode Rod</span></div>
-        <div class="small">犠牲防食のために使う部材。タンク内面腐食を抑える目的で用いられる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">L/min <span class="term-en">Liter per Minute</span></div>
-        <div class="small">給湯能力を表す代表指標。家族人数や複数箇所同時使用の検討に使う。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">FE / FF</div>
-        <div class="small">給排気方式を示す表記の一例。設置条件や安全性、住宅制約に関わる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">抗菌加熱 <span class="term-en">Antibacterial Heating</span></div>
-        <div class="small">衛生性訴求として用いられる概念。湯温管理や材料選定と合わせて語られることが多い。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">断熱材 <span class="term-en">Insulation Material</span></div>
-        <div class="small">タンクや配管の放熱を抑え、省エネと保温に寄与する材料。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 6 Dishwasher -->
-  <section id="dishwasher" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">6. 食洗機用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">食洗機 <span class="term-en">Dishwasher</span></div>
-        <div class="small">洗浄・すすぎ・乾燥を自動で行う機器。洗浄性能、乾燥性能、静音、省スペースが重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Place Settings</div>
-        <div class="small">食器収納容量を示す国際的な表し方。市場ごとのサイズ比較でよく使われる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Zeolith乾燥</div>
-        <div class="small">吸放湿性材料を使って乾燥性能と省エネを両立させる乾燥方式の一例。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">3rd Rack</div>
-        <div class="small">上部に追加される薄型ラック。カトラリーや小物を整理しやすくする。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Half-load</div>
-        <div class="small">少量の食器に対して水や電力の使い方を調整するモード。普及帯でも差別化しやすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Sanitise / 高温除菌</div>
-        <div class="small">高温水や高温乾燥で衛生性を高める考え方。都市市場では訴求力が高い。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Countertop / 卓上型</div>
-        <div class="small">キッチンカウンター上に置く小型食洗機。設置性は良いが容量に制約がある。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Drawer型 <span class="term-en">DishDrawer</span></div>
-        <div class="small">引き出し式の食洗機。香港などの狭小高級住宅で相性が良い構造。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">濁度センサ <span class="term-en">Turbidity Sensor</span></div>
-        <div class="small">洗浄水の汚れ具合を検知し、コースや水量制御に反映するセンサ。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 7 Market -->
-  <section id="market" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">7. 市場・販路用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">B2C <span class="term-en">Business to Consumer</span></div>
-        <div class="small">企業から一般消費者への販売。EC、量販、小売店などが中心になる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">B2B <span class="term-en">Business to Business</span></div>
-        <div class="small">企業間取引。デベロッパー案件、施工店ルート、代理店販売などが含まれる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">developer案件</div>
-        <div class="small">不動産デベロッパーや建設会社が主導する採用案件。中国の精装修市場などで重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">量販</div>
-        <div class="small">家電量販店や大型小売での販売チャネル。価格比較されやすく、見せ方が重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">EC <span class="term-en">E-commerce</span></div>
-        <div class="small">オンライン販売。中国ではライブコマースとの連動が強く、B2Cの主戦場になりやすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">代理店 <span class="term-en">Distributor</span></div>
-        <div class="small">輸入、在庫、販売、サービスを担う中間チャネル。海外展開では重要な販売基盤になる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">毛坯房</div>
-        <div class="small">中国でのスケルトン渡し住宅。施主が後から設備を選びやすく、B2C色が強い。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">精装修</div>
-        <div class="small">中国での内装・設備付き渡し住宅。B2B案件色が強く、標準仕様や共同ダクト対応が重要になる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">HDB</div>
-        <div class="small">シンガポールの公団住宅。施工制約や設備条件が商品仕様へ強く影響する。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 8 Regulation -->
-  <section id="regulation" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">8. 認証・法規用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">PSE</div>
-        <div class="small">日本の電気用品安全法に基づく適合表示。日本市場の電気製品販売で重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">CCC</div>
-        <div class="small">中国の強制認証制度。対象製品を販売するには認証取得と関連表示が必要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">BSMI</div>
-        <div class="small">台湾の標準検験局。電気安全・EMC・関連表示の確認に関わる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Safety Mark</div>
-        <div class="small">シンガポールの製品安全関連表示制度。対象製品の市場投入で重要になる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">SIRIM</div>
-        <div class="small">マレーシアの認証関連で重要な機関・認証文脈。ST承認と合わせて整理されることが多い。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">EMSD</div>
-        <div class="small">香港の機電関連行政文脈で重要な名称。電気製品安全や表示制度と関係する。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">EMC <span class="term-en">Electromagnetic Compatibility</span></div>
-        <div class="small">他機器へ電磁妨害を与えず、自身も外来ノイズに耐える性質。高周波制御機器では重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Energy Label / エネルギーラベル</div>
-        <div class="small">省エネ性能を市場へ示すラベル。国ごとに制度や等級が異なる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">表示・銘板</div>
-        <div class="small">電圧、周波数、型番、認証マーク、製造者情報などを示す表記。市場ごとに要件が異なる。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 9 Manufacturing -->
-  <section id="manufacturing" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">9. 製造・品質用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">DFM <span class="term-en">Design for Manufacturing</span></div>
-        <div class="small">製造しやすさを考慮した設計。加工ルール、公差、材料、工程能力を踏まえて決める。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">DFA <span class="term-en">Design for Assembly</span></div>
-        <div class="small">組み立てやすさを考慮した設計。一方向組立、部品点数低減、誤組立防止などが含まれる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">FMEA</div>
-        <div class="small">故障モード影響解析。未然防止のために潜在不具合を整理して対策優先度を決める。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">PPAP</div>
-        <div class="small">量産部品承認の考え方・提出体系を指す略語。供給者品質の初期確認で重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Cpk</div>
-        <div class="small">工程能力指数。量産工程が規格内で安定しているかを見る代表指標。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">IQC / IPQC / FQC / OQC</div>
-        <div class="small">受入品質、工程品質、最終品質、出荷後品質など、品質管理の段階を分けた表現。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">トルク管理 <span class="term-en">Torque Control</span></div>
-        <div class="small">締結不良を防ぐため、規定トルクでねじを締める管理。製品安全や異音防止に関わる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">膜厚 <span class="term-en">Coating Thickness</span></div>
-        <div class="small">塗装やコーティングの厚み。防錆、外観、機能寿命に直結する。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">AQL</div>
-        <div class="small">抜取検査でロット判定を行う際の品質水準の考え方。出荷判定でよく使う。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 10 Thinking -->
-  <section id="thinking" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">10. 思考法・問題解決用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">クリティカルシンキング</div>
-        <div class="small">前提や根拠を確認し、事実と解釈を分けて考える思考法。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">ロジカルシンキング</div>
-        <div class="small">筋道立てて整理し、相手に伝わる構造で考える思考法。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">演繹法</div>
-        <div class="small">一般原則から個別結論を導く考え方。規制要件や設計要求の展開で使いやすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">帰納法</div>
-        <div class="small">複数事例から共通パターンを見出す考え方。市場分析や競合比較で使いやすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">MECE</div>
-        <div class="small">モレなくダブりなく整理する考え方。比較表や論点整理の基本になる。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">ピラミッドストラクチャー</div>
-        <div class="small">結論→理由→根拠で組み立てる説明構造。報告や提案資料で有効。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">5S</div>
-        <div class="small">整理・整頓・清掃・清潔・躾。現場にも情報管理にも使える基本概念。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">5M</div>
-        <div class="small">Man / Machine / Material / Method / Measurement の5視点で問題原因を整理する枠組み。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">フロントローディング</div>
-        <div class="small">後工程で高くつく論点を、できるだけ上流で潰す考え方。開発効率に直結する。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 11 IT -->
-  <section id="it" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">11. 業務IT・Microsoft用語</h2>
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 glossary-group">
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Excel</div>
-        <div class="small">比較表、台帳、集計、仕様一覧、競合表、進捗管理に向く表計算ツール。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">PowerPoint</div>
-        <div class="small">結論を短時間で伝えるための報告・提案資料作成に向くツール。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Word</div>
-        <div class="small">仕様書、標準書、長文説明、正式議事録など、文章中心文書に向く。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Outlook</div>
-        <div class="small">メール、会議招集、依頼履歴の管理に使う。正式依頼の証跡として重要。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Teams</div>
-        <div class="small">日常のやり取り、会議、即時共有に向く。正式決定事項は別文書へ残す運用が望ましい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">OneNote</div>
-        <div class="small">個人メモ、下書き、会議メモ、学習ノートに向く。正式文書の代わりではない。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">SharePoint</div>
-        <div class="small">正式保存、共有、版管理の土台として使いやすい。チームの最新版置き場になりやすい。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">Forms</div>
-        <div class="small">簡易アンケートや情報収集フォームに使う。調査依頼や会議前確認に便利。</div>
-      </div>
-
-      <div class="term-card glossary-item">
-        <div class="term-title">版管理 <span class="term-en">Version Control</span></div>
-        <div class="small">文書やデータの更新履歴を管理する考え方。誰が何を変えたか追える状態が重要。</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 12 Abbrev -->
-  <section id="abbrev" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">12. 略語集</h2>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>略語</th>
-            <th>正式名称</th>
-            <th>意味</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>CFD</td><td>Computational Fluid Dynamics</td><td>流体解析。気流や温度分布の予測に使う。</td></tr>
-          <tr><td>FEM</td><td>Finite Element Method</td><td>有限要素法。強度や変形解析に使う。</td></tr>
-          <tr><td>DFM</td><td>Design for Manufacturing</td><td>製造しやすさを考えた設計。</td></tr>
-          <tr><td>DFA</td><td>Design for Assembly</td><td>組立しやすさを考えた設計。</td></tr>
-          <tr><td>MBSE</td><td>Model Based Systems Engineering</td><td>モデルベースでシステム設計を行う考え方。</td></tr>
-          <tr><td>PLM</td><td>Product Lifecycle Management</td><td>製品ライフサイクル全体の管理。</td></tr>
-          <tr><td>VOC</td><td>Voice of Customer / Volatile Organic Compounds</td><td>文脈により顧客の声、または揮発性有機化合物を指す。</td></tr>
-          <tr><td>BOM</td><td>Bill of Materials</td><td>部品表。</td></tr>
-          <tr><td>FMEA</td><td>Failure Mode and Effects Analysis</td><td>故障モード影響解析。</td></tr>
-          <tr><td>PPAP</td><td>Production Part Approval Process</td><td>量産部品承認の考え方。</td></tr>
-          <tr><td>EMC</td><td>Electromagnetic Compatibility</td><td>電磁両立性。</td></tr>
-          <tr><td>FFD</td><td>Flame Failure Device</td><td>立消え安全装置。</td></tr>
-          <tr><td>PFC</td><td>Power Factor Correction</td><td>力率改善。</td></tr>
-          <tr><td>BLDC</td><td>Brushless DC Motor</td><td>ブラシレスDCモータ。</td></tr>
-          <tr><td>IQC</td><td>Incoming Quality Control</td><td>受入品質管理。</td></tr>
-          <tr><td>IPQC</td><td>In-Process Quality Control</td><td>工程内品質管理。</td></tr>
-          <tr><td>FQC</td><td>Final Quality Control</td><td>最終品質管理。</td></tr>
-          <tr><td>OQC</td><td>Outgoing Quality Control</td><td>出荷品質管理。</td></tr>
-          <tr><td>AQL</td><td>Acceptable Quality Level</td><td>抜取検査での品質水準。</td></tr>
-          <tr><td>Cpk</td><td>Process Capability Index</td><td>工程能力指数。</td></tr>
-          <tr><td>HDB</td><td>Housing & Development Board</td><td>シンガポール公団住宅文脈で使われる名称。</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Footer nav -->
-  <section class="section">
-    <div class="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-      <div>
-        <p class="font-bold">ページ導線</p>
-        <p class="small subtle">前後のページへつなぐためのリンクです。ファイル名は必要に応じて調整してください。</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <a href="index.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">トップへ戻る</a>
-        <a href="education_operation.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">前：教育・運用編</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="text-center text-sm text-gray-500 pt-2">
-    © 2026 仕事ハブ統合資料 / Glossary
+  <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-200 mt-8">
+    仕事ハブ統合資料 V3.2 — Book 5 単語集 — 最終更新日：2026-06-14
   </footer>
 
+  <!-- 検索スクリプト -->
   <script>
     function filterTerms() {
-      const keyword = document.getElementById('searchBox').value.toLowerCase().trim();
-      const items = document.querySelectorAll('.glossary-item');
-
-      items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        if (!keyword || text.includes(keyword)) {
-          item.style.display = '';
+      const q = document.getElementById('search-input').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#glossary-container .term-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const text = (card.getAttribute('data-term') || '') + ' ' + (card.textContent || '');
+        if (q === '' || text.toLowerCase().includes(q)) {
+          card.classList.remove('hidden-term');
+          visible++;
         } else {
-          item.style.display = 'none';
+          card.classList.add('hidden-term');
         }
       });
+      const countEl = document.getElementById('search-count');
+      if (q !== '') {
+        countEl.textContent = `${visible} 件ヒット`;
+      } else {
+        countEl.textContent = '';
+      }
+      // セクション表示制御
+      document.querySelectorAll('#glossary-container section').forEach(sec => {
+        const anyVisible = sec.querySelectorAll('.term-card:not(.hidden-term)').length > 0;
+        sec.style.display = (q === '' || anyVisible) ? '' : 'none';
+      });
+      // 目次・TOCの表示制御
+      document.getElementById('toc-nav').style.display = q === '' ? '' : 'none';
     }
   </script>
-
 </body>
 </html>
