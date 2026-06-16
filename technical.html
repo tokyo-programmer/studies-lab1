@@ -3,273 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>仕事ハブ統合資料 V3.2 技術編</title>
+  <title>仕事ハブ V3.2 — Book 1 技術編</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: "Noto Sans JP", sans-serif;
-      background: #fcfaf7;
-      color: #1f2937;
-    }
-    .section {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-    }
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      background: #f3f4f6;
-      color: #4b5563;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #d1d5db;
-      padding: 10px 12px;
-      vertical-align: top;
-    }
-    th {
-      background: #f3f4f6;
-      font-weight: 700;
-      text-align: left;
-    }
-    .subtle {
-      color: #6b7280;
-    }
-    .small {
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    .anchor {
-      scroll-margin-top: 90px;
-    }
-    .formula {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-size: 13px;
-      overflow-x: auto;
-    }
+    body { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; background: #f5f3ef; color: #1f2937; }
+    .section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+    .tag { display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 9999px; background: #f3f4f6; color: #4b5563; margin-right: 6px; margin-bottom: 6px; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { border: 1px solid #d1d5db; padding: 9px 11px; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: 700; text-align: left; }
+    .anchor { scroll-margin-top: 80px; }
+    .formula { background: #f0f4ff; border-left: 4px solid #3b82f6; padding: 10px 16px; border-radius: 0 8px 8px 0; font-family: monospace; font-size: 13px; margin: 8px 0; }
+    .product-header { background: linear-gradient(135deg, #1e3a5f, #2d5a8e); color: white; border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; }
+    .sub-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 16px; margin-top: 10px; }
+    /* ナビゲーション固定 */
+    .sticky-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e7eb; }
+    @media(max-width:640px){ table { display:block; overflow-x:auto; } }
   </style>
 </head>
-<body class="px-4 py-6 md:px-8 md:py-10 space-y-8">
+<body class="min-h-screen">
+
+  <!-- Top Nav -->
+  <div class="sticky-nav px-4 py-3 flex items-center justify-between">
+    <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold text-sm flex items-center gap-1">← 分冊一覧</a>
+    <span class="text-sm font-bold text-gray-700">Book 1 技術編</span>
+    <a href="market_certification.html" class="text-blue-600 hover:text-blue-800 text-sm font-semibold">Book 2 →</a>
+  </div>
 
   <!-- Header -->
-  <header class="space-y-4">
-    <div class="flex flex-col gap-3">
-      <p class="text-sm text-gray-500">仕事ハブ / Book 1</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-        技術編<br>
-        <span class="text-xl md:text-2xl text-gray-600 font-semibold">仕事ハブ統合資料 V3.2</span>
-      </h1>
-      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+  <header class="bg-gradient-to-br from-blue-800 to-blue-500 text-white px-4 pt-10 pb-12 md:px-8">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <p class="text-blue-200 text-sm font-semibold">仕事ハブ / Book 1</p>
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">技術編</h1>
+      <p class="text-blue-100 text-sm md:text-base leading-relaxed max-w-2xl">
         レンジフード・ガスコンロ・IH・給湯器・食洗機の5商品について、
         基礎原理、競合技術ベンチマーク、機能分解、材料・構造・UI比較、
         そして市場要求を技術要求へ変換する考え方を整理した技術中核編です。
       </p>
-    </div>
-
-    <div>
-      <span class="tag">技術ベース</span>
-      <span class="tag">競合起点</span>
-      <span class="tag">5商品横断</span>
-      <span class="tag">6市場反映</span>
-      <span class="tag">スマホ閲覧向け</span>
-    </div>
-
-    <div class="text-sm text-gray-500 space-y-1">
-      <p>作成日：2024-12-19</p>
-      <p>最終更新日：2026-06-14</p>
-      <p>版数：V3.2</p>
+      <div class="flex flex-wrap gap-2 pt-1">
+        <span class="tag bg-blue-700 text-blue-100">技術ベース</span>
+        <span class="tag bg-blue-700 text-blue-100">競合起点</span>
+        <span class="tag bg-blue-700 text-blue-100">5商品横断</span>
+        <span class="tag bg-blue-700 text-blue-100">6市場反映</span>
+      </div>
+      <div class="text-xs text-blue-300 flex flex-wrap gap-3 pt-1">
+        <span>作成日：2024-12-19</span>
+        <span>最終更新日：2026-06-14</span>
+        <span>版数：V3.2</span>
+      </div>
     </div>
   </header>
 
-  <!-- Nav -->
-  <nav class="section">
-    <h2 class="text-lg font-bold mb-3">目次</h2>
-    <div class="grid md:grid-cols-3 gap-2 text-sm">
-      <a class="text-blue-700 hover:underline" href="#intro">1. 技術編の読み方</a>
-      <a class="text-blue-700 hover:underline" href="#common-system">2. 共通システム理解</a>
-      <a class="text-blue-700 hover:underline" href="#rangehood">3-5. レンジフード</a>
-      <a class="text-blue-700 hover:underline" href="#gas">6-8. ガスコンロ</a>
-      <a class="text-blue-700 hover:underline" href="#ih">9-11. IH / 電気ホブ</a>
-      <a class="text-blue-700 hover:underline" href="#waterheater">12-14. 給湯器</a>
-      <a class="text-blue-700 hover:underline" href="#dishwasher">15-17. 食洗機</a>
-      <a class="text-blue-700 hover:underline" href="#cross-material">18. 材料・構造・UI比較</a>
-      <a class="text-blue-700 hover:underline" href="#market-tech">19. 市場要求→技術要件変換</a>
-      <a class="text-blue-700 hover:underline" href="#summary">20. まとめ</a>
-    </div>
-  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-8 md:px-8 space-y-8">
 
-  <!-- Intro -->
-  <section id="intro" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">1. 技術編の読み方と技術俯瞰</h2>
+    <!-- 目次 -->
+    <nav class="section">
+      <h2 class="text-lg font-bold mb-3">目次</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+        <a class="text-blue-700 hover:underline" href="#intro">1. 技術編の読み方</a>
+        <a class="text-blue-700 hover:underline" href="#common-system">2. 共通システム理解</a>
+        <a class="text-blue-700 hover:underline" href="#rangehood">3-5. レンジフード</a>
+        <a class="text-blue-700 hover:underline" href="#gas">6-8. ガスコンロ</a>
+        <a class="text-blue-700 hover:underline" href="#ih">9-11. IH / 電気ホブ</a>
+        <a class="text-blue-700 hover:underline" href="#waterheater">12-14. 給湯器</a>
+        <a class="text-blue-700 hover:underline" href="#dishwasher">15-17. 食洗機</a>
+        <a class="text-blue-700 hover:underline" href="#cross-material">18. 材料・構造・UI比較</a>
+        <a class="text-blue-700 hover:underline" href="#market-tech">19. 市場要求→技術要件変換</a>
+        <a class="text-blue-700 hover:underline" href="#summary">20. まとめ</a>
+      </div>
+    </nav>
 
-    <p class="leading-relaxed">
-      この技術編は、単なる原理説明ではなく、
-      <strong>「市場で売れている実装が、なぜその形になっているか」</strong>を読むための分冊である。
-      つまり、技術は理屈だけで完結せず、
-      市場要求、住宅制約、調理文化、認証条件、施工条件によって具体化される。
-    </p>
+    <!-- 1. 読み方と技術俯瞰 -->
+    <section id="intro" class="section anchor space-y-5">
+      <h2 class="text-2xl font-bold">1. 技術編の読み方と技術俯瞰</h2>
+      <p class="leading-relaxed">
+        この技術編は、単なる原理説明ではなく、
+        <strong>「市場で売れている実装が、なぜその形になっているか」</strong>を読むための分冊である。
+        技術は理屈だけで完結せず、市場要求・住宅制約・調理文化・認証条件・施工条件によって具体化される。
+      </p>
 
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-1 競合ベンチマークを入れる理由</h3>
-        <p class="subtle">売れている製品が実装している機能・構造・材料を見ることで、技術説明が実務に接続される。</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="sub-card">
+          <h3 class="font-bold text-blue-700 mb-1">1-1 競合ベンチマークを入れる理由</h3>
+          <p class="text-sm leading-relaxed">売れている製品が実装している機能・構造・材料を見ることで、技術説明が実務に接続される。</p>
+        </div>
+        <div class="sub-card">
+          <h3 class="font-bold text-blue-700 mb-1">1-2 5商品を貫く共通軸</h3>
+          <p class="text-sm leading-relaxed">安全、清掃、静音、省エネ、施工性、UI、保守性、コスト、認証適合が共通技術軸となる。</p>
+        </div>
+        <div class="sub-card">
+          <h3 class="font-bold text-blue-700 mb-1">1-3 市場要求→技術要求</h3>
+          <p class="text-sm leading-relaxed">高油煙なら高静圧・油分離・清掃構造、狭小住宅なら薄型・低騒音・据付性という変換で考える。</p>
+        </div>
+        <div class="sub-card">
+          <h3 class="font-bold text-blue-700 mb-1">1-4 単語集との役割分担</h3>
+          <p class="text-sm leading-relaxed">本文は読みやすさ優先。細かな略語や定義は<a href="glossary.html" class="text-blue-600 underline">単語集</a>に集約し、ここでは技術の意味づけに集中する。</p>
+        </div>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-2 5商品を貫く共通軸</h3>
-        <p class="subtle">安全、清掃、静音、省エネ、施工性、UI、保守性、コスト、認証適合が共通技術軸となる。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-3 市場要求→技術要求</h3>
-        <p class="subtle">高油煙なら高静圧・油分離・清掃構造、狭小住宅なら薄型・低騒音・据付性という変換で考える。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">1-4 単語集との役割分担</h3>
-        <p class="subtle">本文は読みやすさ優先。細かな略語や定義は独立単語集に逃がし、ここでは技術の意味づけに集中する。</p>
-      </div>
-    </div>
 
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>中心となる技術領域</th>
-            <th>市場で差が出やすい論点</th>
-            <th>代表的な競争軸</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>レンジフード</td>
-            <td>流体、油煙捕集、モータ、騒音</td>
-            <td>高静圧、再循環、清掃性、薄型化</td>
-            <td>風量、静圧、捕集率、掃除性</td>
-          </tr>
-          <tr>
-            <td>ガスコンロ</td>
-            <td>燃焼、温調、安全、天板材料</td>
-            <td>火力、安全機構、据付寸法、清掃性</td>
-            <td>火力、温調、安全、意匠</td>
-          </tr>
-          <tr>
-            <td>IH</td>
-            <td>電磁誘導、制御、センサ、UI</td>
-            <td>Flex zone、フード連動、電源条件</td>
-            <td>制御精度、連携、操作性</td>
-          </tr>
-          <tr>
-            <td>給湯器</td>
-            <td>熱交換、瞬間加熱、断熱、防食</td>
-            <td>instant / storage / hybrid、設置制約</td>
-            <td>省エネ、容量、衛生、耐久</td>
-          </tr>
-          <tr>
-            <td>食洗機</td>
-            <td>洗浄、乾燥、流体、静音、収納</td>
-            <td>45/60cm、卓上、小型、高温除菌</td>
-            <td>乾燥方式、静音、省スペース</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Common system -->
-  <section id="common-system" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">2. 住宅設備機器の共通システム理解</h2>
-
-    <p class="leading-relaxed">
-      5商品は一見別物に見えるが、実際には
-      <strong>空気・熱・水・燃焼・電気・制御</strong>の組み合わせとして理解できる。
-      市場差は、この組み合わせのどこに重みが乗るかの違いである。
-    </p>
-
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">空気</h3>
-        <p class="subtle">レンジフードの換気、食洗機の乾燥、給湯器の排気、冷却ファンなど、空気の流れは多くの商品で基本になる。</p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr>
+            <th>商品</th><th>中心となる技術領域</th><th>市場で差が出やすい論点</th><th>代表的な競争軸</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>レンジフード</td><td>流体、油煙捕集、モータ、騒音</td><td>高静圧、再循環、清掃性、薄型化</td><td>風量、静圧、捕集率、掃除性</td></tr>
+            <tr><td>ガスコンロ</td><td>燃焼、温調、安全、天板材料</td><td>火力、安全機構、据付寸法、清掃性</td><td>火力、温調、安全、意匠</td></tr>
+            <tr><td>IH</td><td>電磁誘導、制御、センサ、UI</td><td>Flex zone、フード連動、電源条件</td><td>制御精度、連携、操作性</td></tr>
+            <tr><td>給湯器</td><td>熱交換、瞬間加熱、断熱、防食</td><td>instant / storage / hybrid、設置制約</td><td>省エネ、容量、衛生、耐久</td></tr>
+            <tr><td>食洗機</td><td>洗浄、乾燥、流体、静音、収納</td><td>45/60cm、卓上、小型、高温除菌</td><td>乾燥方式、静音、省スペース</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">熱</h3>
-        <p class="subtle">加熱・燃焼・断熱・熱交換・放熱が全商品で重要。熱を「作る・移す・逃がす」を整理すると理解しやすい。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">水</h3>
-        <p class="subtle">給湯器や食洗機では中心要素。レンジフードでも洗浄・結露・湿気対策で水が関わる。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">燃焼</h3>
-        <p class="subtle">ガスコンロとガス給湯器の中核技術。炎安定性、熱効率、立消え安全、ガス種適合が鍵となる。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">電気</h3>
-        <p class="subtle">IH、制御基板、BLDCモータ、センサ、表示部など。市場ごとの電圧・周波数差に強く影響される。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">制御</h3>
-        <p class="subtle">タイマ、温度制御、Bluetooth連動、Home Connect、自動洗浄など、差別化の中心は制御へ移っている。</p>
-      </div>
-    </div>
+    </section>
 
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>共通要件</th>
-            <th>意味</th>
-            <th>具体例</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>安全</td>
-            <td>感電、火災、漏水、ガス漏れ、過熱を防ぐ</td>
-            <td>FFD、チャイルドロック、漏電保護、温度ヒューズ</td>
-          </tr>
-          <tr>
-            <td>清掃性</td>
-            <td>油・水垢・食品汚れを溜めにくく洗いやすい</td>
-            <td>撥油コート、フラット面、着脱式フィルタ、ガラストップ</td>
-          </tr>
-          <tr>
-            <td>静音</td>
-            <td>住宅設備として日常使用に耐える音量へ抑える</td>
-            <td>BLDC、流路最適化、防振、断熱吸音</td>
-          </tr>
-          <tr>
-            <td>省エネ</td>
-            <td>効率よく必要性能を出す</td>
-            <td>BLDC、PFC、高効率燃焼、ハイブリッド給湯、Zeolith乾燥</td>
-          </tr>
-          <tr>
-            <td>施工性</td>
-            <td>現場で取付しやすく、既設更新にも対応できる</td>
-            <td>薄型化、標準開口寸法、軽量化、配管互換</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <!-- 2. 共通システム理解 -->
+    <section id="common-system" class="section anchor space-y-5">
+      <h2 class="text-2xl font-bold">2. 住宅設備機器の共通システム理解</h2>
+      <p class="leading-relaxed">
+        5商品は一見別物に見えるが、実際には<strong>空気・熱・水・燃焼・電気・制御</strong>の組み合わせとして理解できる。
+        市場差は、この組み合わせのどこに重みが乗るかの違いである。
+      </p>
+      <div class="grid md:grid-cols-3 gap-3">
+        <div class="sub-card"><h3 class="font-bold text-sm mb-1">🌬 空気</h3><p class="text-xs leading-relaxed">レンジフードの換気、食洗機の乾燥、給湯器の排気、冷却ファンなど、多くの商品で基本になる。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm mb-1">🔥 熱</h3><p class="text-xs leading-relaxed">加熱・燃焼・断熱・熱交換・放熱が全商品で重要。熱を「作る・移す・逃がす」で整理する。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm mb-1">💧 水</h3><p class="text-xs leading-relaxed">給湯器や食洗機では中心要素。レンジフードでも洗浄・結露・湿気対策で関わる。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm mb-1">🕯 燃焼</h3><p class="text-xs leading-relaxed">ガスコンロとガス給湯器の中核技術。炎安定性、熱効率、立消え安全、ガス種適合が鍵。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm mb-1">⚡ 電気</h3><p class="text-xs leading-relaxed">IH、制御基板、BLDCモータ、センサ、表示部など。市場ごとの電圧・周波数差に強く影響される。</p></div>
+        <div class="sub-card"><h3 class="font-bold text-sm mb-1">🧠 制御</h3><p class="text-xs leading-relaxed">タイマ、温度制御、Bluetooth連動、Home Connect、自動洗浄など、差別化の中心は制御へ移っている。</p></div>
+      </div>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>共通要件</th><th>意味</th><th>具体例</th></tr></thead>
+          <tbody>
+            <tr><td>安全</td><td>感電、火災、漏水、ガス漏れ、過熱を防ぐ</td><td>FFD、チャイルドロック、漏電保護、温度ヒューズ</td></tr>
+            <tr><td>清掃性</td><td>油・水垢・食品汚れを溜めにくく洗いやすい</td><td>撥油コート、フラット面、着脱式フィルタ、ガラストップ</td></tr>
+            <tr><td>静音</td><td>住宅設備として日常使用に耐える音量へ抑える</td><td>BLDC、流路最適化、防振、断熱吸音</td></tr>
+            <tr><td>省エネ</td><td>効率よく必要性能を出す</td><td>BLDC、PFC、高効率燃焼、ハイブリッド給湯、Zeolith乾燥</td></tr>
+            <tr><td>施工性</td><td>現場で取付しやすく、既設更新にも対応できる</td><td>薄型化、標準開口寸法、軽量化、配管互換</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <!-- Rangehood -->
-  <section id="rangehood" class="section anchor space-y-8">
-    <h2 class="text-2xl font-bold">3-5. レンジフード</h2>
+    <!-- 3-5. レンジフード -->
+    <section id="rangehood" class="section anchor space-y-5">
+      <div class="product-header">
+        <h2 class="text-2xl font-extrabold">3–5. レンジフード</h2>
+        <p class="text-blue-200 text-sm mt-1">流体 / 油煙捕集 / モータ / 騒音</p>
+      </div>
 
-    <div class="space-y-4">
       <h3 class="text-xl font-bold">3. 基礎原理</h3>
       <p class="leading-relaxed">
         レンジフードは、調理中に発生する油煙・水蒸気・臭気・微粒子を
@@ -277,256 +160,103 @@
         性能は単純な風量だけでは決まらず、開口形状、整流板、ダクト抵抗、フィルタ圧損、
         調理上昇流との位置関係によって大きく変わる。
       </p>
-
-      <div class="formula">相似則：Q ∝ n、ΔP ∝ n²、P ∝ n³</div>
+      <div class="formula">相似則：Q ∝ n　/ 　ΔP ∝ n²　/ 　P ∝ n³</div>
       <div class="formula">システム圧損：ΔP_system = ΔP_filter + ΔP_duct + ΔP_bend + ΔP_outdoor</div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">捕集</h4>
-          <p class="subtle">コンロ上の上昇流をどれだけ取り逃がさずフード内に導けるか。整流板や吸込口形状が効く。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">搬送</h4>
-          <p class="subtle">ファン、ケーシング、流路、ダクトで圧損に打ち勝って油煙を移送する。高層住宅では高静圧が重要。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">排気</h4>
-          <p class="subtle">屋外へ直接排気する方式。性能は高いが、ダクト工事・逆流防止・共同ダクト配慮が必要。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">再循環</h4>
-          <p class="subtle">フィルタと活性炭で浄化して室内に戻す。HDBや賃貸、外壁制約のある市場で成立しやすい。</p>
-        </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm text-blue-700">捕集：</strong><span class="text-sm">コンロ上の上昇流をどれだけ取り逃がさずフード内に導けるか。整流板や吸込口形状が効く。</span></div>
+        <div class="sub-card"><strong class="text-sm text-blue-700">搬送：</strong><span class="text-sm">ファン、ケーシング、流路、ダクトで圧損に打ち勝って油煙を移送する。高層住宅では高静圧が重要。</span></div>
+        <div class="sub-card"><strong class="text-sm text-blue-700">排気：</strong><span class="text-sm">屋外へ直接排気する方式。性能は高いが、ダクト工事・逆流防止・共同ダクト配慮が必要。</span></div>
+        <div class="sub-card"><strong class="text-sm text-blue-700">再循環：</strong><span class="text-sm">フィルタと活性炭で浄化して室内に戻す。HDBや賃貸、外壁制約のある市場で成立しやすい。</span></div>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">4. 競合技術ベンチマーク</h3>
+      <h3 class="text-xl font-bold mt-4">4. 競合技術ベンチマーク</h3>
       <div class="overflow-x-auto">
-        <table class="text-sm">
-          <thead>
-            <tr>
-              <th>市場</th>
-              <th>代表ブランド</th>
-              <th>代表的な技術キーワード</th>
-              <th>市場での良いフードの定義</th>
-            </tr>
-          </thead>
+        <table>
+          <thead><tr><th>市場</th><th>代表ブランド</th><th>代表的な技術キーワード</th><th>市場での良いフードの定義</th></tr></thead>
           <tbody>
-            <tr>
-              <td>日本</td>
-              <td>FUJIOH / Noritz / Panasonic</td>
-              <td>Super Kirei、Aqua Slit、OIL SMASHER、薄型、清掃性</td>
-              <td>静音で掃除しやすく、キッチン空間に圧迫感がないこと</td>
-            </tr>
-            <tr>
-              <td>中国</td>
-              <td>ROBAM / FOTILE / VATTI</td>
-              <td>高風量、高静圧、Gesture Control、BLDC、派手な訴求</td>
-              <td>強火調理の煙を確実に吸い、吸引力を体感できること</td>
-            </tr>
-            <tr>
-              <td>台湾</td>
-              <td>Sakura / Pacific</td>
-              <td>DC motor、3 oil layer design、42dB、ガラス外装</td>
-              <td>省エネ・静音・仕様の分かりやすさが両立していること</td>
-            </tr>
-            <tr>
-              <td>シンガポール</td>
-              <td>EF / Fujioh / Mayer</td>
-              <td>Rectifier Panel、再循環、HDB適合、コンパクト</td>
-              <td>住宅制約の中で収まりがよく、清掃しやすいこと</td>
-            </tr>
-            <tr>
-              <td>マレーシア</td>
-              <td>ELBA / Fujioh / Fotile</td>
-              <td>92% oil capture、Auto Fan Clean、親水コーティング</td>
-              <td>熱帯環境でも扱いやすく、掃除負担が小さいこと</td>
-            </tr>
-            <tr>
-              <td>香港</td>
-              <td>Fotile / Fujioh / Pacific</td>
-              <td>薄型、高静圧、中華調理、高層住宅対応</td>
-              <td>狭小空間でも中華調理に負けない吸引性能があること</td>
-            </tr>
+            <tr><td>日本</td><td>FUJIOH / Noritz / Panasonic</td><td>Super Kirei、Aqua Slit、OIL SMASHER、薄型、清掃性</td><td>静音で掃除しやすく、キッチン空間に圧迫感がないこと</td></tr>
+            <tr><td>中国</td><td>ROBAM / FOTILE / VATTI</td><td>高風量、高静圧、Gesture Control、BLDC、派手な訴求</td><td>強火調理の煙を確実に吸い、吸引力を体感できること</td></tr>
+            <tr><td>台湾</td><td>Sakura / Pacific</td><td>DC motor、3 oil layer design、42dB、ガラス外装</td><td>省エネ・静音・仕様の分かりやすさが両立していること</td></tr>
+            <tr><td>シンガポール</td><td>EF / Fujioh / Mayer</td><td>Rectifier Panel、再循環、HDB適合、コンパクト</td><td>住宅制約の中で収まりがよく、清掃しやすいこと</td></tr>
+            <tr><td>マレーシア</td><td>ELBA / Fujioh / Fotile</td><td>92% oil capture、Auto Fan Clean、親水コーティング</td><td>熱帯環境でも扱いやすく、掃除負担が小さいこと</td></tr>
+            <tr><td>香港</td><td>Fotile / Fujioh / Pacific</td><td>薄型、高静圧、中華調理、高層住宅対応</td><td>狭小空間でも中華調理に負けない吸引性能があること</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">5. 機能分解</h3>
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">5-1 油捕集</h4>
-          <p class="subtle">メッシュ、バッフル、ハニカム、整流板、オイルスマッシャーなど。油滴の慣性衝突・分離・排油構造が鍵。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">5-2 流路設計</h4>
-          <p class="subtle">吸込口形状、整流板角度、急拡大の回避、曲率設計が剥離・騒音・捕集率に効く。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">5-3 駆動</h4>
-          <p class="subtle">ACからBLDCへの移行で、可変速、省エネ、低騒音が進む。高静圧市場では制御自由度が強みになる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">5-4 清掃性</h4>
-          <p class="subtle">着脱しやすいフィルタ、撥油・親水コーティング、フラット面、Auto Fan Clean が差別化軸。</p>
-        </div>
+      <h3 class="text-xl font-bold mt-4">5. 機能分解</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">5-1 油捕集：</strong><span class="text-sm">メッシュ、バッフル、ハニカム、整流板、オイルスマッシャーなど。油滴の慣性衝突・分離・排油構造が鍵。</span></div>
+        <div class="sub-card"><strong class="text-sm">5-2 流路設計：</strong><span class="text-sm">吸込口形状、整流板角度、急拡大の回避、曲率設計が剥離・騒音・捕集率に効く。</span></div>
+        <div class="sub-card"><strong class="text-sm">5-3 駆動：</strong><span class="text-sm">ACからBLDCへの移行で、可変速・省エネ・低騒音が進む。高静圧市場では制御自由度が強みになる。</span></div>
+        <div class="sub-card"><strong class="text-sm">5-4 清掃性：</strong><span class="text-sm">着脱しやすいフィルタ、撥油・親水コーティング、フラット面、Auto Fan Cleanが差別化軸。</span></div>
       </div>
-
-      <div class="overflow-x-auto">
-        <table class="text-sm">
-          <thead>
-            <tr>
-              <th>市場背景</th>
-              <th>必要機能</th>
-              <th>構造・材料への落とし込み</th>
-            </tr>
-          </thead>
+      <div class="overflow-x-auto mt-3">
+        <table>
+          <thead><tr><th>市場背景</th><th>必要機能</th><th>構造・材料への落とし込み</th></tr></thead>
           <tbody>
-            <tr>
-              <td>高火力・高油煙調理</td>
-              <td>高捕集率、高静圧</td>
-              <td>大径シロッコ、低損失流路、耐油コート、強力ファン</td>
-            </tr>
-            <tr>
-              <td>狭小住宅</td>
-              <td>薄型、省スペース</td>
-              <td>低背モータ配置、薄型筐体、壁面密着設計</td>
-            </tr>
-            <tr>
-              <td>掃除負担への不満</td>
-              <td>自動洗浄、親水・撥油</td>
-              <td>コーティング、オイルトレイ、洗浄しやすい分解構造</td>
-            </tr>
-            <tr>
-              <td>HDB・外壁制約</td>
-              <td>再循環、活性炭対応</td>
-              <td>再循環ダクト、脱臭フィルタ、低圧損設計</td>
-            </tr>
+            <tr><td>高火力・高油煙調理</td><td>高捕集率、高静圧</td><td>大径シロッコ、低損失流路、耐油コート、強力ファン</td></tr>
+            <tr><td>狭小住宅</td><td>薄型、省スペース</td><td>低背モータ配置、薄型筐体、壁面密着設計</td></tr>
+            <tr><td>掃除負担への不満</td><td>自動洗浄、親水・撥油</td><td>コーティング、オイルトレイ、洗浄しやすい分解構造</td></tr>
+            <tr><td>HDB・外壁制約</td><td>再循環、活性炭対応</td><td>再循環ダクト、脱臭フィルタ、低圧損設計</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Gas -->
-  <section id="gas" class="section anchor space-y-8">
-    <h2 class="text-2xl font-bold">6-8. ガスコンロ / ビルトインガスホブ</h2>
+    <!-- 6-8. ガスコンロ -->
+    <section id="gas" class="section anchor space-y-5">
+      <div class="product-header" style="background: linear-gradient(135deg, #7c2d12, #ea580c);">
+        <h2 class="text-2xl font-extrabold">6–8. ガスコンロ / ビルトインガスホブ</h2>
+        <p class="text-orange-200 text-sm mt-1">燃焼 / 温調 / 安全 / 天板材料</p>
+      </div>
 
-    <div class="space-y-4">
       <h3 class="text-xl font-bold">6. 基礎原理</h3>
       <p class="leading-relaxed">
         ガスコンロは、ガスと空気を適切に混合し、安定した炎として燃焼させ、
-        鍋底へ効率よく熱を伝える機器である。
-        技術の中心は、<strong>火力・熱効率・炎口設計・安全機構・清掃性</strong>にある。
+        鍋底へ効率よく熱を伝える機器である。技術の中心は、
+        <strong>火力・熱効率・炎口設計・安全機構・清掃性</strong>にある。
       </p>
       <div class="formula">FFD（立消え安全装置）：熱電対起電力 約20mV を利用し、炎消失時にガスを遮断</div>
-
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">燃焼</h4>
-          <p class="subtle">一次空気・二次空気の取り方、炎口形状、熱流束、吹き消え耐性が設計の基本。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">火力制御</h4>
-          <p class="subtle">高火力訴求だけでなく、煮込みや保温のような低火力安定制御も重要になる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">安全機構</h4>
-          <p class="subtle">FFD、過熱防止、鍋離れ検知、タイマ、自動消火など。市場によって訴求強度が異なる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">材料</h4>
-          <p class="subtle">黒ガラス、ステンレス、鋳鉄五徳、真鍮バーナーなど、意匠・耐久・清掃性を左右する。</p>
-        </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">燃焼：</strong><span class="text-sm">一次空気・二次空気の取り方、炎口形状、熱流束、吹き消え耐性が設計の基本。</span></div>
+        <div class="sub-card"><strong class="text-sm">火力制御：</strong><span class="text-sm">高火力訴求だけでなく、煮込みや保温のような低火力安定制御も重要になる。</span></div>
+        <div class="sub-card"><strong class="text-sm">安全機構：</strong><span class="text-sm">FFD、過熱防止、鍋離れ検知、タイマ、自動消火など。市場によって訴求強度が異なる。</span></div>
+        <div class="sub-card"><strong class="text-sm">材料：</strong><span class="text-sm">黒ガラス、ステンレス、鋳鉄五徳、真鍮バーナーなど、意匠・耐久・清掃性を左右する。</span></div>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">7. 競合技術ベンチマーク</h3>
+      <h3 class="text-xl font-bold mt-4">7. 競合技術ベンチマーク</h3>
       <div class="overflow-x-auto">
-        <table class="text-sm">
-          <thead>
-            <tr>
-              <th>市場</th>
-              <th>代表ブランド</th>
-              <th>代表技術キーワード</th>
-              <th>市場での良いガスコンロの定義</th>
-            </tr>
-          </thead>
+        <table>
+          <thead><tr><th>市場</th><th>代表ブランド</th><th>代表技術キーワード</th><th>市場での良いガスコンロの定義</th></tr></thead>
           <tbody>
-            <tr>
-              <td>日本</td>
-              <td>Rinnai / Paloma / Noritz</td>
-              <td>高精度温調、マルチグリル、安全機能</td>
-              <td>安全で、繊細な温調ができ、日常調理を失敗しにくいこと</td>
-            </tr>
-            <tr>
-              <td>中国</td>
-              <td>Macro / Midea / Vanward</td>
-              <td>高火力、都市ガス適合、厨房連携</td>
-              <td>中華調理に耐える火力と見栄えがあること</td>
-            </tr>
-            <tr>
-              <td>台湾</td>
-              <td>Sakura</td>
-              <td>160/180/200℃温調、鍋離れ検知、49%省エネ</td>
-              <td>火力だけでなく安全・温調・省エネのバランスが良いこと</td>
-            </tr>
-            <tr>
-              <td>シンガポール</td>
-              <td>Bosch / Mayer / Turbo</td>
-              <td>FlameSelect、黒ガラス、30/60/78cm 幅</td>
-              <td>都市型キッチンに合う外観と、安定した段階制御があること</td>
-            </tr>
-            <tr>
-              <td>マレーシア</td>
-              <td>Rinnai / Fujioh / Bosch</td>
-              <td>Double Inner Flame、安全バルブ、Schott glass</td>
-              <td>高火力と安全、価格バランスが両立していること</td>
-            </tr>
-            <tr>
-              <td>香港</td>
-              <td>Bosch / Siemens / Miele</td>
-              <td>Towngas対応、プレミアム、黒ガラス</td>
-              <td>高級感と都市ガス適合、小型空間への収まりが良いこと</td>
-            </tr>
+            <tr><td>日本</td><td>Rinnai / Paloma / Noritz</td><td>高精度温調、マルチグリル、安全機能</td><td>安全で、繊細な温調ができ、日常調理を失敗しにくいこと</td></tr>
+            <tr><td>中国</td><td>Macro / Midea / Vanward</td><td>高火力、都市ガス適合、厨房連携</td><td>中華調理に耐える火力と見栄えがあること</td></tr>
+            <tr><td>台湾</td><td>Sakura</td><td>160/180/200℃温調、鍋離れ検知、49%省エネ</td><td>火力だけでなく安全・温調・省エネのバランスが良いこと</td></tr>
+            <tr><td>シンガポール</td><td>Bosch / Mayer / Turbo</td><td>FlameSelect、黒ガラス、30/60/78cm 幅</td><td>都市型キッチンに合う外観と、安定した段階制御があること</td></tr>
+            <tr><td>マレーシア</td><td>Rinnai / Fujioh / Bosch</td><td>Double Inner Flame、安全バルブ、Schott glass</td><td>高火力と安全、価格バランスが両立していること</td></tr>
+            <tr><td>香港</td><td>Bosch / Siemens / Miele</td><td>Towngas対応、プレミアム、黒ガラス</td><td>高級感と都市ガス適合、小型空間への収まりが良いこと</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">8. 機能分解</h3>
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">8-1 炎口設計</h4>
-          <p class="subtle">二重リング炎、集中炎、内炎・外炎バランスで鍋底加熱と熱効率が変わる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">8-2 段階制御</h4>
-          <p class="subtle">FlameSelectのような段階火力制御は、ユーザーに再現性ある火加減を提供する。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">8-3 温調・安全</h4>
-          <p class="subtle">鍋底温度検知、タイマ、鍋離れ検知、立消え安全で高機能化が進む。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">8-4 清掃・意匠</h4>
-          <p class="subtle">ガラストップ、フラット面、五徳形状、操作ノブ配置が掃除性と高級感を左右する。</p>
-        </div>
+      <h3 class="text-xl font-bold mt-4">8. 機能分解</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">8-1 炎口設計：</strong><span class="text-sm">二重リング炎、集中炎、内炎・外炎バランスで鍋底加熱と熱効率が変わる。</span></div>
+        <div class="sub-card"><strong class="text-sm">8-2 段階制御：</strong><span class="text-sm">FlameSelectのような段階火力制御は、ユーザーに再現性ある火加減を提供する。</span></div>
+        <div class="sub-card"><strong class="text-sm">8-3 温調・安全：</strong><span class="text-sm">鍋底温度検知、タイマ、鍋離れ検知、立消え安全で高機能化が進む。</span></div>
+        <div class="sub-card"><strong class="text-sm">8-4 清掃・意匠：</strong><span class="text-sm">ガラストップ、フラット面、五徳形状、操作ノブ配置が掃除性と高級感を左右する。</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- IH -->
-  <section id="ih" class="section anchor space-y-8">
-    <h2 class="text-2xl font-bold">9-11. IH / 電気ホブ</h2>
+    <!-- 9-11. IH -->
+    <section id="ih" class="section anchor space-y-5">
+      <div class="product-header" style="background: linear-gradient(135deg, #065f46, #10b981);">
+        <h2 class="text-2xl font-extrabold">9–11. IH / 電気ホブ</h2>
+        <p class="text-emerald-200 text-sm mt-1">電磁誘導 / 制御 / センサ / UI</p>
+      </div>
 
-    <div class="space-y-4">
       <h3 class="text-xl font-bold">9. 基礎原理</h3>
       <p class="leading-relaxed">
         IHは、コイルに高周波電流を流して磁束を発生させ、
@@ -535,536 +265,200 @@
       </p>
       <div class="formula">高周波帯の目安：20〜50kHz</div>
       <div class="formula">主要構成：加熱コイル / IGBT or MOSFET / PFC回路 / 冷却系 / センサ / UI</div>
-
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">加熱原理</h4>
-          <p class="subtle">鍋自身を発熱体にするため、熱応答が速く、残熱制御もしやすい。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">出力制御</h4>
-          <p class="subtle">センサ・インバータ制御により、微妙な低火力から高出力まで再現しやすい。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">安全</h4>
-          <p class="subtle">チャイルドロック、鍋検知、過熱防止、残熱表示などで住宅向け安全性が高い。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">連携</h4>
-          <p class="subtle">Bluetooth hood link、Home Connect など、他機器連動との親和性が高い。</p>
-        </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">加熱原理：</strong><span class="text-sm">鍋自身を発熱体にするため、熱応答が速く、残熱制御もしやすい。</span></div>
+        <div class="sub-card"><strong class="text-sm">出力制御：</strong><span class="text-sm">センサ・インバータ制御により、微妙な低火力から高出力まで再現しやすい。</span></div>
+        <div class="sub-card"><strong class="text-sm">安全：</strong><span class="text-sm">チャイルドロック、鍋検知、過熱防止、残熱表示などで住宅向け安全性が高い。</span></div>
+        <div class="sub-card"><strong class="text-sm">連携：</strong><span class="text-sm">Bluetooth hood link、Home Connect など、他機器連動との親和性が高い。</span></div>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">10. 競合技術ベンチマーク</h3>
+      <h3 class="text-xl font-bold mt-4">10. 競合技術ベンチマーク</h3>
       <div class="overflow-x-auto">
-        <table class="text-sm">
-          <thead>
-            <tr>
-              <th>市場</th>
-              <th>代表ブランド</th>
-              <th>代表技術キーワード</th>
-              <th>市場での良いIHの定義</th>
-            </tr>
-          </thead>
+        <table>
+          <thead><tr><th>市場</th><th>代表ブランド</th><th>代表技術キーワード</th><th>市場での良いIHの定義</th></tr></thead>
           <tbody>
-            <tr>
-              <td>日本</td>
-              <td>Bosch候補 / Rinnai</td>
-              <td>高精度制御、PowerBoost、ビルトイン適合</td>
-              <td>安全で扱いやすく、火加減の再現性が高いこと</td>
-            </tr>
-            <tr>
-              <td>中国</td>
-              <td>Midea / Haier</td>
-              <td>スマート化、価格レンジ、普及帯展開</td>
-              <td>価格と機能のバランスがよく、スマート家電として成立すること</td>
-            </tr>
-            <tr>
-              <td>台湾</td>
-              <td>Sakura</td>
-              <td>Bluetooth hood連動、600W低火力、smart soup mode</td>
-              <td>細かい制御ができ、他機器とつながること</td>
-            </tr>
-            <tr>
-              <td>シンガポール</td>
-              <td>Rinnai / Fujioh / Mayer</td>
-              <td>SCHOTT CERAN、安全機能、住宅適合</td>
-              <td>都市住宅向けに安全で、見た目もよいこと</td>
-            </tr>
-            <tr>
-              <td>マレーシア</td>
-              <td>Bosch / Fujioh / Electrolux</td>
-              <td>FlexInduction、PowerBoost、SenseFry</td>
-              <td>高機能でありながら実用的であること</td>
-            </tr>
-            <tr>
-              <td>香港</td>
-              <td>Bosch / Siemens / Miele</td>
-              <td>Flex zone、venting hob、Home Connect</td>
-              <td>狭小高級住宅でも妥協しない性能・意匠を持つこと</td>
-            </tr>
+            <tr><td>日本</td><td>Bosch候補 / Rinnai</td><td>高精度制御、PowerBoost、ビルトイン適合</td><td>安全で扱いやすく、火加減の再現性が高いこと</td></tr>
+            <tr><td>中国</td><td>Midea / Haier</td><td>スマート化、価格レンジ、普及帯展開</td><td>価格と機能のバランスがよく、スマート家電として成立すること</td></tr>
+            <tr><td>台湾</td><td>Sakura</td><td>Bluetooth hood連動、600W低火力、smart soup mode</td><td>細かい制御ができ、他機器とつながること</td></tr>
+            <tr><td>シンガポール</td><td>Rinnai / Fujioh / Mayer</td><td>SCHOTT CERAN、安全機能、住宅適合</td><td>都市住宅向けに安全で、見た目もよいこと</td></tr>
+            <tr><td>マレーシア</td><td>Bosch / Fujioh / Electrolux</td><td>FlexInduction、PowerBoost、SenseFry</td><td>高機能でありながら実用的であること</td></tr>
+            <tr><td>香港</td><td>Bosch / Siemens / Miele</td><td>Flex zone、venting hob、Home Connect</td><td>狭小高級住宅でも妥協しない性能・意匠を持つこと</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">11. 機能分解</h3>
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">11-1 Flex zone</h4>
-          <p class="subtle">複数コイルを連携させ、鍋位置・サイズに応じて加熱領域を可変化する機能。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">11-2 センサ制御</h4>
-          <p class="subtle">PerfectFry、PerfectCook、soup mode など、温度や煮立ちを制御して失敗を減らす。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">11-3 フード連動</h4>
-          <p class="subtle">IH側の加熱状態に応じてレンジフードを自動制御する。スマート住宅との相性が良い。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">11-4 ガラス材料</h4>
-          <p class="subtle">SCHOTT CERAN 等の耐熱ガラスセラミックが、耐熱衝撃・外観品質・清掃性に寄与する。</p>
-        </div>
+      <h3 class="text-xl font-bold mt-4">11. 機能分解</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">11-1 Flex zone：</strong><span class="text-sm">複数コイルを連携させ、鍋位置・サイズに応じて加熱領域を可変化する機能。</span></div>
+        <div class="sub-card"><strong class="text-sm">11-2 センサ制御：</strong><span class="text-sm">PerfectFry、PerfectCook、soup mode など、温度や煮立ちを制御して失敗を減らす。</span></div>
+        <div class="sub-card"><strong class="text-sm">11-3 フード連動：</strong><span class="text-sm">IH側の加熱状態に応じてレンジフードを自動制御する。スマート住宅との相性が良い。</span></div>
+        <div class="sub-card"><strong class="text-sm">11-4 ガラス材料：</strong><span class="text-sm">SCHOTT CERAN 等の耐熱ガラスセラミックが、耐熱衝撃・外観品質・清掃性に寄与する。</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Water heater -->
-  <section id="waterheater" class="section anchor space-y-8">
-    <h2 class="text-2xl font-bold">12-14. 給湯器</h2>
+    <!-- 12-14. 給湯器 -->
+    <section id="waterheater" class="section anchor space-y-5">
+      <div class="product-header" style="background: linear-gradient(135deg, #1e3a5f, #0ea5e9);">
+        <h2 class="text-2xl font-extrabold">12–14. 給湯器</h2>
+        <p class="text-sky-200 text-sm mt-1">熱交換 / 瞬間加熱 / 断熱 / 防食</p>
+      </div>
 
-    <div class="space-y-4">
       <h3 class="text-xl font-bold">12. 基礎原理</h3>
       <p class="leading-relaxed">
         給湯器は、水へ必要熱量を与えて設定温度まで上げる機器であり、
         市場ごとに instant / storage / hybrid / solar の比率が異なる。
         技術の中心は、<strong>加熱方式、容量設計、設置制約、防食、断熱、安全</strong>にある。
       </p>
-      <div class="formula">瞬間式：必要時に通水しながら加熱</div>
-      <div class="formula">貯湯式：タンクに蓄えた温水を断熱保持</div>
-      <div class="formula">ハイブリッド：ヒートポンプ + ガス等の熱源を組み合わせ効率最大化</div>
-
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">加熱方式</h4>
-          <p class="subtle">ガス瞬間式、電気瞬間式、貯湯式、ヒートポンプ、太陽熱補助などで市場ごとの主流が異なる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">容量・流量</h4>
-          <p class="subtle">L/min とタンク容量は家族人数・浴室数・住宅制約に強く依存する。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">防食・衛生</h4>
-          <p class="subtle">タンク材、アノード棒、抗菌仕様、断熱材、結露・腐食への対策が耐久と品質に効く。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">安全</h4>
-          <p class="subtle">過熱防止、空焚き防止、圧力逃がし、漏電保護、排気安全などが必須となる。</p>
-        </div>
+      <div class="grid md:grid-cols-3 gap-3">
+        <div class="sub-card text-center"><p class="text-xs font-bold text-sky-700">瞬間式</p><p class="text-xs mt-1">必要時に通水しながら加熱</p></div>
+        <div class="sub-card text-center"><p class="text-xs font-bold text-sky-700">貯湯式</p><p class="text-xs mt-1">タンクに蓄えた温水を断熱保持</p></div>
+        <div class="sub-card text-center"><p class="text-xs font-bold text-sky-700">ハイブリッド</p><p class="text-xs mt-1">ヒートポンプ＋ガス等の熱源を組み合わせ効率最大化</p></div>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">13. 競合技術ベンチマーク</h3>
+      <h3 class="text-xl font-bold mt-4">13. 競合技術ベンチマーク</h3>
       <div class="overflow-x-auto">
-        <table class="text-sm">
-          <thead>
-            <tr>
-              <th>市場</th>
-              <th>代表ブランド</th>
-              <th>代表技術キーワード</th>
-              <th>市場での良い給湯器の定義</th>
-            </tr>
-          </thead>
+        <table>
+          <thead><tr><th>市場</th><th>代表ブランド</th><th>代表技術キーワード</th><th>市場での良い給湯器の定義</th></tr></thead>
           <tbody>
-            <tr>
-              <td>日本</td>
-              <td>Rinnai / Noritz / Itomic</td>
-              <td>ECO ONE、ハイブリッド、高効率、省スペース</td>
-              <td>高効率で、補助金や住宅設備全体に適合すること</td>
-            </tr>
-            <tr>
-              <td>中国</td>
-              <td>Haier / Midea / Vanward</td>
-              <td>瞬間式、デジタル制御、総合家電展開</td>
-              <td>設置しやすく、分かりやすい性能と価格のバランスがあること</td>
-            </tr>
-            <tr>
-              <td>台湾</td>
-              <td>Sakura / Rheem Asia</td>
-              <td>16L/min、FE/FF、ローカルブランド信頼</td>
-              <td>住宅条件に合い、安定供給できること</td>
-            </tr>
-            <tr>
-              <td>シンガポール</td>
-              <td>Ariston / Rheem / Joven</td>
-              <td>instant / storage / solar、AG+抗菌</td>
-              <td>住宅制約に合わせた方式選択ができ、衛生性が高いこと</td>
-            </tr>
-            <tr>
-              <td>マレーシア</td>
-              <td>Joven / Rheem / Centon</td>
-              <td>instant、Inverter DC pump、抗菌、省エネ</td>
-              <td>熱帯環境で使いやすく、ブランド信頼があること</td>
-            </tr>
-            <tr>
-              <td>香港</td>
-              <td>Stiebel Eltron / German Pool / Rasonic</td>
-              <td>瞬間式、小型、高密度住宅対応</td>
-              <td>狭小住宅で場所を取らず、安全に高温出湯できること</td>
-            </tr>
+            <tr><td>日本</td><td>Rinnai / Noritz / Itomic</td><td>ECO ONE、ハイブリッド、高効率、省スペース</td><td>高効率で、補助金や住宅設備全体に適合すること</td></tr>
+            <tr><td>中国</td><td>Haier / Midea / Vanward</td><td>瞬間式、デジタル制御、総合家電展開</td><td>設置しやすく、分かりやすい性能と価格のバランスがあること</td></tr>
+            <tr><td>台湾</td><td>Sakura / Rheem Asia</td><td>16L/min、FE/FF、ローカルブランド信頼</td><td>住宅条件に合い、安定供給できること</td></tr>
+            <tr><td>シンガポール</td><td>Ariston / Rheem / Joven</td><td>instant / storage / solar、AG+抗菌</td><td>住宅制約に合わせた方式選択ができ、衛生性が高いこと</td></tr>
+            <tr><td>マレーシア</td><td>Joven / Rheem / Centon</td><td>instant、Inverter DC pump、抗菌、省エネ</td><td>熱帯環境で使いやすく、ブランド信頼があること</td></tr>
+            <tr><td>香港</td><td>Stiebel Eltron / German Pool / Rasonic</td><td>瞬間式、小型、高密度住宅対応</td><td>狭小住宅で場所を取らず、安全に高温出湯できること</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">14. 機能分解</h3>
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">14-1 瞬間 vs 貯湯</h4>
-          <p class="subtle">瞬間式は省スペース・連続出湯、貯湯式は多点給湯・ピーク対応に強い。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">14-2 タンク構造</h4>
-          <p class="subtle">エナメル、SUS、断熱材、Mgアノード棒などで耐久性と腐食寿命が変わる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">14-3 省エネ</h4>
-          <p class="subtle">ヒートポンプ、断熱強化、制御最適化、ハイブリッド方式で効率を引き上げる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">14-4 衛生・保証</h4>
-          <p class="subtle">抗菌加熱、タンク衛生、長期保証は商品価値として見られやすい。</p>
-        </div>
+      <h3 class="text-xl font-bold mt-4">14. 機能分解</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">14-1 瞬間 vs 貯湯：</strong><span class="text-sm">瞬間式は省スペース・連続出湯、貯湯式は多点給湯・ピーク対応に強い。</span></div>
+        <div class="sub-card"><strong class="text-sm">14-2 タンク構造：</strong><span class="text-sm">エナメル、SUS、断熱材、Mgアノード棒などで耐久性と腐食寿命が変わる。</span></div>
+        <div class="sub-card"><strong class="text-sm">14-3 省エネ：</strong><span class="text-sm">ヒートポンプ、断熱強化、制御最適化、ハイブリッド方式で効率を引き上げる。</span></div>
+        <div class="sub-card"><strong class="text-sm">14-4 衛生・保証：</strong><span class="text-sm">抗菌加熱、タンク衛生、長期保証は商品価値として見られやすい。</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Dishwasher -->
-  <section id="dishwasher" class="section anchor space-y-8">
-    <h2 class="text-2xl font-bold">15-17. 食洗機</h2>
+    <!-- 15-17. 食洗機 -->
+    <section id="dishwasher" class="section anchor space-y-5">
+      <div class="product-header" style="background: linear-gradient(135deg, #4c1d95, #8b5cf6);">
+        <h2 class="text-2xl font-extrabold">15–17. 食洗機</h2>
+        <p class="text-purple-200 text-sm mt-1">洗浄 / 乾燥 / 流体 / 静音 / 収納</p>
+      </div>
 
-    <div class="space-y-4">
       <h3 class="text-xl font-bold">15. 基礎原理</h3>
       <p class="leading-relaxed">
         食洗機は、洗浄 → すすぎ → 乾燥の工程を制御し、
         水・熱・洗剤・流体噴射・乾燥方式を組み合わせて食器を自動洗浄する機器である。
         技術の中心は、<strong>洗浄性能、乾燥性能、静音、省スペース、使い勝手</strong>にある。
       </p>
-
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">洗浄</h4>
-          <p class="subtle">ポンプ圧、スプレーアーム、温水、洗剤量、濁度センサで洗浄品質が決まる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">乾燥</h4>
-          <p class="subtle">余熱乾燥、ヒーター乾燥、Zeolith、DesertDry+ など方式差が大きい。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">容量・サイズ</h4>
-          <p class="subtle">45cm、60cm、compact、countertop、portable の成立条件が市場で異なる。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">静音・衛生</h4>
-          <p class="subtle">都市型住宅では静音が重要。高温除菌やサニタイズも訴求点になる。</p>
-        </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">洗浄：</strong><span class="text-sm">ポンプ圧、スプレーアーム、温水、洗剤量、濁度センサで洗浄品質が決まる。</span></div>
+        <div class="sub-card"><strong class="text-sm">乾燥：</strong><span class="text-sm">余熱乾燥、ヒーター乾燥、Zeolith、DesertDry+ など方式差が大きい。</span></div>
+        <div class="sub-card"><strong class="text-sm">容量・サイズ：</strong><span class="text-sm">45cm、60cm、compact、countertop、portable の成立条件が市場で異なる。</span></div>
+        <div class="sub-card"><strong class="text-sm">静音・衛生：</strong><span class="text-sm">都市型住宅では静音が重要。高温除菌やサニタイズも訴求点になる。</span></div>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">16. 競合技術ベンチマーク</h3>
+      <h3 class="text-xl font-bold mt-4">16. 競合技術ベンチマーク</h3>
       <div class="overflow-x-auto">
-        <table class="text-sm">
-          <thead>
-            <tr>
-              <th>市場</th>
-              <th>代表ブランド</th>
-              <th>代表技術キーワード</th>
-              <th>市場での良い食洗機の定義</th>
-            </tr>
-          </thead>
+        <table>
+          <thead><tr><th>市場</th><th>代表ブランド</th><th>代表技術キーワード</th><th>市場での良い食洗機の定義</th></tr></thead>
           <tbody>
-            <tr>
-              <td>日本</td>
-              <td>Panasonic / Bosch</td>
-              <td>液体洗剤自動投入、ナノイーX、ビルトイン適合</td>
-              <td>限られたキッチンに収まり、除菌・時短ができること</td>
-            </tr>
-            <tr>
-              <td>中国</td>
-              <td>Midea / Haier / Fotile</td>
-              <td>卓上・組込・スマート化・価格幅</td>
-              <td>導入障壁が低く、家庭事情に合わせたサイズが選べること</td>
-            </tr>
-            <tr>
-              <td>台湾</td>
-              <td>Sakura / Bosch</td>
-              <td>embedded smart、湿度変化検知、smart drying</td>
-              <td>スマート性と組込性が高いこと</td>
-            </tr>
-            <tr>
-              <td>シンガポール</td>
-              <td>Bosch / Samsung / Toshiba</td>
-              <td>smart connect、小型卓上、A energy</td>
-              <td>都市型住宅でも設置しやすく、静かで便利なこと</td>
-            </tr>
-            <tr>
-              <td>マレーシア</td>
-              <td>Bosch / Midea / Electrolux</td>
-              <td>静音、節水、ビルトイン/卓上展開</td>
-              <td>高温多湿環境でも扱いやすく、価格に見合う性能があること</td>
-            </tr>
-            <tr>
-              <td>香港</td>
-              <td>Fisher & Paykel / Bosch / Siemens</td>
-              <td>DishDrawer、Zeolith、省スペース</td>
-              <td>狭小キッチンで高級感と使いやすさを両立すること</td>
-            </tr>
+            <tr><td>日本</td><td>Panasonic / Bosch</td><td>液体洗剤自動投入、ナノイーX、ビルトイン適合</td><td>限られたキッチンに収まり、除菌・時短ができること</td></tr>
+            <tr><td>中国</td><td>Midea / Haier / Fotile</td><td>卓上・組込・スマート化・価格幅</td><td>導入障壁が低く、家庭事情に合わせたサイズが選べること</td></tr>
+            <tr><td>台湾</td><td>Sakura / Bosch</td><td>embedded smart、湿度変化検知、smart drying</td><td>スマート性と組込性が高いこと</td></tr>
+            <tr><td>シンガポール</td><td>Bosch / Samsung / Toshiba</td><td>smart connect、小型卓上、A energy</td><td>都市型住宅でも設置しやすく、静かで便利なこと</td></tr>
+            <tr><td>マレーシア</td><td>Bosch / Midea / Electrolux</td><td>静音、節水、ビルトイン/卓上展開</td><td>高温多湿環境でも扱いやすく、価格に見合う性能があること</td></tr>
+            <tr><td>香港</td><td>Fisher & Paykel / Bosch / Siemens</td><td>DishDrawer、Zeolith、省スペース</td><td>狭小キッチンで高級感と使いやすさを両立すること</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="space-y-4">
-      <h3 class="text-xl font-bold">17. 機能分解</h3>
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 text-sm">
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">17-1 センサ洗浄</h4>
-          <p class="subtle">濁度センサ、温度センサ、水量制御で、自動コース最適化が可能になる。</p>
+      <h3 class="text-xl font-bold mt-4">17. 機能分解</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">17-1 センサ洗浄：</strong><span class="text-sm">濁度センサ、温度センサ、水量制御で、自動コース最適化が可能になる。</span></div>
+        <div class="sub-card"><strong class="text-sm">17-2 乾燥技術：</strong><span class="text-sm">Zeolith などの吸放湿材料は、消費電力低減と乾燥性能向上を両立しやすい。</span></div>
+        <div class="sub-card"><strong class="text-sm">17-3 収納性：</strong><span class="text-sm">3rd rack、ラック可変、卓上・Drawer 型で、小空間でも使い勝手を高める。</span></div>
+        <div class="sub-card"><strong class="text-sm">17-4 小型成立条件：</strong><span class="text-sm">卓上型は設置簡便性が強みだが、容量・乾燥・給排水の制約をどう受け入れるかが鍵。</span></div>
+      </div>
+    </section>
+
+    <!-- 18. 材料・構造・UI比較 -->
+    <section id="cross-material" class="section anchor space-y-5">
+      <h2 class="text-2xl font-bold">18. 商品横断の材料・構造・UI比較</h2>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="sub-card"><strong class="text-sm">黒ガラス：</strong><span class="text-sm">ガスホブ、IH、操作パネルで高級感・清掃性を両立しやすい。割れ、熱応力、指紋汚れ対策が必要。</span></div>
+        <div class="sub-card"><strong class="text-sm">SUS / アルミ / 鋼板：</strong><span class="text-sm">レンジフード外装や内部部材で使い分ける。SUSは耐食、鋼板はコスト、アルミは軽量性が利点。</span></div>
+        <div class="sub-card"><strong class="text-sm">エナメル / コーティング：</strong><span class="text-sm">給湯器タンク、五徳、内面部材などで耐食・清掃性・寿命に効く。親水/撥油/防汚が差別化要素。</span></div>
+        <div class="sub-card"><strong class="text-sm">静音化構造：</strong><span class="text-sm">BLDC化、防振ゴム、流路最適化、断熱吸音材、ポンプ防振などで実現する。都市市場では価値が高い。</span></div>
+        <div class="sub-card"><strong class="text-sm">清掃性設計：</strong><span class="text-sm">着脱しやすさ、フラット面、角の少なさ、コーティング、排液しやすい形状が共通論点。</span></div>
+        <div class="sub-card"><strong class="text-sm">タッチUI：</strong><span class="text-sm">高級感を出しやすいが、水・油・蒸気・手袋操作・誤動作への配慮が必須。メカスイッチとの使い分けも重要。</span></div>
+      </div>
+      <div class="overflow-x-auto mt-3">
+        <table>
+          <thead><tr><th>項目</th><th>使われる商品</th><th>技術的利点</th><th>注意点</th></tr></thead>
+          <tbody>
+            <tr><td>黒ガラス</td><td>ガス / IH / 一部フード</td><td>高級感、平面清掃性</td><td>割れ、欠け、指紋、熱応力</td></tr>
+            <tr><td>SUS</td><td>フード / 給湯器 / 食洗機</td><td>耐食性、外観</td><td>コスト、加工性</td></tr>
+            <tr><td>BLDC</td><td>フード / 食洗機 / ポンプ / 一部給湯</td><td>省エネ、静音、制御性</td><td>回路コスト、EMC</td></tr>
+            <tr><td>コーティング</td><td>フード / ガス / 食洗機</td><td>防汚、親水、撥油</td><td>耐久性、洗剤相性</td></tr>
+            <tr><td>タッチUI</td><td>IH / ガス / フード / 食洗機</td><td>意匠性、フラット面</td><td>防水、誤動作、操作フィードバック</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 19. 市場要求→技術要件変換表 -->
+    <section id="market-tech" class="section anchor space-y-5">
+      <h2 class="text-2xl font-bold">19. 市場要求 → 技術要件 変換表</h2>
+      <p class="leading-relaxed">
+        市場情報を読む目的は、そのまま説明資料を増やすことではなく、
+        具体的な開発要求へ変換することにある。
+        以下は、市場ごとの代表的要求を技術要件へ落とした例である。
+      </p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>市場</th><th>市場要求</th><th>技術要件</th><th>代表的な商品反映</th></tr></thead>
+          <tbody>
+            <tr><td>中国</td><td>高油煙・高火力・訴求の強さ</td><td>高風量、高静圧、高火力、目立つUI、強い安全訴求</td><td>高静圧フード、高火力ガス、大型瞬間給湯</td></tr>
+            <tr><td>台湾</td><td>110V、省エネ、細かな機能理解</td><td>110V対応、低火力制御、IoT連動、省エネ表示対応</td><td>Bluetooth hood link、細かな温調、DCモータ</td></tr>
+            <tr><td>シンガポール</td><td>HDB制約、スマート化、省スペース</td><td>再循環対応、薄型、安全、コンパクト、住宅適合説明</td><td>再循環フード、小型給湯、卓上食洗機</td></tr>
+            <tr><td>マレーシア</td><td>高温多湿、コスパ、多文化</td><td>耐湿、防食、価格バランス、多言語表示</td><td>防湿電装、耐食材料、普及帯設計</td></tr>
+            <tr><td>香港</td><td>狭小高層、高級感、中華調理</td><td>薄型、高静圧、高機能、小型高級化</td><td>薄型フード、Drawer食洗機、FlexIH</td></tr>
+            <tr><td>日本</td><td>静音、清掃、保守、国内品質期待</td><td>低騒音、メンテ性、連動機能、細かな説明完成度</td><td>静音フード、温調ガス、除菌食洗機、ハイブリッド給湯</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 20. まとめ -->
+    <section id="summary" class="section anchor space-y-5">
+      <h2 class="text-2xl font-bold">20. 技術編まとめ</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="sub-card border-l-4 border-blue-500">
+          <h3 class="font-bold text-blue-700 mb-2">20-1 競合製品をどう読むか</h3>
+          <p class="text-sm leading-relaxed">機能名だけでなく、その背景にある市場要求、住宅制約、施工条件、認証条件まで含めて読むことで、技術の意味が見える。</p>
         </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">17-2 乾燥技術</h4>
-          <p class="subtle">Zeolith などの吸放湿材料は、消費電力低減と乾燥性能向上を両立しやすい。</p>
+        <div class="sub-card border-l-4 border-blue-500">
+          <h3 class="font-bold text-blue-700 mb-2">20-2 自社設計へどう翻訳するか</h3>
+          <p class="text-sm leading-relaxed">市場要求を、性能要件、構造要件、材料要件、制御要件、品質要件へ分解し、優先度と差別化ポイントを明確にすることが重要である。</p>
         </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">17-3 収納性</h4>
-          <p class="subtle">3rd rack、ラック可変、卓上・Drawer 型で、小空間でも使い勝手を高める。</p>
-        </div>
-        <div class="p-4 rounded-xl bg-gray-50 border">
-          <h4 class="font-bold mb-2">17-4 小型成立条件</h4>
-          <p class="subtle">卓上型は設置簡便性が強みだが、容量・乾燥・給排水の制約をどう受け入れるかが鍵。</p>
+        <div class="sub-card border-l-4 border-blue-500">
+          <h3 class="font-bold text-blue-700 mb-2">20-3 次分冊への接続</h3>
+          <p class="text-sm leading-relaxed">ここで整理した技術差分を、<a href="manufacturing_quality.html" class="text-blue-600 underline">製造・品質編</a>で量産難易度、工程管理、検査、品質保証へつなげる。</p>
         </div>
       </div>
+    </section>
+
+    <!-- ページナビ -->
+    <div class="flex justify-between items-center pt-4">
+      <a href="index.html" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-lg text-sm transition">← 分冊一覧へ</a>
+      <a href="market_certification.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg text-sm transition">Book 2 市場・認証編 →</a>
     </div>
-  </section>
+  </main>
 
-  <!-- Cross materials -->
-  <section id="cross-material" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">18. 商品横断の材料・構造・UI比較</h2>
-
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">黒ガラス</h3>
-        <p class="subtle">ガスホブ、IH、操作パネルで高級感・清掃性を両立しやすい。一方で割れ、熱応力、指紋汚れ対策が必要。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">SUS / アルミ / 鋼板</h3>
-        <p class="subtle">レンジフード外装や内部部材で使い分ける。SUSは耐食、鋼板はコスト、アルミは軽量性が利点。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">エナメル / コーティング</h3>
-        <p class="subtle">給湯器タンク、五徳、内面部材などで耐食・清掃性・寿命に効く。親水 / 撥油 / 防汚が差別化要素。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">静音化構造</h3>
-        <p class="subtle">BLDC化、防振ゴム、流路最適化、断熱吸音材、ポンプ防振などで実現する。都市市場では価値が高い。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">清掃性設計</h3>
-        <p class="subtle">着脱しやすさ、フラット面、角の少なさ、コーティング、排液しやすい形状が共通論点。</p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">タッチUI</h3>
-        <p class="subtle">高級感を出しやすいが、水・油・蒸気・手袋操作・誤動作への配慮が必須。メカスイッチとの使い分けも重要。</p>
-      </div>
-    </div>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>項目</th>
-            <th>使われる商品</th>
-            <th>技術的利点</th>
-            <th>注意点</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>黒ガラス</td>
-            <td>ガス / IH / 一部フード</td>
-            <td>高級感、平面清掃性</td>
-            <td>割れ、欠け、指紋、熱応力</td>
-          </tr>
-          <tr>
-            <td>SUS</td>
-            <td>フード / 給湯器 / 食洗機</td>
-            <td>耐食性、外観</td>
-            <td>コスト、加工性</td>
-          </tr>
-          <tr>
-            <td>BLDC</td>
-            <td>フード / 食洗機 / ポンプ / 一部給湯</td>
-            <td>省エネ、静音、制御性</td>
-            <td>回路コスト、EMC</td>
-          </tr>
-          <tr>
-            <td>コーティング</td>
-            <td>フード / ガス / 食洗機</td>
-            <td>防汚、親水、撥油</td>
-            <td>耐久性、洗剤相性</td>
-          </tr>
-          <tr>
-            <td>タッチUI</td>
-            <td>IH / ガス / フード / 食洗機</td>
-            <td>意匠性、フラット面</td>
-            <td>防水、誤動作、操作フィードバック</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Market to tech -->
-  <section id="market-tech" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">19. 市場要求 → 技術要件 変換表</h2>
-
-    <p class="leading-relaxed">
-      市場情報を読む目的は、そのまま説明資料を増やすことではなく、
-      具体的な開発要求へ変換することにある。
-      以下は、市場ごとの代表的要求を技術要件へ落とした例である。
-    </p>
-
-    <div class="overflow-x-auto">
-      <table class="text-sm">
-        <thead>
-          <tr>
-            <th>市場</th>
-            <th>市場要求</th>
-            <th>技術要件</th>
-            <th>代表的な商品反映</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>中国</td>
-            <td>高油煙・高火力・訴求の強さ</td>
-            <td>高風量、高静圧、高火力、目立つUI、強い安全訴求</td>
-            <td>高静圧フード、高火力ガス、大型瞬間給湯</td>
-          </tr>
-          <tr>
-            <td>台湾</td>
-            <td>110V、省エネ、細かな機能理解</td>
-            <td>110V対応、低火力制御、IoT連動、省エネ表示対応</td>
-            <td>Bluetooth hood link、細かな温調、DCモータ</td>
-          </tr>
-          <tr>
-            <td>シンガポール</td>
-            <td>HDB制約、スマート化、省スペース</td>
-            <td>再循環対応、薄型、安全、コンパクト、住宅適合説明</td>
-            <td>再循環フード、小型給湯、卓上食洗機</td>
-          </tr>
-          <tr>
-            <td>マレーシア</td>
-            <td>高温多湿、コスパ、多文化</td>
-            <td>耐湿、防食、価格バランス、多言語表示</td>
-            <td>防湿電装、耐食材料、普及帯設計</td>
-          </tr>
-          <tr>
-            <td>香港</td>
-            <td>狭小高層、高級感、中華調理</td>
-            <td>薄型、高静圧、高機能、小型高級化</td>
-            <td>薄型フード、Drawer食洗機、FlexIH</td>
-          </tr>
-          <tr>
-            <td>日本</td>
-            <td>静音、清掃、保守、国内品質期待</td>
-            <td>低騒音、メンテ性、連動機能、細かな説明完成度</td>
-            <td>静音フード、温調ガス、除菌食洗機、ハイブリッド給湯</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- References -->
-  <section class="section space-y-4">
-    <h2 class="text-2xl font-bold">参考ソース</h2>
-    <p class="small subtle">
-      本ページは、提供された統合資料・再設計方針・詳細目次・技術編草案・市場メモを基に構成している。
-      競合技術の代表例として、以下の公開情報が参照ベースに含まれる。
-    </p>
-    <ul class="text-sm list-disc ml-5 space-y-1 break-all">
-      <li><a class="text-blue-700 hover:underline" href="https://www.fujioh.com/sg/demystifying-the-types-of-cooker-hoods-in-singapore/" target="_blank" rel="noopener noreferrer">FUJIOH Singapore / Range Hood</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://en.sakura.com.tw/product/rangehood" target="_blank" rel="noopener noreferrer">Sakura Taiwan / Range Hood</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.fujioh.com/my/best-kitchen-hood-and-hob-sets/" target="_blank" rel="noopener noreferrer">FUJIOH Malaysia</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.sg/products/cooking-baking/hobs/gas-hobs-buying-guide" target="_blank" rel="noopener noreferrer">Bosch Singapore / Gas Hobs</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://en.sakura.com.tw/product/gasstove" target="_blank" rel="noopener noreferrer">Sakura Taiwan / Gas Stove</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.taiwanexcellence.org/en/award/product/1150124" target="_blank" rel="noopener noreferrer">Taiwan Excellence / Sakura IH</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.hk/en/products/cooking-baking/hobs/induction-hobs-buying-guide" target="_blank" rel="noopener noreferrer">Bosch Hong Kong / Induction Hobs</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.my/products/cooking-baking/hobs/electric-hobs-buying-guide" target="_blank" rel="noopener noreferrer">Bosch Malaysia / Electric Hobs</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.rheemsingapore.com/" target="_blank" rel="noopener noreferrer">Rheem Singapore</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.joven-electric.com/" target="_blank" rel="noopener noreferrer">Joven Malaysia</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.sg/en/category-page/dishwashers" target="_blank" rel="noopener noreferrer">Bosch Singapore / Dishwashers</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.bosch-home.com.hk/en/products/dishwashers" target="_blank" rel="noopener noreferrer">Bosch Hong Kong / Dishwashers</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.toshiba-lifestyle.com/sg/kitchen-bathroom-appliances/dishwashers" target="_blank" rel="noopener noreferrer">Toshiba Singapore / Dishwashers</a></li>
-      <li><a class="text-blue-700 hover:underline" href="https://www.midea.com/global/dishwashers" target="_blank" rel="noopener noreferrer">Midea Dishwashers</a></li>
-    </ul>
-  </section>
-
-  <!-- Summary -->
-  <section id="summary" class="section anchor space-y-6">
-    <h2 class="text-2xl font-bold">20. 技術編まとめ</h2>
-
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">20-1 競合製品をどう読むか</h3>
-        <p class="subtle">
-          機能名だけでなく、その背景にある市場要求、住宅制約、施工条件、認証条件まで含めて読むことで、
-          技術の意味が見える。
-        </p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">20-2 自社設計へどう翻訳するか</h3>
-        <p class="subtle">
-          市場要求を、性能要件、構造要件、材料要件、制御要件、品質要件へ分解し、
-          優先度と差別化ポイントを明確にすることが重要である。
-        </p>
-      </div>
-      <div class="p-4 rounded-xl bg-gray-50 border">
-        <h3 class="font-bold mb-2">20-3 次分冊への接続</h3>
-        <p class="subtle">
-          ここで整理した技術差分を、次に製造・品質編で量産難易度、工程管理、検査、
-          品質保証へつなげる。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer nav -->
-  <section class="section">
-    <div class="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-      <div>
-        <p class="font-bold">ページ導線</p>
-        <p class="small subtle">前後のページへつなぐためのリンクです。ファイル名は必要に応じて調整してください。</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <a href="index.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">トップへ戻る</a>
-        <a href="market_certification.html" class="px-4 py-2 rounded-xl border hover:bg-gray-50 text-sm">前：市場・認証編</a>
-        <a href="manufacturing_quality.html" class="px-4 py-2 rounded-xl bg-gray-900 text-white hover:bg-black text-sm">次：製造・品質編へ</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="text-center text-sm text-gray-500 pt-2">
-    © 2026 仕事ハブ統合資料 / Technical
+  <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-200 mt-8">
+    仕事ハブ統合資料 V3.2 — Book 1 技術編 — 最終更新日：2026-06-14
   </footer>
-
 </body>
 </html>
